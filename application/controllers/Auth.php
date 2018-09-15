@@ -17,8 +17,8 @@ class Auth extends CI_Controller {
 
         $data['title'] = 'SIPROPOS - Login Form';
 
-        $data['captcha'] = $this->captcha->main();
-        $this->session->set_userdata('captcha_info', $data['captcha']);
+        // $data['captcha'] = $this->captcha->main();
+        // $this->session->set_userdata('captcha_info', $data['captcha']);
         
         $this->load->view('v_auth', $data);
 
@@ -33,9 +33,9 @@ class Auth extends CI_Controller {
 
         $pass = $this->vf_auth->getFieldById('user_pass', 'users', 'user_name', $user_name);
         //echo $pass;
-        $captcha_info = $this->session->userdata('captcha_info');
+        // $captcha_info = $this->session->userdata('captcha_info');
 
-        if($captcha_info['code'] == $this->input->post('captcha_code')) {
+        // if($captcha_info['code'] == $this->input->post('captcha_code')) {
     
             if (!empty($pass)) {
 
@@ -86,9 +86,9 @@ class Auth extends CI_Controller {
             } else {
                 echo 1; // VF - failed username
             }
-        } else {
-            echo 99; // VF - captcha
-        }
+        // } else {
+        //     echo 99; // VF - captcha
+        // }
         //$result = $this->m_login->validate($username, $password, $imagecode);
         //$data['s_all'] = $this->session->all_userdata();
         //print_r($this->session->all_userdata());

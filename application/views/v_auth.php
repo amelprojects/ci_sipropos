@@ -38,7 +38,7 @@
         <a href="#" onclick="document.location.href='<?php echo base_url(); ?>'"><img src=""></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Form Sistem Pendaftaran Online</p>
+        <p class="login-box-msg">SIPROPROS</p>
         <form action="#" id="form" method="post">
 
           <div class="form-group has-feedback">
@@ -49,15 +49,15 @@
             <input type="password" id="user_pass" name="user_pass" class="form-control" placeholder="Kata Sandi" value="">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
+<!--           
           <div class="form-group has-feedback" align="center">
             <img src="<?php echo $captcha['image_src'];?>" alt="CAPTCHA security code" />
-            <!-- <p><small>(Case-Sensitive!)</small></p> -->
           </div>
           <div class="form-group has-feedback">
             <input type="text" name="captcha_code" id="captcha_code" class="form-control" placeholder="Masukkan kode di atas! (Case-Sensitive)">
             <span class="glyphicon glyphicon-qrcode form-control-feedback"></span>
           </div>
-
+ -->
    
           <div class="row">
             <div class="col-xs-8">
@@ -83,8 +83,6 @@
     <script src="<?php echo base_url(); ?>assets/pnotify/dist/pnotify.buttons.js"></script>
     <script src="<?php echo base_url(); ?>assets/pnotify/dist/pnotify.nonblock.js"></script>
     
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-
     <script type="text/javascript">    
         
         function save() {
@@ -99,7 +97,7 @@
 
             var username = $('#user_name').val();
             var password = $('#user_pass').val();
-            var captcha_code = $('#captcha_code').val();
+            // var captcha_code = $('#captcha_code').val();
 
             if (username === "") {
                 new PNotify({title: 'Login Form',text: 'Kata pengguna tidak boleh kosong!', styling: 'bootstrap3'});
@@ -123,7 +121,8 @@
                       type:'POST',
                       url:'<?php echo base_url();?>auth/validasi_login',
                       //data: "username="+username+"&password="+password+"&imagecode="+imagecode,
-                      data: "user_name="+username+"&user_pass="+password+"&captcha_code="+captcha_code,
+                      // data: "user_name="+username+"&user_pass="+password+"&captcha_code="+captcha_code,
+                      data: "user_name="+username+"&user_pass="+password,
                       beforeSend:function(msg){
                         new PNotify({text: 'Proses ..... !', type: 'info', icon: 'fa fa-spinner fa-spin', styling: 'bootstrap3'}); 
                       },
@@ -131,12 +130,13 @@
                           //alert(msg);
                           PNotify.removeAll();
 
-                          if (msg==99) {
-                              //alert("Username and password is not valid");
-                              new PNotify({title: 'Form Login',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
-                              $("#captcha_code").focus();
-                              // document.location.reload();
-                          } else if (msg==1) {
+                          // if (msg==99) {
+                          //     //alert("Username and password is not valid");
+                          //     new PNotify({title: 'Form Login',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
+                          //     $("#captcha_code").focus();
+                          //     // document.location.reload();
+                          // } else if (msg==1) {
+                          if (msg==1) {
                               //alert("Username and password is not valid");
                               new PNotify({title: 'Form Login',text: 'Kata pengguna tidak ditemukan!', styling: 'bootstrap3'});
                               $("#username").focus();
