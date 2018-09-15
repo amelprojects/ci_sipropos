@@ -42,6 +42,11 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/dist/css/skins/_all-skins.min.css'); ?>">
 
+    <!-- PNotify -->
+    <link href="<?php echo base_url(); ?>assets/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -67,15 +72,21 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
                 <li><a href="<?php echo base_url(); ?>home"><i class="fa fa-clipboard"></i> Projects</a></li>
-                <li><a href="#"><i class="fa fa-exchange"></i> Ganti Password</a></li>
+                <li><a href="<?php echo base_url(); ?>users/changepassword"><i class="fa fa-exchange"></i> Ganti Kata Sandi</a></li>
+
+                <?php if ($user_role == -1) { ?> 
+                
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Panel <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#"><i class="fa fa-users"></i> Daftar User</a></li>
+                    <li><a href="<?php echo base_url(); ?>users"><i class="fa fa-users"></i> Daftar User</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-info-circle"></i> Daftar Informasi</a></li>
+                    <li><a href="<?php echo base_url(); ?>info"><i class="fa fa-info-circle"></i> Daftar Informasi</a></li>
                   </ul>
                 </li>
+
+                <?php } ?>
+
               </ul>
             </div><!-- /.navbar-collapse -->
             <!-- Navbar Right Menu -->
