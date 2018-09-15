@@ -110,6 +110,12 @@ Class M_model extends CI_Model
         return $q->num_rows();
     }
 
+
+    public function select_all_row($cond1, $table, $cond2)
+    {
+        $query = $this->db->query("SELECT ".$cond1." FROM ".$table." ".$cond2);
+        return $query->row_array();
+    }
     
     // VF DB Wilayah
     

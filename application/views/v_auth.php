@@ -49,6 +49,8 @@
             <input type="password" id="user_pass" name="user_pass" class="form-control" placeholder="Kata Sandi" value="">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
+
+          <?php echo $math_captcha_question;?>
 <!--           
           <div class="form-group has-feedback" align="center">
             <img src="<?php echo $captcha['image_src'];?>" alt="CAPTCHA security code" />

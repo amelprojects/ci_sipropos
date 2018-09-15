@@ -19,6 +19,11 @@ class Auth extends CI_Controller {
 
         // $data['captcha'] = $this->captcha->main();
         // $this->session->set_userdata('captcha_info', $data['captcha']);
+
+         $this->load->library('mathcaptcha');
+         $this->mathcaptcha->init();
+     
+         $data['math_captcha_question'] = $this->mathcaptcha->get_question();
         
         $this->load->view('v_auth', $data);
 

@@ -33,6 +33,7 @@ class Home extends CI_Controller {
         //$this->load->view('welcome_message', $data);
 
         //$this->check_users_detail($data['s_all']['user_id']);
+        $data['info'] = $this->m_model->select_all_row("*","info", "ORDER BY id DESC LIMIT 1");
 
         $data['title'] = "SIPROPOS - Home";
         $data['isi'] = "v_home";
