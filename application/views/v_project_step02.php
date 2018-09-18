@@ -33,8 +33,6 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <small>Please Specify at least 2 partners countries</small>
       </div>
 
-      <!-- form start -->
-      <form action="#" id="form" class="form-horizontal">
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
 
         <div class="box-body">
@@ -47,48 +45,20 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 <th>Country</th>
                 <th>Please Describe why choosen these countries</th>
               </tr>
+              <?php foreach($partner as $list_partner) { ?>
               <tr>
-                <td>1.</td>
-                <td>Update software</td>
                 <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                  </div>
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('<?php echo $list_partner['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
+                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_partner('<?php echo $list_partner['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
                 </td>
+                <td><?php echo $list_partner['country']; ?></td>
+                <td><?php echo $list_partner['reason']; ?></td>
               </tr>
-              <tr>
-                <td>2.</td>
-                <td>Clean database</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>3.</td>
-                <td>Cron job running</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>4.</td>
-                <td>Fix and squish bugs</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                  </div>
-                </td>
-              </tr>
+              <?php } ?>
             </table>
           </div><!-- /.box-body -->
 
         </div><!-- /.box-body -->
-
-      </form>
 
     </div><!-- /.box -->
 
@@ -112,8 +82,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="text" value="" name="id"/> 
-                    <input type="text" value="" name="project_id"/> 
+                    <input type="hidden" value="" name="id"/> 
+                    <input type="hidden" value="" name="project_id"/> 
                     <div class="form-body">
                         <div class="form-group" id="country">
                             <label class="control-label col-md-3">Country</label>

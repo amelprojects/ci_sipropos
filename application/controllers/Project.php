@@ -257,6 +257,11 @@ class Project extends CI_Controller {
         // print_r($project);
         $data['project'] = $project;
 
+        $partner = $this->m_model->select_all("project_partner", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($partner);
+
+        $data['partner'] = $partner;
+
         $data['title'] = "SIPROPOS - Project Step 2";
 
         if ($data['s_all']['user_role']==2 || $project!="") {
@@ -265,6 +270,126 @@ class Project extends CI_Controller {
 
                 $data['isi'] = "v_project_step02";
                 $data['js_footer'] = "v_project_step02_js";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
+    }
+
+    public function ajax_add_partner()
+    {
+        $s_all = $this->session->all_userdata();
+
+        $this->form_validate_add_partner();
+        
+        // $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
+        
+        $data = array(
+                        'project_id' => $this->security->xss_clean($this->input->post('project_id')),
+                        'country' => $this->security->xss_clean($this->input->post('country')),
+                        'reason' => $this->security->xss_clean($this->input->post('reason')),
+                );
+        
+        $this->m_model->insert("project_partner", $data);
+        
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function form_validate_add_partner()
+    {
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        
+        if($this->input->post('country') == '')
+        {
+            $data['inputerror'][] = 'country';
+            $data['error_string'][] = 'Country harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('reason') == '')
+        {
+            $data['inputerror'][] = 'reason';
+            $data['error_string'][] = 'Alasan harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
+    public function ajax_get_partner($id)
+    {
+        $data = $this->m_model->detail_row("project_partner", 'id', $id);
+        echo json_encode($data);
+    }
+
+    public function ajax_edit_partner()
+    {
+        $this->form_validate_add_partner();
+        $data = array(
+                        'id' => $this->security->xss_clean($this->input->post('id')),
+                        'country' => $this->security->xss_clean($this->input->post('country')),
+                        'reason' => $this->security->xss_clean($this->input->post('reason')),
+                );
+        $this->m_model->edit("project_partner", 'id', $data);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function ajax_delete_partner($id)
+    {
+
+        $this->m_model->delete("project_partner", 'id', $id);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function step03($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        $data0 = array(
+                        'id' => $project_id,
+                        'status' => 2,
+                );
+
+        $this->m_model->edit("project", 'id', $data0);
+
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $partner = $this->m_model->select_all("project_partner", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($partner);
+
+        $data['partner'] = $partner;
+
+        $data['title'] = "SIPROPOS - Project Step 3";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created']) {
+
+                $data['isi'] = "v_project_step03";
+                $data['js_footer'] = "v_project_step03_js";
 
             } else {
 
