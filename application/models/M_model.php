@@ -20,14 +20,15 @@ Class M_model extends CI_Model
         $this->load->database();
     }
 
-    public function max_id($table, $field, $created) {
-        $this->db->query("INSERT INTO ".$table." (".$created.") VALUES (NOW()) ");
+    public function last_id($table, $field) {
+        // $this->db->query("INSERT INTO ".$table." (".$created.") VALUES (NOW()) ");
 
-        $this->db->select_max($field);
-        $result= $this->db->get($table)->result_array();
-        $max_id = $result[0][$field];
+        $this->db->limit(1);
+        $this->db->order_by($field, 'DESC');
+        $query  = $this->db->get($table);
 
-        return $max_id;
+        return $query->row_array();
+
     }
 
     public function select_all($table, $cond)

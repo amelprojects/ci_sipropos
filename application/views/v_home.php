@@ -54,12 +54,14 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <dl class="dl-horizontal">
             <dt>Username : </dt>
             <dd><?php echo $user_name;?></dd>
-            <dt>Nama Lengkap</dt>
+            <dt>Nama Lengkap : </dt>
             <dd><?php echo $user_fullname;?></dd>
           </dl>
         </div>
         <div class="col-md-5">
-          <button type="button" class="btn btn-lg btn-primary">Membuat Projects</button>
+          <?php if ($user_role==2) { ?>
+          <button type="button" onclick="location.href='project'" class="btn btn-lg btn-primary">Membuat Projects</button>
+        <?php } ?>
         </div>
 
       </div><!-- /.box-body -->

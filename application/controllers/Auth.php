@@ -39,7 +39,7 @@ class Auth extends CI_Controller {
         $pass = $this->vf_auth->getFieldById('user_pass', 'users', 'user_name', $user_name);
         //echo $pass;
         // $captcha_info = $this->session->userdata('captcha_info');
-
+        
         // if($captcha_info['code'] == $this->input->post('captcha_code')) {
     
             if (!empty($pass)) {
