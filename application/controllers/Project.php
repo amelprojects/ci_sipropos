@@ -91,6 +91,20 @@ class Project extends CI_Controller {
                         'id' => $this->security->xss_clean($this->input->post('id')),
                         'title' => $this->security->xss_clean($this->input->post('project_title')),
                         'type' => $this->security->xss_clean($this->input->post('project_type')),
+                        'cooperation_area' => $this->security->xss_clean($this->input->post('cooperation_area')),
+                        'relevance' => $this->security->xss_clean($this->input->post('relevance')),
+                        'ra_name' => $this->security->xss_clean($this->input->post('ra_name')),
+                        'ra_title' => $this->security->xss_clean($this->input->post('ra_title')),
+                        'ra_address' => $this->security->xss_clean($this->input->post('ra_address')),
+                        'ra_phone' => $this->security->xss_clean($this->input->post('ra_phone')),
+                        'ra_fax' => $this->security->xss_clean($this->input->post('ra_fax')),
+                        'ra_email' => $this->security->xss_clean($this->input->post('ra_email')),
+                        'cp_name' => $this->security->xss_clean($this->input->post('cp_name')),
+                        'cp_title' => $this->security->xss_clean($this->input->post('cp_title')),
+                        'cp_address' => $this->security->xss_clean($this->input->post('cp_address')),
+                        'cp_phone' => $this->security->xss_clean($this->input->post('cp_phone')),
+                        'cp_fax' => $this->security->xss_clean($this->input->post('cp_fax')),
+                        'cp_email' => $this->security->xss_clean($this->input->post('cp_email')),
                 );
         
         $this->m_model->edit("project", 'id', $data);
@@ -120,11 +134,151 @@ class Project extends CI_Controller {
             $data['status'] = FALSE;
         }
 
+        if($this->input->post('cooperation_area') == '')
+        {
+            $data['inputerror'][] = 'cooperation_area';
+            $data['error_string'][] = 'Tipe Project harus dipilih';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('relevance') == '')
+        {
+            $data['inputerror'][] = 'relevance';
+            $data['error_string'][] = 'Tipe Project harus dipilih';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('ra_name') == '')
+        {
+            $data['inputerror'][] = 'ra_name';
+            $data['error_string'][] = 'Nama harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('ra_title') == '')
+        {
+            $data['inputerror'][] = 'ra_title';
+            $data['error_string'][] = 'Gelar depan harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('ra_address') == '')
+        {
+            $data['inputerror'][] = 'ra_address';
+            $data['error_string'][] = 'Alamat harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('ra_phone') == '')
+        {
+            $data['inputerror'][] = 'ra_phone';
+            $data['error_string'][] = 'Telepon harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('ra_fax') == '')
+        {
+            $data['inputerror'][] = 'ra_fax';
+            $data['error_string'][] = 'Fax harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('ra_email') == '')
+        {
+            $data['inputerror'][] = 'ra_email';
+            $data['error_string'][] = 'Email harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('cp_name') == '')
+        {
+            $data['inputerror'][] = 'cp_name';
+            $data['error_string'][] = 'Nama harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('cp_title') == '')
+        {
+            $data['inputerror'][] = 'cp_title';
+            $data['error_string'][] = 'Gelar depan harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('cp_address') == '')
+        {
+            $data['inputerror'][] = 'cp_address';
+            $data['error_string'][] = 'Alamat harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('cp_phone') == '')
+        {
+            $data['inputerror'][] = 'cp_phone';
+            $data['error_string'][] = 'Telepon harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('cp_fax') == '')
+        {
+            $data['inputerror'][] = 'cp_fax';
+            $data['error_string'][] = 'Fax harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('cp_email') == '')
+        {
+            $data['inputerror'][] = 'cp_email';
+            $data['error_string'][] = 'Email harus diisi';
+            $data['status'] = FALSE;
+        }
+
         if($data['status'] === FALSE)
         {
             echo json_encode($data);
             exit();
         }
+    }
+
+    public function step02($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        $data0 = array(
+                        'id' => $project_id,
+                        'status' => 1,
+                );
+
+        $this->m_model->edit("project", 'id', $data0);
+
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $data['title'] = "SIPROPOS - Project Step 2";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created']) {
+
+                $data['isi'] = "v_project_step02";
+                $data['js_footer'] = "v_project_step02_js";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
     }
 
 	private function check_isvalidated() {
