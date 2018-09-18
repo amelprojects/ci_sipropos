@@ -8,7 +8,7 @@
         // ajax adding data to database
         var formData = new FormData($('#form')[0]);
         $.ajax({
-            url : '<?php echo base_url();?>project/step01_action',
+            url : '<?php echo base_url();?>project/step03_action',
             type: "POST",
             data: formData,
             contentType: false,

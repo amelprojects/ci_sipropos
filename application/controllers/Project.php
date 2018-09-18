@@ -105,6 +105,7 @@ class Project extends CI_Controller {
                         'cp_phone' => $this->security->xss_clean($this->input->post('cp_phone')),
                         'cp_fax' => $this->security->xss_clean($this->input->post('cp_fax')),
                         'cp_email' => $this->security->xss_clean($this->input->post('cp_email')),
+                        'duration' => $this->security->xss_clean($this->input->post('duration')),
                 );
         
         $this->m_model->edit("project", 'id', $data);
@@ -229,6 +230,13 @@ class Project extends CI_Controller {
         {
             $data['inputerror'][] = 'cp_email';
             $data['error_string'][] = 'Email harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('duration') == '')
+        {
+            $data['inputerror'][] = 'duration';
+            $data['error_string'][] = 'Durasi harus dipilih';
             $data['status'] = FALSE;
         }
 
@@ -390,6 +398,112 @@ class Project extends CI_Controller {
 
                 $data['isi'] = "v_project_step03";
                 $data['js_footer'] = "v_project_step03_js";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
+    }
+
+    public function step03_action()
+    {
+        $s_all = $this->session->all_userdata();
+
+        $this->form_validate_step03();
+        
+        // $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
+        
+        $data = array(
+                        'id' => $this->security->xss_clean($this->input->post('id')),
+                        'overall_objective' => $this->security->xss_clean($this->input->post('overall_objective')),
+                        'project_purpose' => $this->security->xss_clean($this->input->post('project_purpose')),
+                        'target_group' => $this->security->xss_clean($this->input->post('target_group')),
+                        'contribution' => $this->security->xss_clean($this->input->post('contribution')),
+                );
+        
+        $this->m_model->edit("project", 'id', $data);
+        
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function form_validate_step03()
+    {
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        
+        if($this->input->post('overall_objective') == '')
+        {
+            $data['inputerror'][] = 'overall_objective';
+            $data['error_string'][] = 'Overall Objectives harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('project_purpose') == '')
+        {
+            $data['inputerror'][] = 'project_purpose';
+            $data['error_string'][] = 'Project Purpose harus dipilih';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('target_group') == '')
+        {
+            $data['inputerror'][] = 'target_group';
+            $data['error_string'][] = 'Target Group harus dipilih';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('contribution') == '')
+        {
+            $data['inputerror'][] = 'contribution';
+            $data['error_string'][] = 'Contribution harus dipilih';
+            $data['status'] = FALSE;
+        }
+
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
+    public function step04($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        $data0 = array(
+                        'id' => $project_id,
+                        'status' => 3,
+                );
+
+        $this->m_model->edit("project", 'id', $data0);
+
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $data['title'] = "SIPROPOS - Project Step 2";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created']) {
+
+                $data['isi'] = "v_project_step04";
+                $data['js_footer'] = "v_project_step04_js";
 
             } else {
 

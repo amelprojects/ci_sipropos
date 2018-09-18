@@ -17,7 +17,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Project Partners
+      Selection of Main Activities
       <small>Create Project</small>
     </h1>
     <ol class="breadcrumb">
@@ -30,7 +30,20 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <small>Please Specify at least 2 partners countries</small>
+        <h3 class="box-title">Reminder</h3>
+      </div>
+      <div class="box-body">
+        <div class="alert alert-info alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h3><i class="icon fa fa-info"></i></h4>
+          <h4>isinya</h2>
+          </div>
+      </div><!-- /.box-body -->
+    </div><!-- /.box -->
+
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <small></small>
       </div>
 
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
@@ -41,20 +54,58 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add Partner Country <button class="btn btn-box-tool" href="#" onclick="add_partners('<?php echo $project['id'];?>')" title="Tambah User"><i class="fa fa-plus"></i></button></th>
-                <th>Country</th>
-                <th>Please Describe why choosen these countries</th>
+                <th class="pull-right">Main Activities</th>
+                <th style="width: 5px">Jumlah</th>
+                <th>Action</th>
               </tr>
-              <?php foreach($partner as $list_partner) { ?>
               <tr>
+                <td class="pull-right">Training</td>
+                <td>0</td>
                 <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('<?php echo $list_partner['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
-                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_partner('<?php echo $list_partner['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
+                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
                 </td>
-                <td><?php echo $list_partner['country']; ?></td>
-                <td><?php echo $list_partner['reason']; ?></td>
               </tr>
-              <?php } ?>
+              <tr>
+                <td class="pull-right">Workshop</td>
+                <td>0</td>
+                <td>
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
+                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
+                </td>
+              </tr>
+              <tr>
+                <td class="pull-right">Study Visit</td>
+                <td>0</td>
+                <td>
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
+                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
+                </td>
+              </tr>
+              <tr>
+                <td class="pull-right">Conference / Seminar</td>
+                <td>0</td>
+                <td>
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
+                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
+                </td>
+              </tr>
+              <tr>
+                <td class="pull-right">Publicity Meeting</td>
+                <td>0</td>
+                <td>
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
+                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
+                </td>
+              </tr>
+              <tr>
+                <td class="pull-right">Preparation of audio, visual and written promotional materials</td>
+                <td>0</td>
+                <td>
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
+                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
+                </td>
+              </tr>
             </table>
           </div><!-- /.box-body -->
 

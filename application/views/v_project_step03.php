@@ -73,7 +73,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 
     <div class="box-footer">
-      <button type="button" onclick="window.history.back();" class="btn btn-default">Prev</button>
+      <a href="<?php echo base_url()."project/step02/".$project['id'];?>" title="Ke Step 2"><button type="button" class="btn btn-default">Prev</button></a>
       <a href="<?php echo base_url()."project/step04/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default pull-right">Next</button></a>
     </div><!-- /.box-footer -->
 

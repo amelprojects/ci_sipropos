@@ -165,6 +165,20 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
               </div><!-- /.box-body -->
           </div><!-- /.box -->
 
+          <div class="form-group">
+            <label for="project_type" class="col-sm-2 control-label">Duration</label>
+            <div class="col-sm-10">
+              <select name="duration" id="duration" class="form-control">
+                <option value="">Pilih Durasi</option>
+                <option value="3" <?php echo $project['duration']==3?"selected":""; ?> />3</option>
+                <option value="4" <?php echo $project['duration']==4?"selected":""; ?> />4</option>
+                <option value="5" <?php echo $project['duration']==5?"selected":""; ?> />5</option>
+                <option value="6" <?php echo $project['duration']==6?"selected":""; ?> />6</option>
+                <option value="7" <?php echo $project['duration']==7?"selected":""; ?> />7</option>
+              </select>
+            </div>
+          </div>
+
         </div><!-- /.box-body -->
 
       </form>
