@@ -18,7 +18,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content-header">
     <h1>
       Main Activities
-      <small>Seminar</small>
+      <small>Preparation audio, visual, and written promotional materials</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
@@ -30,7 +30,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <small>Please Specify at least <?php echo $project['ab_jumlah_seminar']; ?> seminar</small>
+        <small>Please Specify at least <?php echo $project['ab_jumlah_media']; ?> promotional material</small>
       </div>
 
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
@@ -41,28 +41,28 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add Seminar
-                  <?php if (count($seminar)<$project['ab_jumlah_seminar']) { ?> 
-                  <button class="btn btn-box-tool" href="#" onclick="add_seminar('<?php echo $project['id'];?>')" title="Tambah Seminar"><i class="fa fa-plus"></i></button>
+                <th>Add Promotional Material
+                  <?php if (count($media)<$project['ab_jumlah_media']) { ?> 
+                  <button class="btn btn-box-tool" href="#" onclick="add_media('<?php echo $project['id'];?>')" title="Tambah Promotional Material"><i class="fa fa-plus"></i></button>
                   <?php } ?>
                 </th>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Invited Countries</th>
-                <th>Location</th>
+                <th>Promotional Materials</th>
+                <th>Target Group</th>
                 <th>Duration (days)</th>
               </tr>
-              <?php foreach($seminar as $list_seminar) { ?>
+              <?php foreach($media as $list_media) { ?>
               <tr>
                 <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_seminar('<?php echo $list_seminar['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
-                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_seminar('<?php echo $list_seminar['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_media('<?php echo $list_media['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
+                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_media('<?php echo $list_media['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
                 </td>
-                <td><?php echo $list_seminar['title']; ?></td>
-                <td><?php echo $list_seminar['description']; ?></td>
-                <td><?php echo $list_seminar['countries']; ?></td>
-                <td><?php echo $list_seminar['location']; ?></td>
-                <td><?php echo $list_seminar['duration']; ?></td>
+                <td><?php echo $list_media['title']; ?></td>
+                <td><?php echo $list_media['description']; ?></td>
+                <td><?php echo $list_media['promotional']; ?></td>
+                <td><?php echo $list_media['target_group']; ?></td>
+                <td><?php echo $list_media['duration']; ?></td>
               </tr>
               <?php } ?>
             </table>
@@ -76,7 +76,15 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
     <div class="box-footer">
       <?php         
-        if ($project['ab_jumlah_study_visit'] > 0) {
+        if ($project['ab_jumlah_meeting'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step045/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <?php         
+        } else if ($project['ab_jumlah_seminar'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <?php         
+        } else if ($project['ab_jumlah_study_visit'] > 0) {
       ?>
       <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
       <?php         
@@ -94,17 +102,13 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       <?php } ?>
 
       <?php         
-        if ($project['ab_jumlah_meeting'] > 0) {
+        if ($project['ab_jumlah_other_activities'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step045/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
-      <?php         
-        } else if ($project['ab_jumlah_media'] > 0) {
-      ?>
-      <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
       <?php         
         } else {
       ?>
-      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step05/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
       <?php } ?>
 
     </div><!-- /.box-footer -->
@@ -118,7 +122,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Seminar</h3>
+                <h3 class="modal-title">Add Publicity Meeting</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form">
@@ -136,52 +140,32 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of Speakers</label>
-                            <input name="speakers" placeholder="Speakers" class="form-control" type="text">
+                            <label class="control-label">Promotional materials that will be produced</label>
+                            <input name="promotional" placeholder="Promotional Material" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Countries wich will be invited to the Conference / Seminar</label>
-                            <input name="countries" placeholder="Countries" class="form-control" type="text">
+                            <label class="control-label">Potential Producers of Promotional Materials</label>
+                            <input name="potential" placeholder="Potential" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of participants invited to the seminar per partner country</label>
-                            <input name="participant" placeholder="Number of participants" class="form-control" type="text">
+                            <label class="control-label">Target Group</label>
+                            <input name="target_group" placeholder="Target Group" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of total participants invited to the seminar program</label>
-                            <input name="participant_total" placeholder="Number of total participants" class="form-control" type="text">
+                            <label class="control-label">Ways and means of disseminating Promotional Material</label>
+                            <input name="ways_mean" placeholder="Ways and mean" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Duration of the seminar (days)</label>
+                            <label class="control-label">Duration of Dissemination</label>
                             <input name="duration" placeholder="Duration of the training" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Location of the seminar</label>
-                            <input name="location" placeholder="Duration of the training" class="form-control" type="text">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Number of days of boarding and lodging needed</label>
-                            <input name="days" placeholder="Number of days" class="form-control" type="text">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Number of flight tickets needed (roundtrip)</label>
-                            <input name="ticket" placeholder="Number of roundtrip tickets" class="form-control" type="text">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Please give details if interpretation is needed</label>
-                            <input name="detail" placeholder="Please give details if interpretation is needed" class="form-control" type="text">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Indicate budget or seminar</label>
+                            <label class="control-label">Indicate budget for Promotional Material</label>
                             <input name="budget" placeholder="budget" class="form-control" type="text">
                         </div>
 

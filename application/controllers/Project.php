@@ -620,7 +620,7 @@ class Project extends CI_Controller {
 
         $data['training'] = $training;
 
-        $data['title'] = "SIPROPOS - Project Step 4.1";
+        $data['title'] = "SIPROPOS - Training";
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
@@ -825,7 +825,7 @@ class Project extends CI_Controller {
 
         $data['workshop'] = $workshop;
 
-        $data['title'] = "SIPROPOS - Project Step 4.2";
+        $data['title'] = "SIPROPOS - Workshop";
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
@@ -1021,7 +1021,7 @@ class Project extends CI_Controller {
 
         $data['study_visit'] = $study_visit;
 
-        $data['title'] = "SIPROPOS - Project Step 4.3";
+        $data['title'] = "SIPROPOS - Study Visit";
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
@@ -1185,6 +1185,7 @@ class Project extends CI_Controller {
         echo json_encode(array("status" => TRUE));
     }
 
+
     public function step044($project_id=""){
 
         $data['s_all'] = $this->session->all_userdata();
@@ -1208,7 +1209,7 @@ class Project extends CI_Controller {
 
         $data['seminar'] = $seminar;
 
-        $data['title'] = "SIPROPOS - Project Step 4.4";
+        $data['title'] = "SIPROPOS - Conference / Seminar";
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
@@ -1243,10 +1244,10 @@ class Project extends CI_Controller {
                         'project_id' => $this->security->xss_clean($this->input->post('project_id')),
                         'title' => $this->security->xss_clean($this->input->post('title')),
                         'description' => $this->security->xss_clean($this->input->post('description')),
+                        'speakers' => $this->security->xss_clean($this->input->post('speakers')),
                         'countries' => $this->security->xss_clean($this->input->post('countries')),
                         'participant' => $this->security->xss_clean($this->input->post('participant')),
                         'participant_total' => $this->security->xss_clean($this->input->post('participant_total')),
-                        'trainer' => $this->security->xss_clean($this->input->post('trainer')),
                         'duration' => $this->security->xss_clean($this->input->post('duration')),
                         'location' => $this->security->xss_clean($this->input->post('location')),
                         'days' => $this->security->xss_clean($this->input->post('days')),
@@ -1281,6 +1282,13 @@ class Project extends CI_Controller {
             $data['status'] = FALSE;
         }
 
+        if($this->input->post('speakers') == '')
+        {
+            $data['inputerror'][] = 'speakers';
+            $data['error_string'][] = 'Speakers harus diisi';
+            $data['status'] = FALSE;
+        }
+
         if($this->input->post('countries') == '')
         {
             $data['inputerror'][] = 'countries';
@@ -1299,13 +1307,6 @@ class Project extends CI_Controller {
         {
             $data['inputerror'][] = 'participant_total';
             $data['error_string'][] = 'Total participant harus diisi';
-            $data['status'] = FALSE;
-        }
-
-        if($this->input->post('trainer') == '')
-        {
-            $data['inputerror'][] = 'trainer';
-            $data['error_string'][] = 'Total trainer harus diisi';
             $data['status'] = FALSE;
         }
 
@@ -1369,10 +1370,10 @@ class Project extends CI_Controller {
                         'id' => $this->security->xss_clean($this->input->post('id')),
                         'title' => $this->security->xss_clean($this->input->post('title')),
                         'description' => $this->security->xss_clean($this->input->post('description')),
+                        'speakers' => $this->security->xss_clean($this->input->post('speakers')),
                         'countries' => $this->security->xss_clean($this->input->post('countries')),
                         'participant' => $this->security->xss_clean($this->input->post('participant')),
                         'participant_total' => $this->security->xss_clean($this->input->post('participant_total')),
-                        'trainer' => $this->security->xss_clean($this->input->post('trainer')),
                         'duration' => $this->security->xss_clean($this->input->post('duration')),
                         'location' => $this->security->xss_clean($this->input->post('location')),
                         'days' => $this->security->xss_clean($this->input->post('days')),
@@ -1387,6 +1388,477 @@ class Project extends CI_Controller {
     public function ajax_delete_seminar($id){
 
         $this->m_model->delete("project_seminar", 'id', $id);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function step045($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        $data0 = array(
+                        'id' => $project_id,
+                        'status' => 8,
+                );
+
+        $this->m_model->edit("project", 'id', $data0);
+
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $meeting = $this->m_model->select_all("project_meeting", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+
+        $data['meeting'] = $meeting;
+
+        $data['title'] = "SIPROPOS - Publicity Meeting";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created']) {
+
+                $data['isi'] = "v_project_step045";
+                $data['js_footer'] = "v_project_step045_js";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
+    }
+
+    public function ajax_add_meeting(){
+        $s_all = $this->session->all_userdata();
+
+        $this->form_validate_add_meeting();
+        
+        // $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
+        
+        $data = array(
+                        'project_id' => $this->security->xss_clean($this->input->post('project_id')),
+                        'title' => $this->security->xss_clean($this->input->post('title')),
+                        'description' => $this->security->xss_clean($this->input->post('description')),
+                        'countries' => $this->security->xss_clean($this->input->post('countries')),
+                        'participant_profile' => $this->security->xss_clean($this->input->post('participant_profile')),
+                        'participant' => $this->security->xss_clean($this->input->post('participant')),
+                        'participant_total' => $this->security->xss_clean($this->input->post('participant_total')),
+                        'tools_material' => $this->security->xss_clean($this->input->post('tools_material')),
+                        'duration' => $this->security->xss_clean($this->input->post('duration')),
+                        'location' => $this->security->xss_clean($this->input->post('location')),
+                        'budget' => $this->security->xss_clean($this->input->post('budget')),
+                );
+        
+        $this->m_model->insert("project_meeting", $data);
+        
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function form_validate_add_meeting(){
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        
+        if($this->input->post('title') == '')
+        {
+            $data['inputerror'][] = 'title';
+            $data['error_string'][] = 'Title harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('description') == '')
+        {
+            $data['inputerror'][] = 'description';
+            $data['error_string'][] = 'Deskripsi harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('countries') == '')
+        {
+            $data['inputerror'][] = 'countries';
+            $data['error_string'][] = 'Country harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('participant_profile') == '')
+        {
+            $data['inputerror'][] = 'participant_profile';
+            $data['error_string'][] = 'Profile harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('participant') == '')
+        {
+            $data['inputerror'][] = 'participant';
+            $data['error_string'][] = 'Total participant per country harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('participant_total') == '')
+        {
+            $data['inputerror'][] = 'participant_total';
+            $data['error_string'][] = 'Total participant harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('tools_material') == '')
+        {
+            $data['inputerror'][] = 'tools_material';
+            $data['error_string'][] = 'Tools and material harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('duration') == '')
+        {
+            $data['inputerror'][] = 'duration';
+            $data['error_string'][] = 'Total duration harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('location') == '')
+        {
+            $data['inputerror'][] = 'location';
+            $data['error_string'][] = 'Location harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('budget') == '')
+        {
+            $data['inputerror'][] = 'budget';
+            $data['error_string'][] = 'Budget harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
+    public function ajax_get_meeting($id){
+        $data = $this->m_model->detail_row("project_meeting", 'id', $id);
+        echo json_encode($data);
+    }
+
+    public function ajax_edit_meeting(){
+        $this->form_validate_add_meeting();
+        $data = array(
+                        'id' => $this->security->xss_clean($this->input->post('id')),
+                        'title' => $this->security->xss_clean($this->input->post('title')),
+                        'description' => $this->security->xss_clean($this->input->post('description')),
+                        'countries' => $this->security->xss_clean($this->input->post('countries')),
+                        'participant_profile' => $this->security->xss_clean($this->input->post('participant_profile')),
+                        'participant' => $this->security->xss_clean($this->input->post('participant')),
+                        'participant_total' => $this->security->xss_clean($this->input->post('participant_total')),
+                        'tools_material' => $this->security->xss_clean($this->input->post('tools_material')),
+                        'duration' => $this->security->xss_clean($this->input->post('duration')),
+                        'location' => $this->security->xss_clean($this->input->post('location')),
+                        'budget' => $this->security->xss_clean($this->input->post('budget')),
+                );
+        $this->m_model->edit("project_meeting", 'id', $data);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function ajax_delete_meeting($id){
+
+        $this->m_model->delete("project_meeting", 'id', $id);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function step046($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        $data0 = array(
+                        'id' => $project_id,
+                        'status' => 9,
+                );
+
+        $this->m_model->edit("project", 'id', $data0);
+
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $media = $this->m_model->select_all("project_media", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+
+        $data['media'] = $media;
+
+        $data['title'] = "SIPROPOS - Promotional Material";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created']) {
+
+                $data['isi'] = "v_project_step046";
+                $data['js_footer'] = "v_project_step046_js";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
+    }
+
+    public function ajax_add_media(){
+        $s_all = $this->session->all_userdata();
+
+        $this->form_validate_add_media();
+        
+        // $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
+        
+        $data = array(
+                        'project_id' => $this->security->xss_clean($this->input->post('project_id')),
+                        'title' => $this->security->xss_clean($this->input->post('title')),
+                        'description' => $this->security->xss_clean($this->input->post('description')),
+                        'promotional' => $this->security->xss_clean($this->input->post('promotional')),
+                        'potential' => $this->security->xss_clean($this->input->post('potential')),
+                        'target_group' => $this->security->xss_clean($this->input->post('target_group')),
+                        'ways_mean' => $this->security->xss_clean($this->input->post('ways_mean')),
+                        'duration' => $this->security->xss_clean($this->input->post('duration')),
+                        'budget' => $this->security->xss_clean($this->input->post('budget')),
+                );
+        
+        $this->m_model->insert("project_media", $data);
+        
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function form_validate_add_media(){
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        
+        if($this->input->post('title') == '')
+        {
+            $data['inputerror'][] = 'title';
+            $data['error_string'][] = 'Title harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('description') == '')
+        {
+            $data['inputerror'][] = 'description';
+            $data['error_string'][] = 'Deskripsi harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('promotional') == '')
+        {
+            $data['inputerror'][] = 'promotional';
+            $data['error_string'][] = 'Promotorial material harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('potential') == '')
+        {
+            $data['inputerror'][] = 'potential';
+            $data['error_string'][] = 'Potential producers harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('target_group') == '')
+        {
+            $data['inputerror'][] = 'target_group';
+            $data['error_string'][] = 'Target group harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('ways_mean') == '')
+        {
+            $data['inputerror'][] = 'ways_mean';
+            $data['error_string'][] = 'Ways and means harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('duration') == '')
+        {
+            $data['inputerror'][] = 'duration';
+            $data['error_string'][] = 'Total duration harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('budget') == '')
+        {
+            $data['inputerror'][] = 'budget';
+            $data['error_string'][] = 'Budget harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
+    public function ajax_get_media($id){
+        $data = $this->m_model->detail_row("project_media", 'id', $id);
+        echo json_encode($data);
+    }
+
+    public function ajax_edit_media(){
+        $this->form_validate_add_media();
+        $data = array(
+                        'id' => $this->security->xss_clean($this->input->post('id')),
+                        'title' => $this->security->xss_clean($this->input->post('title')),
+                        'description' => $this->security->xss_clean($this->input->post('description')),
+                        'promotional' => $this->security->xss_clean($this->input->post('promotional')),
+                        'potential' => $this->security->xss_clean($this->input->post('potential')),
+                        'target_group' => $this->security->xss_clean($this->input->post('target_group')),
+                        'ways_mean' => $this->security->xss_clean($this->input->post('ways_mean')),
+                        'duration' => $this->security->xss_clean($this->input->post('duration')),
+                        'budget' => $this->security->xss_clean($this->input->post('budget')),
+                );
+        $this->m_model->edit("project_media", 'id', $data);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function ajax_delete_media($id){
+
+        $this->m_model->delete("project_media", 'id', $id);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function step047($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        $data0 = array(
+                        'id' => $project_id,
+                        'status' => 10,
+                );
+
+        $this->m_model->edit("project", 'id', $data0);
+
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $other = $this->m_model->select_all("project_other_activities", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+
+        $data['other'] = $other;
+
+        $data['title'] = "SIPROPOS - Other Activities";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created']) {
+
+                $data['isi'] = "v_project_step047";
+                $data['js_footer'] = "v_project_step047_js";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
+    }
+
+    public function ajax_add_other(){
+        $s_all = $this->session->all_userdata();
+
+        $this->form_validate_add_other();
+        
+        // $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
+        
+        $data = array(
+                        'project_id' => $this->security->xss_clean($this->input->post('project_id')),
+                        'title' => $this->security->xss_clean($this->input->post('title')),
+                        'description' => $this->security->xss_clean($this->input->post('description')),
+                );
+        
+        $this->m_model->insert("project_other_activities", $data);
+        
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function form_validate_add_other(){
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        
+        if($this->input->post('title') == '')
+        {
+            $data['inputerror'][] = 'title';
+            $data['error_string'][] = 'Title harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('description') == '')
+        {
+            $data['inputerror'][] = 'description';
+            $data['error_string'][] = 'Deskripsi harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
+    public function ajax_get_other($id){
+        $data = $this->m_model->detail_row("project_other_activities", 'id', $id);
+        echo json_encode($data);
+    }
+
+    public function ajax_edit_other(){
+        $this->form_validate_add_other();
+        $data = array(
+                        'id' => $this->security->xss_clean($this->input->post('id')),
+                        'title' => $this->security->xss_clean($this->input->post('title')),
+                        'description' => $this->security->xss_clean($this->input->post('description')),
+                );
+        $this->m_model->edit("project_other_activities", 'id', $data);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function ajax_delete_other($id){
+
+        $this->m_model->delete("project_other_activities", 'id', $id);
         echo json_encode(array("status" => TRUE));
     }
 
