@@ -18,7 +18,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content-header">
     <h1>
       Main Activities
-      <small>Training</small>
+      <small>Seminar</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
@@ -30,7 +30,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <small>Please Specify at least <?php echo $project['ab_jumlah_training']; ?> training</small>
+        <small>Please Specify at least <?php echo $project['ab_jumlah_seminar']; ?> seminar</small>
       </div>
 
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
@@ -41,9 +41,9 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add Training
-                  <?php if (count($training)<$project['ab_jumlah_training']) { ?> 
-                  <button class="btn btn-box-tool" href="#" onclick="add_training('<?php echo $project['id'];?>')" title="Tambah Training"><i class="fa fa-plus"></i></button>
+                <th>Add Seminar
+                  <?php if (count($seminar)<$project['ab_jumlah_seminar']) { ?> 
+                  <button class="btn btn-box-tool" href="#" onclick="add_seminar('<?php echo $project['id'];?>')" title="Tambah Seminar"><i class="fa fa-plus"></i></button>
                   <?php } ?>
                 </th>
                 <th>Title</th>
@@ -52,17 +52,17 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 <th>Location</th>
                 <th>Duration (days)</th>
               </tr>
-              <?php foreach($training as $list_training) { ?>
+              <?php foreach($seminar as $list_seminar) { ?>
               <tr>
                 <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_training('<?php echo $list_training['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
-                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_training('<?php echo $list_training['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_seminar('<?php echo $list_seminar['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
+                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_seminar('<?php echo $list_seminar['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
                 </td>
-                <td><?php echo $list_training['title']; ?></td>
-                <td><?php echo $list_training['description']; ?></td>
-                <td><?php echo $list_training['countries']; ?></td>
-                <td><?php echo $list_training['location']; ?></td>
-                <td><?php echo $list_training['duration']; ?></td>
+                <td><?php echo $list_seminar['title']; ?></td>
+                <td><?php echo $list_seminar['description']; ?></td>
+                <td><?php echo $list_seminar['countries']; ?></td>
+                <td><?php echo $list_seminar['location']; ?></td>
+                <td><?php echo $list_seminar['duration']; ?></td>
               </tr>
               <?php } ?>
             </table>
@@ -113,7 +113,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Training</h3>
+                <h3 class="modal-title">Add Seminar</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form">
@@ -131,32 +131,32 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Country wich will be invited to the training</label>
-                            <input name="countries" placeholder="Country" class="form-control" type="text">
+                            <label class="control-label">Number of Speakers</label>
+                            <input name="speakers" placeholder="Speakers" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of participants invited to the training per partner country</label>
+                            <label class="control-label">Countries wich will be invited to the Conference / Seminar</label>
+                            <input name="countries" placeholder="Countries" class="form-control" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Number of participants invited to the seminar per partner country</label>
                             <input name="participant" placeholder="Number of participants" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of total participants invited to the training program</label>
+                            <label class="control-label">Number of total participants invited to the seminar program</label>
                             <input name="participant_total" placeholder="Number of total participants" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of trainers needed</label>
-                            <input name="trainer" placeholder="Number of trainers" class="form-control" type="text">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Duration of the training (days)</label>
+                            <label class="control-label">Duration of the seminar (days)</label>
                             <input name="duration" placeholder="Duration of the training" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Location of the training</label>
+                            <label class="control-label">Location of the seminar</label>
                             <input name="location" placeholder="Duration of the training" class="form-control" type="text">
                         </div>
 
@@ -176,7 +176,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Indicate budget or training</label>
+                            <label class="control-label">Indicate budget or seminar</label>
                             <input name="budget" placeholder="budget" class="form-control" type="text">
                         </div>
 

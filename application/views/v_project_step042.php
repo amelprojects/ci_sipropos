@@ -18,7 +18,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content-header">
     <h1>
       Main Activities
-      <small>Training</small>
+      <small>Workshop</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
@@ -30,7 +30,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <small>Please Specify at least <?php echo $project['ab_jumlah_training']; ?> training</small>
+        <small>Please Specify at least <?php echo $project['ab_jumlah_workshop']; ?> workshop</small>
       </div>
 
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
@@ -41,9 +41,9 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add Training
-                  <?php if (count($training)<$project['ab_jumlah_training']) { ?> 
-                  <button class="btn btn-box-tool" href="#" onclick="add_training('<?php echo $project['id'];?>')" title="Tambah Training"><i class="fa fa-plus"></i></button>
+                <th>Add Workshop
+                  <?php if (count($workshop)<$project['ab_jumlah_workshop']) { ?> 
+                  <button class="btn btn-box-tool" href="#" onclick="add_workshop('<?php echo $project['id'];?>')" title="Tambah Workshop"><i class="fa fa-plus"></i></button>
                   <?php } ?>
                 </th>
                 <th>Title</th>
@@ -52,17 +52,17 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 <th>Location</th>
                 <th>Duration (days)</th>
               </tr>
-              <?php foreach($training as $list_training) { ?>
+              <?php foreach($workshop as $list_workshop) { ?>
               <tr>
                 <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_training('<?php echo $list_training['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
-                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_training('<?php echo $list_training['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_workshop('<?php echo $list_workshop['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
+                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_workshop('<?php echo $list_workshop['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
                 </td>
-                <td><?php echo $list_training['title']; ?></td>
-                <td><?php echo $list_training['description']; ?></td>
-                <td><?php echo $list_training['countries']; ?></td>
-                <td><?php echo $list_training['location']; ?></td>
-                <td><?php echo $list_training['duration']; ?></td>
+                <td><?php echo $list_workshop['title']; ?></td>
+                <td><?php echo $list_workshop['description']; ?></td>
+                <td><?php echo $list_workshop['countries']; ?></td>
+                <td><?php echo $list_workshop['location']; ?></td>
+                <td><?php echo $list_workshop['duration']; ?></td>
               </tr>
               <?php } ?>
             </table>
@@ -75,13 +75,18 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 
     <div class="box-footer">
-      <a href="<?php echo base_url()."project/step04/".$project['id'];?>" title="Ke Step 1"><button type="button" class="btn btn-default">Prev</button></a>
-      <?php 
-        if ($project['ab_jumlah_workshop'] > 0) {
-      ?>
-      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
       <?php         
-        } else if ($project['ab_jumlah_study_visit'] > 0) {
+        if ($project['ab_jumlah_training'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <?php         
+        } else {
+      ?>
+      <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <?php } ?>
+
+      <?php 
+        if ($project['ab_jumlah_study_visit'] > 0) {
       ?>
       <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
       <?php         
@@ -113,7 +118,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Training</h3>
+                <h3 class="modal-title">Add Workshop</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form">
@@ -131,33 +136,28 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Country wich will be invited to the training</label>
+                            <label class="control-label">Country wich will be invited to the workshop</label>
                             <input name="countries" placeholder="Country" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of participants invited to the training per partner country</label>
+                            <label class="control-label">Number of participants invited to the workshop per partner country</label>
                             <input name="participant" placeholder="Number of participants" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of total participants invited to the training program</label>
+                            <label class="control-label">Number of total participants invited to the worksop program</label>
                             <input name="participant_total" placeholder="Number of total participants" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of trainers needed</label>
-                            <input name="trainer" placeholder="Number of trainers" class="form-control" type="text">
+                            <label class="control-label">Duration of the workshop (days)</label>
+                            <input name="duration" placeholder="Duration of the workshop" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Duration of the training (days)</label>
-                            <input name="duration" placeholder="Duration of the training" class="form-control" type="text">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Location of the training</label>
-                            <input name="location" placeholder="Duration of the training" class="form-control" type="text">
+                            <label class="control-label">Location of the workshop</label>
+                            <input name="location" placeholder="Duration of the workshop" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">
@@ -171,8 +171,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Please give details if interpretation is needed</label>
-                            <input name="detail" placeholder="Please give details if interpretation is needed" class="form-control" type="text">
+                            <label class="control-label">Writen output of the workshop</label>
+                            <input name="output" placeholder="Workshop output" class="form-control" type="text">
                         </div>
 
                         <div class="form-group">

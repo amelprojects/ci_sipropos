@@ -38,7 +38,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       <div class="box-body">
         <div class="alert alert-info alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h3><i class="icon fa fa-info"></i> <?php echo $info['judul'];?></h4>
+          <h3><?php echo $info['judul'];?></h4>
           <h4><?php echo $info['isi']; ?></h2>
           <small><?php echo tgl_indo_time($info['date_created']); ?></small>
           </div>
