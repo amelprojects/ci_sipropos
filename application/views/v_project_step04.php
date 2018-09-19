@@ -41,126 +41,107 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       </div><!-- /.box-body -->
     </div><!-- /.box -->
 
-    <div class="box box-default">
-      <div class="box-header with-border">
-        <small></small>
-      </div>
+    <!-- form start -->
+    <form action="#" id="form" class="form-horizontal">
+      <input type="hidden" value="<?php echo $project['id'];?>" name="id">
 
-        <input type="hidden" value="<?php echo $project['id'];?>" name="id">
+       <!-- Horizontal Form -->
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Input Total per Main Activities</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
 
         <div class="box-body">
-
-
-          <div class="box-body no-padding">
-            <table class="table table-striped">
-              <tr>
-                <th class="pull-right">Main Activities</th>
-                <th style="width: 5px">Jumlah</th>
-                <th>Action</th>
-              </tr>
-              <tr>
-                <td class="pull-right">Training</td>
-                <td>0</td>
-                <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
-                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
-                </td>
-              </tr>
-              <tr>
-                <td class="pull-right">Workshop</td>
-                <td>0</td>
-                <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
-                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
-                </td>
-              </tr>
-              <tr>
-                <td class="pull-right">Study Visit</td>
-                <td>0</td>
-                <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
-                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
-                </td>
-              </tr>
-              <tr>
-                <td class="pull-right">Conference / Seminar</td>
-                <td>0</td>
-                <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
-                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
-                </td>
-              </tr>
-              <tr>
-                <td class="pull-right">Publicity Meeting</td>
-                <td>0</td>
-                <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
-                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
-                </td>
-              </tr>
-              <tr>
-                <td class="pull-right">Preparation of audio, visual and written promotional materials</td>
-                <td>0</td>
-                <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_partner('')"><i class="glyphicon glyphicon-plus"></i></a> Add
-                  <a class="btn btn-xs btn-default" href="javascript:void(0)" title="Hapus" onclick="delete_partner('')"><i class="glyphicon glyphicon-eye-open"></i></a> View
-                </td>
-              </tr>
-            </table>
-          </div><!-- /.box-body -->
-
+          <div class="form-group">
+            <label for="ab_jumlah_training" class="col-sm-8 control-label">Training</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="ab_jumlah_training" placeholder="Jumlah Training" value="<?php echo $project['ab_jumlah_training'];?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ab_jumlah_workshop" class="col-sm-8 control-label">Workshop</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="ab_jumlah_workshop" placeholder="Jumlah Workshop" value="<?php echo $project['ab_jumlah_workshop'];?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ab_jumlah_study_visit" class="col-sm-8 control-label">Study Visit</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="ab_jumlah_study_visit" placeholder="Jumlah Study Visit" value="<?php echo $project['ab_jumlah_study_visit'];?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ab_jumlah_seminar" class="col-sm-8 control-label">Conference / Seminar</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="ab_jumlah_seminar" placeholder="Jumlah Conference / Seminar" value="<?php echo $project['ab_jumlah_seminar'];?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ab_jumlah_meeting" class="col-sm-8 control-label">Publicity Meeting</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="ab_jumlah_meeting" placeholder="Jumlah Publicity Meeting" value="<?php echo $project['ab_jumlah_meeting'];?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ab_jumlah_media" class="col-sm-8 control-label">Preparation of audio, visual and written promotional materials</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="ab_jumlah_media" placeholder="Jumlah Media" value="<?php echo $project['ab_jumlah_media'];?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ab_jumlah_other_activities" class="col-sm-8 control-label">Other Activities</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="ab_jumlah_other_activities" placeholder="Jumlah Other Activities" value="<?php echo $project['ab_jumlah_other_activities'];?>">
+            </div>
+          </div>
         </div><!-- /.box-body -->
 
-    </div><!-- /.box -->
+        <div class="modal-footer">
+            <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
+            <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Cancel</button>
+        </div>
 
 
+      </div><!-- /.box -->
+
+    </form>
 
     <div class="box-footer">
-      <a href="<?php echo base_url()."project/step01/".$project['id'];?>" title="Ke Step 1"><button type="button" class="btn btn-default">Prev</button></a>
-      <a href="<?php echo base_url()."project/step03/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step03/".$project['id'];?>" title="Ke Step 1"><button type="button" class="btn btn-default">Prev</button></a>
+
+      <?php 
+        if ($project['ab_jumlah_training'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php         
+        } else if ($project['ab_jumlah_workshop'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php         
+        } else if ($project['ab_jumlah_study_visit'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php         
+        } else if ($project['ab_jumlah_seminar'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php         
+        } else if ($project['ab_jumlah_meeting'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step045/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php         
+        } else if ($project['ab_jumlah_media'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php         
+        } else {
+      ?>
+      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php } ?>
     </div><!-- /.box-footer -->
 
    
   </section><!-- /.content -->
 </div><!-- /.container -->
-
-<div class="modal fade" id="modal_form" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Partners</h3>
-            </div>
-            <div class="modal-body form">
-                <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id"/> 
-                    <input type="hidden" value="" name="project_id"/> 
-                    <div class="form-body">
-                        <div class="form-group" id="country">
-                            <label class="control-label col-md-3">Country</label>
-                            <div class="col-md-9">
-                                <input name="country" placeholder="Country Name" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group" id="reason">
-                            <label class="control-label col-md-3">Reason</label>
-                            <div class="col-md-9">
-                                <textarea class="form-control" name="reason" rows="3" placeholder="Enter ..."></textarea>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- End Bootstrap modal -->
 
