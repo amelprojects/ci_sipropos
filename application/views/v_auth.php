@@ -50,6 +50,20 @@
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
 
+          <div class="row">
+            <div class="col-xs-6">
+             <div class=" icheck">
+              <label>
+                <input type="checkbox" name="remember" id="remember" onclick="showPass()"> Lihat Sandi
+              </label>
+            </div>
+            </div>
+            <div class="col-xs-6" style="text-align: right;">
+              <a href="<?=base_url('auth/forgot_password')?>" style="font-size: 10pt;">Lupa Sandi</a>
+              &nbsp;|&nbsp;
+              <a href="<?=base_url('auth/forgot_password')?>" style="font-size: 10pt;">Daftar</a>
+            </div>
+          </div>
 <!--           
           <?php echo $math_captcha_question;?>
           <div class="form-group has-feedback" align="center">
@@ -61,6 +75,7 @@
           </div>
  -->
    
+          <hr>
           <div class="row">
 <!-- 
             <div class="col-xs-8">
@@ -71,17 +86,17 @@
             <div class="col-xs-4" style="font-size: 18pt;text-align: right;">
               <?=$captcha;?>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-3">
               <input class="form-control" type="text" name="captcha_code" id="captcha_code" required="required">
             </div>
 
-            <div class="col-xs-4">
+            <div class="col-xs-5">
               <button type="button" id="btn_save" onclick="save()" class="btn btn-primary btn-block btn-flat">Masuk</button>
             </div><!-- /.col -->
           </div>
           <hr>
         </form>
-        <footer>Copyright © 2017  </footer>
+        <footer>Copyright © 2018 | SIPROPOS  </footer>
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 
@@ -188,6 +203,16 @@
 
 
         }
+
+        function showPass() {
+            var x = document.getElementById("user_pass");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
     </script>
     
   </body>
