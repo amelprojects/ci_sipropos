@@ -63,6 +63,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 <option value="1" <?php echo $project['type']==1?"selected":""; ?> />Activity Based Project</option>
                 <option value="2" <?php echo $project['type']==2?"selected":""; ?> />Research Project</option>
               </select>
+              <span class="help-block"></span>
             </div>
           </div>
           
@@ -70,6 +71,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
             <label for="cooperation_area" class="col-sm-2 control-label">Cooperation Area</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="cooperation_area" placeholder="Cooperation Area" value="<?php echo $project['cooperation_area'];?>">
+              <span class="help-block"></span>
             </div>
           </div>
           
@@ -77,6 +79,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
             <label for="relevance" class="col-sm-2 control-label">Relevance</label>
             <div class="col-sm-10">
               <textarea class="form-control" name="relevance" rows="3" placeholder="Enter ..."><?php echo $project['relevance'];?></textarea>
+              <span class="help-block"></span>
             </div>
           </div>
 
@@ -92,36 +95,42 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                   <label for="ra_name" class="col-sm-2 control-label">Name</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="ra_name" placeholder="Name" value="<?php echo $project['ra_name'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="ra_title" class="col-sm-2 control-label">Title</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="ra_title" placeholder="Title" value="<?php echo $project['ra_title'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="ra_address" class="col-sm-2 control-label">Address</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="ra_address" placeholder="Address" value="<?php echo $project['ra_address'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="ra_phone" class="col-sm-2 control-label">Phone</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="ra_phone" placeholder="Phone" value="<?php echo $project['ra_phone'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="ra_fax" class="col-sm-2 control-label">Fax</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="ra_fax" placeholder="Fax" value="<?php echo $project['ra_fax'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="ra_email" class="col-sm-2 control-label">Email</label>
                   <div class="col-sm-10">
                     <input type="email" class="form-control" name="ra_email" placeholder="Email" value="<?php echo $project['ra_email'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
               </div><!-- /.box-body -->
@@ -138,36 +147,42 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                   <label for="cp_name" class="col-sm-2 control-label">Name</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="cp_name" placeholder="Name" value="<?php echo $project['cp_name'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="cp_title" class="col-sm-2 control-label">Title</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="cp_title" placeholder="Title" value="<?php echo $project['cp_title'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="cp_address" class="col-sm-2 control-label">Address</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="cp_address" placeholder="Address" value="<?php echo $project['cp_address'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="cp_phone" class="col-sm-2 control-label">Phone</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="cp_phone" placeholder="Phone" value="<?php echo $project['cp_phone'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="cp_fax" class="col-sm-2 control-label">Fax</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="cp_fax" placeholder="Fax" value="<?php echo $project['cp_fax'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="cp_email" class="col-sm-2 control-label">Email</label>
                   <div class="col-sm-10">
                     <input type="email" class="form-control" name="cp_email" placeholder="Email" value="<?php echo $project['cp_email'];?>">
+                    <span class="help-block"></span>
                   </div>
                 </div>
               </div><!-- /.box-body -->
@@ -184,6 +199,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 <option value="6" <?php echo $project['duration']==6?"selected":""; ?> />6</option>
                 <option value="7" <?php echo $project['duration']==7?"selected":""; ?> />7</option>
               </select>
+              <span class="help-block"></span>
             </div>
           </div>
 

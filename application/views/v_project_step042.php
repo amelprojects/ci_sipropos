@@ -128,56 +128,67 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         <div class="form-group">
                             <label class="control-label">Activity Title</label>
                             <input name="title" placeholder="Title" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Activity Description</label>
                             <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Country wich will be invited to the workshop</label>
                             <input name="countries" placeholder="Country" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Number of participants invited to the workshop per partner country</label>
                             <input name="participant" placeholder="Number of participants" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Number of total participants invited to the worksop program</label>
                             <input name="participant_total" placeholder="Number of total participants" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Duration of the workshop (days)</label>
                             <input name="duration" placeholder="Duration of the workshop" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Location of the workshop</label>
                             <input name="location" placeholder="Duration of the workshop" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Number of days of boarding and lodging needed</label>
                             <input name="days" placeholder="Number of days" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Number of flight tickets needed (roundtrip)</label>
                             <input name="ticket" placeholder="Number of roundtrip tickets" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Writen output of the workshop</label>
                             <input name="output" placeholder="Workshop output" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Indicate budget or training</label>
                             <input name="budget" placeholder="budget" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                     </div>

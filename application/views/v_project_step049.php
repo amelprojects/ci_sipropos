@@ -44,6 +44,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 <th>Add HR for Trainer
                   <button class="btn btn-box-tool" href="#" onclick="add_hr_trainer('<?php echo $project['id'];?>')" title="Tambah"><i class="fa fa-plus"></i></button>
                 </th>
+                <th>Trainer</th>
                 <th>Education</th>
                 <th>Experience</th>
                 <th>Publication</th>
@@ -56,6 +57,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                   <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_hr_trainer('<?php echo $list_hr_trainer['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
                   <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_hr_trainer('<?php echo $list_hr_trainer['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
                 </td>
+                <td><?php echo $list_hr_trainer['trainer']; ?></td>
                 <td><?php echo $list_hr_trainer['education_level']; ?></td>
                 <td><?php echo $list_hr_trainer['experience']; ?></td>
                 <td><?php echo $list_hr_trainer['publication']; ?></td>
@@ -98,31 +100,37 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         <div class="form-group">
                             <label class="control-label">Trainer</label>
                             <input name="trainer" placeholder="Trainer Name" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Education Level</label>
                             <input name="education_level" placeholder="Title" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Major/Concentration/Field</label>
                             <textarea class="form-control" name="major" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Publication</label>
                             <textarea class="form-control" name="publication" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Practical experience in related field</label>
                             <textarea class="form-control" name="experience" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Other Qualification</label>
                             <textarea class="form-control" name="other_qualification" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
@@ -135,7 +143,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                                 <option value="4"/>4</option>
                                 <option value="5"/>5 (highest)</option>
                             </select>
-
+                            <span class="help-block"></span>
                         </div>
 
                     </div>

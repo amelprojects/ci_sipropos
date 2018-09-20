@@ -42,6 +42,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="form-group">
             <label>Summary</label>
             <textarea class="form-control" name="summary" rows="3" placeholder="Enter ..."><?php echo $project['summary'];?></textarea>
+            <span class="help-block"></span>
           </div>
 
         </div><!-- /.box-body -->
@@ -56,13 +57,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
     </div><!-- /.box -->
 
 
-
     <div class="box-footer">
       <?php if ($project['type']==1) {?>
       <a href="<?php echo base_url()."project/step049/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Prev</button></a>
       <?php } ?>
       <?php if ($project['type']==2) {?>
-      <a href="<?php echo base_url()."project/step05x/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step051/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Prev</button></a>
       <?php } else { ?>
       <?php } ?>
 

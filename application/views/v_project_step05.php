@@ -17,7 +17,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Project Essentials
+      Research Project Proposal
       <small>Create Project</small>
     </h1>
     <ol class="breadcrumb">
@@ -30,38 +30,28 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <h3 class="box-title">Form</h3>
+        <h3 class="box-title">Term of Reference (ToR)</h3>
       </div>
 
       <!-- form start -->
       <form action="#" id="form">
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
+        <input type="hidden" value="<?php echo $project['project_code'];?>" name="project_code">
+        <input type="hidden" value="<?php echo $project['file_tor'];?>" name="file_tor_lama">
 
         <div class="box-body">
 
           <div class="form-group">
-            <label>Overall Objectives</label>
-            <textarea class="form-control" name="overall_objective" rows="3" placeholder="Enter ..."><?php echo $project['overall_objective'];?></textarea>
+            <label>Ambil File</label>
+            <input name="gambar" type="file">
             <span class="help-block"></span>
           </div>
-
+          <?php if ($project['file_tor']!="") {?>
           <div class="form-group">
-            <label>Project Purpose</label>
-            <textarea class="form-control" name="project_purpose" rows="3" placeholder="Enter ..."><?php echo $project['project_purpose'];?></textarea>
-            <span class="help-block"></span>
+            <label>File Lama</label>
+            <?php echo $project['file_tor']; ?>
           </div>
-
-          <div class="form-group">
-            <label>Target Group</label>
-            <textarea class="form-control" name="target_group" rows="3" placeholder="Enter ..."><?php echo $project['target_group'];?></textarea>
-            <span class="help-block"></span>
-          </div>
-
-          <div class="form-group">
-            <label>Contribution to Multilateral Cooperation</label>
-            <textarea class="form-control" name="contribution" rows="3" placeholder="Enter ..."><?php echo $project['contribution'];?></textarea>
-            <span class="help-block"></span>
-          </div>
+          <?php } ?>
 
         </div><!-- /.box-body -->
 
@@ -77,14 +67,9 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 
     <div class="box-footer">
-      <a href="<?php echo base_url()."project/step02/".$project['id'];?>" title="Ke Step 2"><button type="button" class="btn btn-default">Prev</button></a>
-      <?php if ($project['type']==1) {?>
-      <a href="<?php echo base_url()."project/step04/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default pull-right">Next</button></a>
-      <?php } ?>
-      <?php if ($project['type']==2) {?>
-      <a href="<?php echo base_url()."project/step05/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default pull-right">Next</button></a>
-      <?php } else { ?>
-      <?php } ?>
+      <a href="<?php echo base_url()."project/step03/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Prev</button></a>
+
+      <a href="<?php echo base_url()."project/step051/".$project['id'];?>" title="Ke Step 7"><button type="button" class="btn btn-default pull-right">Next</button></a>
 
     </div><!-- /.box-footer -->
 

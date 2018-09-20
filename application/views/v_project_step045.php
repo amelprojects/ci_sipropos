@@ -128,51 +128,61 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         <div class="form-group">
                             <label class="control-label">Activity Title</label>
                             <input name="title" placeholder="Title" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Activity Description</label>
                             <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Countries wich will be invited to the Publicity Meeting</label>
                             <input name="countries" placeholder="Countries" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Profile of the invited participants</label>
                             <input name="participant_profile" placeholder="Profile" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Number of participants invited to the publicity meeting per partner country</label>
                             <input name="participant" placeholder="Number of participants" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Number of total participants invited to the publicity meeting program</label>
                             <input name="participant_total" placeholder="Number of total participants" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Tools and materials that will be utilized for the publicity meeting</label>
                             <input name="tools_material" placeholder="Tools and materials that will be utilized for the publicity meeting" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Duration of the publicity meeting (days)</label>
                             <input name="duration" placeholder="Duration of the training" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Location of the publicity meeting</label>
                             <input name="location" placeholder="Location" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Indicate budget or publicity meeting</label>
                             <input name="budget" placeholder="budget" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                     </div>

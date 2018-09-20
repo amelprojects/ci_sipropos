@@ -49,8 +49,8 @@ function save()
                 for (var i = 0; i < data.inputerror.length; i++) 
                 {
                     $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                    // $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
-                    new PNotify({title: 'Study Visit',text: data.error_string[i], styling: 'bootstrap3'});
+                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
+                    // new PNotify({title: 'Study Visit',text: data.error_string[i], styling: 'bootstrap3'});
                 }
             }
             $('#btnSave').text('save'); //change button text

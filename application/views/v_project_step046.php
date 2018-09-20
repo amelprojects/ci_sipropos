@@ -132,41 +132,49 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         <div class="form-group">
                             <label class="control-label">Activity Title</label>
                             <input name="title" placeholder="Title" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Activity Description</label>
                             <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Promotional materials that will be produced</label>
                             <input name="promotional" placeholder="Promotional Material" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Potential Producers of Promotional Materials</label>
                             <input name="potential" placeholder="Potential" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Target Group</label>
                             <input name="target_group" placeholder="Target Group" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Ways and means of disseminating Promotional Material</label>
                             <input name="ways_mean" placeholder="Ways and mean" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Duration of Dissemination</label>
                             <input name="duration" placeholder="Duration of the training" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Indicate budget for Promotional Material</label>
                             <input name="budget" placeholder="budget" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
 
                     </div>

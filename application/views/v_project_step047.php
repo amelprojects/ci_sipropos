@@ -122,11 +122,13 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         <div class="form-group">
                             <label class="control-label">Activity Title</label>
                             <input name="title" placeholder="Title" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Activity Description</label>
                             <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                     </div>

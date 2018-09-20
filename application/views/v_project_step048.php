@@ -128,21 +128,25 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         <div class="form-group">
                             <label class="control-label">Education Level</label>
                             <input name="education_level" placeholder="Title" class="form-control" type="text">
+                            <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Major/Concentration/Field</label>
                             <textarea class="form-control" name="major" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Practical experience in related field</label>
                             <textarea class="form-control" name="experience" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Other Qualification</label>
                             <textarea class="form-control" name="other_qualification" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
@@ -155,7 +159,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                                 <option value="4"/>4</option>
                                 <option value="5"/>5 (highest)</option>
                             </select>
-
+                            <span class="help-block"></span>
                         </div>
 
                     </div>
