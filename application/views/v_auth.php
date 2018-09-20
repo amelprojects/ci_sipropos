@@ -62,9 +62,19 @@
  -->
    
           <div class="row">
+<!-- 
             <div class="col-xs-8">
               <a href="<?php echo base_url('auth/forgot'); ?>">Lupa Kata Sandi</a>
-            </div><!-- /.col -->
+            </div>
+
+ -->        
+            <div class="col-xs-4" style="font-size: 18pt;text-align: right;">
+              <?=$captcha;?>
+            </div>
+            <div class="col-xs-4">
+              <input class="form-control" type="text" name="captcha_code" id="captcha_code" required="required">
+            </div>
+
             <div class="col-xs-4">
               <button type="button" id="btn_save" onclick="save()" class="btn btn-primary btn-block btn-flat">Masuk</button>
             </div><!-- /.col -->
@@ -99,7 +109,7 @@
 
             var username = $('#user_name').val();
             var password = $('#user_pass').val();
-            // var captcha_code = $('#captcha_code').val();
+            var captcha_code = $('#captcha_code').val();
 
             if (username === "") {
                 new PNotify({title: 'Login Form',text: 'Kata pengguna tidak boleh kosong!', styling: 'bootstrap3'});
@@ -123,8 +133,8 @@
                       type:'POST',
                       url:'<?php echo base_url();?>auth/validasi_login',
                       //data: "username="+username+"&password="+password+"&imagecode="+imagecode,
-                      // data: "user_name="+username+"&user_pass="+password+"&captcha_code="+captcha_code,
-                      data: "user_name="+username+"&user_pass="+password,
+                      data: "user_name="+username+"&user_pass="+password+"&captcha_code="+captcha_code,
+                      // data: "user_name="+username+"&user_pass="+password,
                       beforeSend:function(msg){
                         new PNotify({text: 'Proses ..... !', type: 'info', icon: 'fa fa-spinner fa-spin', styling: 'bootstrap3'}); 
                       },
@@ -132,13 +142,13 @@
                           //alert(msg);
                           PNotify.removeAll();
 
-                          // if (msg==99) {
+                          if (msg==99) {
                           //     //alert("Username and password is not valid");
-                          //     new PNotify({title: 'Form Login',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
-                          //     $("#captcha_code").focus();
-                          //     // document.location.reload();
-                          // } else if (msg==1) {
-                          if (msg==1) {
+                              new PNotify({title: 'Form Login',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
+                              $("#captcha_code").focus();
+                              // document.location.reload();
+                          } else if (msg==1) {
+                          // if (msg==1) {
                               //alert("Username and password is not valid");
                               new PNotify({title: 'Form Login',text: 'Kata pengguna tidak ditemukan!', styling: 'bootstrap3'});
                               $("#username").focus();

@@ -19,11 +19,12 @@ class Auth extends CI_Controller {
 
         // $data['captcha'] = $this->captcha->main();
         // $this->session->set_userdata('captcha_info', $data['captcha']);
-
-         $this->load->library('mathcaptcha');
-         $this->mathcaptcha->init();
-     
-         $data['math_captcha_question'] = $this->mathcaptcha->get_question();
+        
+        $this->load->library('mathcaptcha');
+        $kode=$this->mathcaptcha->generatekode();
+        $this->session->set_userdata('captcha',$kode);     
+        $data['captcha']=$this->mathcaptcha->showcaptcha();
+        
         
         $this->load->view('v_auth', $data);
 
@@ -41,6 +42,7 @@ class Auth extends CI_Controller {
         // $captcha_info = $this->session->userdata('captcha_info');
         
         // if($captcha_info['code'] == $this->input->post('captcha_code')) {
+        if($this->session->userdata('captcha') == $this->input->post('captcha_code')) {
     
             if (!empty($pass)) {
 
@@ -91,9 +93,9 @@ class Auth extends CI_Controller {
             } else {
                 echo 1; // VF - failed username
             }
-        // } else {
-        //     echo 99; // VF - captcha
-        // }
+        } else {
+            echo 99; // VF - captcha
+        }
         //$result = $this->m_login->validate($username, $password, $imagecode);
         //$data['s_all'] = $this->session->all_userdata();
         //print_r($this->session->all_userdata());
