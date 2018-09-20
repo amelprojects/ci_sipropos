@@ -18,7 +18,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content-header">
     <h1>
       Main Activities
-      <small>Other Activities</small>
+      <small>Human Resource for Coordinator</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
@@ -30,7 +30,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <small>Please Specify at least <?php echo $project['ab_jumlah_media']; ?> other activities</small>
+        <small>.....</small>
       </div>
 
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
@@ -41,22 +41,24 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add Other Activities
-                  <?php if (count($other)<$project['ab_jumlah_other_activities']) { ?> 
-                  <button class="btn btn-box-tool" href="#" onclick="add_other('<?php echo $project['id'];?>')" title="Tambah Other Activities"><i class="fa fa-plus"></i></button>
-                  <?php } ?>
+                <th>Add HR for Coordinator
+                  <button class="btn btn-box-tool" href="#" onclick="add_hr_coordinator('<?php echo $project['id'];?>')" title="Tambah"><i class="fa fa-plus"></i></button>
                 </th>
-                <th>Title</th>
-                <th>Description</th>
+                <th>Education</th>
+                <th>Experience</th>
+                <th>Field</th>
+                <th>Engslish Skill</th>
               </tr>
-              <?php foreach($other as $list_other) { ?>
+              <?php foreach($hr_coordinator as $list_hr_coordinator) { ?>
               <tr>
                 <td>
-                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_other('<?php echo $list_other['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
-                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_other('<?php echo $list_other['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
+                  <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_hr_coordinator('<?php echo $list_hr_coordinator['id'];?>')"><i class="glyphicon glyphicon-edit"></i></a> Edit
+                  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_hr_coordinator('<?php echo $list_hr_coordinator['id'];?>')"><i class="glyphicon glyphicon-trash"></i></a> Hapus
                 </td>
-                <td><?php echo $list_other['title']; ?></td>
-                <td><?php echo $list_other['description']; ?></td>
+                <td><?php echo $list_hr_coordinator['education_level']; ?></td>
+                <td><?php echo $list_hr_coordinator['experience']; ?></td>
+                <td><?php echo $list_hr_coordinator['major']; ?></td>
+                <td><?php echo $list_hr_coordinator['english_skill']; ?></td>
               </tr>
               <?php } ?>
             </table>
@@ -69,8 +71,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 
     <div class="box-footer">
+    <?php         
+        if ($project['ab_jumlah_other_activities'] > 0) {
+      ?>
+      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
       <?php         
-        if ($project['ab_jumlah_media'] > 0) {
+        } else if ($project['ab_jumlah_media'] > 0) {
       ?>
       <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
       <?php         
@@ -99,7 +105,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
       <?php } ?>
 
-      <a href="<?php echo base_url()."project/step048/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step049/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
 
     </div><!-- /.box-footer -->
 
@@ -112,7 +118,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Other Activities</h3>
+                <h3 class="modal-title">Add Human Resource for Coordinator</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form">
@@ -120,13 +126,36 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <input type="hidden" value="<?php echo $project['id'];?>" name="project_id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label">Activity Title</label>
-                            <input name="title" placeholder="Title" class="form-control" type="text">
+                            <label class="control-label">Education Level</label>
+                            <input name="education_level" placeholder="Title" class="form-control" type="text">
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label">Activity Description</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <label class="control-label">Major/Concentration/Field</label>
+                            <textarea class="form-control" name="major" rows="3" placeholder="Enter ..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Practical experience in related field</label>
+                            <textarea class="form-control" name="experience" rows="3" placeholder="Enter ..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Other Qualification</label>
+                            <textarea class="form-control" name="other_qualification" rows="3" placeholder="Enter ..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Engslish Skill</label>
+                            <select name="english_skill" id="english_skill" class="form-control">
+                                <option value="">Pilih</option>
+                                <option value="1"/>1 (lowest)</option>
+                                <option value="2"/>2</option>
+                                <option value="3"/>3</option>
+                                <option value="4"/>4</option>
+                                <option value="5"/>5 (highest)</option>
+                            </select>
+
                         </div>
 
                     </div>

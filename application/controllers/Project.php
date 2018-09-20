@@ -491,7 +491,7 @@ class Project extends CI_Controller {
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
-            if ($data['s_all']['user_id']==$project['user_created']) {
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
 
                 $data['isi'] = "v_project_step04";
                 $data['js_footer'] = "v_project_step04_js";
@@ -624,7 +624,7 @@ class Project extends CI_Controller {
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
-            if ($data['s_all']['user_id']==$project['user_created']) {
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
 
                 $data['isi'] = "v_project_step041";
                 $data['js_footer'] = "v_project_step041_js";
@@ -829,7 +829,7 @@ class Project extends CI_Controller {
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
-            if ($data['s_all']['user_id']==$project['user_created']) {
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
 
                 $data['isi'] = "v_project_step042";
                 $data['js_footer'] = "v_project_step042_js";
@@ -1025,7 +1025,7 @@ class Project extends CI_Controller {
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
-            if ($data['s_all']['user_id']==$project['user_created']) {
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
 
                 $data['isi'] = "v_project_step043";
                 $data['js_footer'] = "v_project_step043_js";
@@ -1213,7 +1213,7 @@ class Project extends CI_Controller {
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
-            if ($data['s_all']['user_id']==$project['user_created']) {
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
 
                 $data['isi'] = "v_project_step044";
                 $data['js_footer'] = "v_project_step044_js";
@@ -1418,7 +1418,7 @@ class Project extends CI_Controller {
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
-            if ($data['s_all']['user_id']==$project['user_created']) {
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
 
                 $data['isi'] = "v_project_step045";
                 $data['js_footer'] = "v_project_step045_js";
@@ -1605,7 +1605,7 @@ class Project extends CI_Controller {
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
-            if ($data['s_all']['user_id']==$project['user_created']) {
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
 
                 $data['isi'] = "v_project_step046";
                 $data['js_footer'] = "v_project_step046_js";
@@ -1774,7 +1774,7 @@ class Project extends CI_Controller {
 
         if ($data['s_all']['user_role']==2 || $project!="") {
 
-            if ($data['s_all']['user_id']==$project['user_created']) {
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
 
                 $data['isi'] = "v_project_step047";
                 $data['js_footer'] = "v_project_step047_js";
@@ -1862,7 +1862,288 @@ class Project extends CI_Controller {
         echo json_encode(array("status" => TRUE));
     }
 
-	private function check_isvalidated() {
+    public function step048($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        $data0 = array(
+                        'id' => $project_id,
+                        'status' => 11,
+                );
+
+        $this->m_model->edit("project", 'id', $data0);
+
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $hr_coordinator = $this->m_model->select_all("project_hr_coordinator", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+
+        $data['hr_coordinator'] = $hr_coordinator;
+
+        $data['title'] = "SIPROPOS - Human Resource for Coordinator";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
+
+                $data['isi'] = "v_project_step048";
+                $data['js_footer'] = "v_project_step048_js";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
+    }
+
+    public function ajax_add_hr_coordinator(){
+        $s_all = $this->session->all_userdata();
+
+        $this->form_validate_add_hr_coordinator();
+        
+        // $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
+        
+        $data = array(
+                        'project_id' => $this->security->xss_clean($this->input->post('project_id')),
+                        'education_level' => $this->security->xss_clean($this->input->post('education_level')),
+                        'major' => $this->security->xss_clean($this->input->post('major')),
+                        'experience' => $this->security->xss_clean($this->input->post('experience')),
+                        'other_qualification' => $this->security->xss_clean($this->input->post('other_qualification')),
+                        'english_skill' => $this->security->xss_clean($this->input->post('english_skill')),
+                );
+        
+        $this->m_model->insert("project_hr_coordinator", $data);
+        
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function form_validate_add_hr_coordinator(){
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        
+        if($this->input->post('education_level') == '')
+        {
+            $data['inputerror'][] = 'education_level';
+            $data['error_string'][] = 'Gelar harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('major') == '')
+        {
+            $data['inputerror'][] = 'major';
+            $data['error_string'][] = 'Field harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('experience') == '')
+        {
+            $data['inputerror'][] = 'experience';
+            $data['error_string'][] = 'Pengalaman harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('other_qualification') == '')
+        {
+            $data['inputerror'][] = 'other_qualification';
+            $data['error_string'][] = 'Kualifikasi lainnya harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('english_skill') == '')
+        {
+            $data['inputerror'][] = 'english_skill';
+            $data['error_string'][] = 'Kemampuan bahasa inggris harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
+    public function ajax_get_hr_coordinator($id){
+        $data = $this->m_model->detail_row("project_hr_coordinator", 'id', $id);
+        echo json_encode($data);
+    }
+
+    public function step049($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        $data0 = array(
+                        'id' => $project_id,
+                        'status' => 11,
+                );
+
+        $this->m_model->edit("project", 'id', $data0);
+
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $hr_trainer = $this->m_model->select_all("project_hr_trainer", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+
+        $data['hr_trainer'] = $hr_trainer;
+
+        $data['title'] = "SIPROPOS - Human Resource for Trainer";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['type']==1) {
+
+                $data['isi'] = "v_project_step049";
+                $data['js_footer'] = "v_project_step049_js";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
+    }
+
+    public function ajax_add_hr_trainer(){
+        $s_all = $this->session->all_userdata();
+
+        $this->form_validate_add_hr_trainer();
+        
+        // $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
+        
+        $data = array(
+                        'project_id' => $this->security->xss_clean($this->input->post('project_id')),
+                        'trainer' => $this->security->xss_clean($this->input->post('trainer')),
+                        'education_level' => $this->security->xss_clean($this->input->post('education_level')),
+                        'major' => $this->security->xss_clean($this->input->post('major')),
+                        'experience' => $this->security->xss_clean($this->input->post('experience')),
+                        'publication' => $this->security->xss_clean($this->input->post('publication')),
+                        'other_qualification' => $this->security->xss_clean($this->input->post('other_qualification')),
+                        'english_skill' => $this->security->xss_clean($this->input->post('english_skill')),
+                );
+        
+        $this->m_model->insert("project_hr_trainer", $data);
+        
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function form_validate_add_hr_trainer(){
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        
+        if($this->input->post('trainer') == '')
+        {
+            $data['inputerror'][] = 'trainer';
+            $data['error_string'][] = 'Nama Trainer harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('education_level') == '')
+        {
+            $data['inputerror'][] = 'education_level';
+            $data['error_string'][] = 'Gelar harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('major') == '')
+        {
+            $data['inputerror'][] = 'major';
+            $data['error_string'][] = 'Field harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('experience') == '')
+        {
+            $data['inputerror'][] = 'experience';
+            $data['error_string'][] = 'Pengalaman harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('publication') == '')
+        {
+            $data['inputerror'][] = 'publication';
+            $data['error_string'][] = 'Publication harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('other_qualification') == '')
+        {
+            $data['inputerror'][] = 'other_qualification';
+            $data['error_string'][] = 'Kualifikasi lainnya harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('english_skill') == '')
+        {
+            $data['inputerror'][] = 'english_skill';
+            $data['error_string'][] = 'Kemampuan bahasa inggris harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
+    public function ajax_get_hr_trainer($id){
+        $data = $this->m_model->detail_row("project_hr_trainer", 'id', $id);
+        echo json_encode($data);
+    }
+
+    public function ajax_edit_hr_trainer(){
+        $this->form_validate_add_hr_trainer();
+        $data = array(
+                        'id' => $this->security->xss_clean($this->input->post('id')),
+                        'education_level' => $this->security->xss_clean($this->input->post('education_level')),
+                        'major' => $this->security->xss_clean($this->input->post('major')),
+                        'experience' => $this->security->xss_clean($this->input->post('experience')),
+                        'publication' => $this->security->xss_clean($this->input->post('publication')),
+                        'other_qualification' => $this->security->xss_clean($this->input->post('other_qualification')),
+                        'english_skill' => $this->security->xss_clean($this->input->post('english_skill')),
+                );
+        $this->m_model->edit("project_hr_trainer", 'id', $data);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function ajax_delete_hr_trainer($id){
+
+        $this->m_model->delete("project_hr_trainer", 'id', $id);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function check_isvalidated() {
 
         $s_all = $this->session->all_userdata();
 

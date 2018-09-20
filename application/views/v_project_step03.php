@@ -74,7 +74,14 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
     <div class="box-footer">
       <a href="<?php echo base_url()."project/step02/".$project['id'];?>" title="Ke Step 2"><button type="button" class="btn btn-default">Prev</button></a>
+      <?php if ($project['type']==1) {?>
       <a href="<?php echo base_url()."project/step04/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php } ?>
+      <?php if ($project['type']==2) {?>
+      <a href="<?php echo base_url()."project/step05/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php } else { ?>
+      <?php } ?>
+
     </div><!-- /.box-footer -->
 
    
