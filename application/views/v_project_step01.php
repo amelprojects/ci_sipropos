@@ -48,6 +48,14 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           </div>
 
           <div class="form-group">
+            <label for="project_title" class="col-sm-2 control-label">Project Code</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="project_code" value="<?php echo $project['project_code'];?>" readonly>
+              <span class="help-block"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
             <label for="project_type" class="col-sm-2 control-label">Project Type</label>
             <div class="col-sm-10">
               <select name="project_type" id="project_type" class="form-control">

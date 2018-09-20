@@ -20,6 +20,8 @@ class Project extends CI_Controller {
         //$this->check_users_detail($data['s_all']['user_id']);
         // $data['info'] = $this->m_model->select_all_row("*","info", "ORDER BY id DESC LIMIT 1");
 
+        // echo strtoupper($data['s_all']['user_name']);
+
         if ($data['s_all']['user_role']==2) {
 
             $data = array(
@@ -50,6 +52,15 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
+        $project_code = date("Y")."-".strtoupper($data['s_all']['user_name'])."-".sprintf("%'.04d\n", $project_id);
+
+        $data1 = array(
+                        'id' => $project_id,
+                        'project_code' => $project_code,
+                );
+        
+        $this->m_model->edit("project", 'id', $data1);
+
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -366,13 +377,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 2,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -475,13 +479,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 3,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -603,13 +600,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 4,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -808,13 +798,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 5,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -1004,13 +987,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 6,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -1192,13 +1168,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 7,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -1397,13 +1366,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 8,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -1584,13 +1546,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 9,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -1753,13 +1708,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 10,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -1868,13 +1816,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 11,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -1990,13 +1931,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 11,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
@@ -2142,6 +2076,80 @@ class Project extends CI_Controller {
         $this->m_model->delete("project_hr_trainer", 'id', $id);
         echo json_encode(array("status" => TRUE));
     }
+
+    public function step06($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $data['title'] = "SIPROPOS - Project Summary";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created']) {
+
+                $data['isi'] = "v_project_step06";
+                $data['js_footer'] = "v_project_step06_js";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
+    }
+
+    public function step06_action(){
+        $s_all = $this->session->all_userdata();
+
+        $this->form_validate_step06();
+        
+        // $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
+        
+        $data = array(
+                        'id' => $this->security->xss_clean($this->input->post('id')),
+                        'summary' => $this->security->xss_clean($this->input->post('summary')),
+                );
+        
+        $this->m_model->edit("project", 'id', $data);
+        
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function form_validate_step06(){
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        
+        if($this->input->post('summary') == '')
+        {
+            $data['inputerror'][] = 'summary';
+            $data['error_string'][] = 'Summary harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
 
     private function check_isvalidated() {
 
