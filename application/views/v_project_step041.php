@@ -97,9 +97,13 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       ?>
       <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
       <?php         
-        } else {
+        } else if ($project['ab_jumlah_other_activities'] > 0) {
       ?>
       <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <?php         
+        } else {
+      ?>
+      <a href="<?php echo base_url()."project/step048/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
       <?php } ?>
 
     </div><!-- /.box-footer -->

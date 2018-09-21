@@ -66,14 +66,47 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
       </div><!-- /.box-body -->
     </div><!-- /.box -->
-    <div class="box box-default">
-      <div class="box-header with-border">
-        <h3 class="box-title">Daftar Projects</h3>
-      </div>
-      <div class="box-body">
-        The great content goes here
-      </div><!-- /.box-body -->
-    </div><!-- /.box -->
+
+        <div class="row">
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">Daftar Pengguna</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" href="#" onclick="window.history.back();" title="Kembali ke Halaman Semula"><i class="fa fa-backward"></i></button>
+                    <button class="btn btn-box-tool" href="#" onclick="add_users()" title="Tambah User"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-box-tool" href="#" onclick="reload_table()" title="Reload Tabel"><i class="fa fa-refresh"></i></button>
+                </div>
+
+              </div><!-- /.box-header -->
+
+              <div class="box-body">
+
+                  <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                      <thead>
+                      <tr>
+                          <th>Title</th>
+                          <th>Project Code</th>
+                          <th>Type</th>
+                          <th>Status</th>
+                          <th>File</th>
+                          <!--
+                          <th>Login Terakhir</th>
+                          -->
+                          <th>Aksi</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
+
+              </div>
+            </div>
+          </div>    
+        </div>
+
+
     <div class="box box-default">
       <div class="box-header with-border">
         <h3 class="box-title">Dokumentasi</h3>
