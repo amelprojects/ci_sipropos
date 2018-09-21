@@ -71,7 +71,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
-                <li><a href="<?php echo base_url(); ?>home"><i class="fa fa-clipboard"></i> Projects</a></li>
+                <li><a href="<?php echo base_url(); ?>home"><i class="fa fa-clipboard"></i>&nbsp;Projects</a></li>
+                <li><a href="<?php echo base_url(); ?>about"><i class="fa fa-info-circle"></i>&nbsp;Tentang Kami</a></li>
                 <li><a href="<?php echo base_url(); ?>users/changepassword"><i class="fa fa-exchange"></i> Ganti Kata Sandi</a></li>
 
                 <?php if ($user_role == -1) { ?> 

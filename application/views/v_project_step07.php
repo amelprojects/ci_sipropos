@@ -54,7 +54,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 <div class="icon">
                   <i class="ion ion-android-done-all"></i>
                 </div>
-                <a href="#" class="small-box-footer">Review Project <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?php echo base_url()."project/review/".$project['id'];?>" class="small-box-footer">Review Project <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">

@@ -35,7 +35,7 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="#" onclick="document.location.href='<?php echo base_url(); ?>'"><img src=""></a>
+        <a href="#" onclick="document.location.href='<?php echo base_url(); ?>'"><img src="<?php echo base_url()?>assets/images/logo_kemendag_225x225.jpg" style="width:100px"></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">SIPROPROS</p>
@@ -96,7 +96,7 @@
           </div>
           <hr>
         </form>
-        <footer>Copyright © 2018 | SIPROPOS  </footer>
+        <footer>© 2018 | <small>Dit APEC dan Organisasi Internasional</small> Kemendag</footer>
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 

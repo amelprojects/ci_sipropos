@@ -2437,6 +2437,42 @@ class Project extends CI_Controller {
         echo json_encode(array("status" => TRUE));
     }
 
+    public function review($project_id=""){
+
+        $data['s_all'] = $this->session->all_userdata();
+
+        $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
+        
+        // echo "project id : " .$project_id;
+        $project = $this->m_model->detail_row("project", "id", $project_id);
+        // print_r($project);
+        $data['project'] = $project;
+
+        $data['title'] = "SIPROPOS - Review Project";
+
+        if ($data['s_all']['user_role']==2 || $project!="") {
+
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['status']!=100) {
+
+                $data['isi'] = "v_project_review";
+                $data['js_footer'] = "";
+
+            } else {
+
+                $data['isi'] = "403";
+                $data['js_footer'] = "";
+
+            }
+        } else {
+            $data['isi'] = "403";
+            $data['js_footer'] = "";
+        }
+        
+        $this->load->view('v_template', $data);
+
+    }
+
+
     private function check_isvalidated() {
 
         $s_all = $this->session->all_userdata();
