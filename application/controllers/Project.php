@@ -2450,8 +2450,43 @@ class Project extends CI_Controller {
 
         $partner = $this->m_model->select_all("project_partner", "WHERE project_id='".$project_id."' ORDER BY id");
         // print_r($partner);
-
         $data['partner'] = $partner;
+
+        $training = $this->m_model->select_all("project_training", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+        $data['training'] = $training;
+
+        $workshop = $this->m_model->select_all("project_workshop", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+        $data['workshop'] = $workshop;
+
+        $study_visit = $this->m_model->select_all("project_study_visit", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+        $data['study_visit'] = $study_visit;
+
+        $seminar = $this->m_model->select_all("project_seminar", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+        $data['seminar'] = $seminar;
+
+        $meeting = $this->m_model->select_all("project_meeting", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+        $data['meeting'] = $meeting;
+
+        $media = $this->m_model->select_all("project_media", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+        $data['media'] = $media;
+
+        $other = $this->m_model->select_all("project_other_activities", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+        $data['other'] = $other;
+
+        $hr_coordinator = $this->m_model->select_all("project_hr_coordinator", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+        $data['hr_coordinator'] = $hr_coordinator;
+
+        $hr_trainer = $this->m_model->select_all("project_hr_trainer", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($training);
+        $data['hr_trainer'] = $hr_trainer;
 
         $data['title'] = "SIPROPOS - Review Project";
 
@@ -2460,7 +2495,7 @@ class Project extends CI_Controller {
             if ($data['s_all']['user_id']==$project['user_created'] && $project['status']!=100) {
 
                 $data['isi'] = "v_project_review";
-                $data['js_footer'] = "";
+                $data['js_footer'] = "v_project_review_js";
 
             } else {
 
