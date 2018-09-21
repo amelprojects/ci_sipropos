@@ -2448,6 +2448,11 @@ class Project extends CI_Controller {
         // print_r($project);
         $data['project'] = $project;
 
+        $partner = $this->m_model->select_all("project_partner", "WHERE project_id='".$project_id."' ORDER BY id");
+        // print_r($partner);
+
+        $data['partner'] = $partner;
+
         $data['title'] = "SIPROPOS - Review Project";
 
         if ($data['s_all']['user_role']==2 || $project!="") {
