@@ -40,8 +40,9 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
     <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/dist/css/AdminLTE.css'); ?>">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/dist/css/skins/_all-skins.min.css'); ?>">
 
+    <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/dist/css/skins/_all-skins.min.css'); ?>">
+    
     <!-- PNotify -->
     <link href="<?php echo base_url(); ?>assets/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
@@ -61,7 +62,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a href="<?php echo base_url(); ?>" class="navbar-brand"><b>SIPROPOS</b></a>
+              <a href="<?php echo base_url(); ?>home" class="navbar-brand"><b>SIPROPOS</b></a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
               </button>

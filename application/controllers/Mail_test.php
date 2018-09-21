@@ -33,8 +33,8 @@ class Mail_test extends CI_Controller {
 		$this->mail = $this->php_mailer->load();  
 
 		$this->load->view('welcome_message');
-		$message = $this->template_email(1, "verafirmansyah.online@gmail.com", "passw0rd", '');
-		$this->send_email("verafirmansyah.online@gmail.com","passw0rd",$message);
+		$message = $this->template_email(1, "ayu.sagita@gmail.com", "passw0rd", '');
+		$this->send_email("ayu.sagita@gmail.com","passw0rd",$message);
 
 	}
 
@@ -91,13 +91,13 @@ class Mail_test extends CI_Controller {
 		    $this->mail->isSMTP();                                      // Set mailer to use SMTP
 		    $this->mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
 		    $this->mail->SMTPAuth = true;                               // Enable SMTP authentication
-		    $this->mail->Username = 'joyaryapurnama@gmail.com';                 // SMTP username
-		    $this->mail->Password = 'Byhveank..';                           // SMTP password
+		    $this->mail->Username = 'sipropos.si@gmail.com';                 // SMTP username
+		    $this->mail->Password = 'Sipropos123';                           // SMTP password
 		    $this->mail->SMTPSecure = '';                            // Enable TLS encryption, `ssl` also accepted
 		    $this->mail->Port = 465;                                    // TCP port to connect to
 
 		    //Recipients
-		    $this->mail->setFrom('akmet@kemendag.go.id', 'Akmet Kemendag');
+		    $this->mail->setFrom('sipropos.si@gmail.com', 'SIPROPOS - Kemendag');
 		    //$this->mail->addAddress($email);     // Add a recipient
 		    $this->mail->addAddress($email);     // Add a recipient
 		    //$mail->addAddress('ellen@example.com');               // Name is optional
@@ -111,7 +111,7 @@ class Mail_test extends CI_Controller {
 
 		    //Content
 		    $this->mail->isHTML(true);                                  // Set email format to HTML
-		    $this->mail->Subject = '[VF] Mail Test';
+		    $this->mail->Subject = 'Sipropos Mail Tes';
 		    $this->mail->Body    = $message;
 		    //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
