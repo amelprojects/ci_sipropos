@@ -28,9 +28,9 @@ class Home extends CI_Controller {
 
 	}
 
-    public function ajax_list()
+    public function ajax_list($user_role="", $user_id="")
     {
-        $list = $this->m_project->get_datatables();
+        $list = $this->m_project->get_datatables($user_role, $user_id);
         $data = array();
         $no = $_POST['start'];
         foreach ($list as $items) {
@@ -72,8 +72,8 @@ class Home extends CI_Controller {
 
         $output = array(
                         "draw" => $_POST['draw'],
-                        "recordsTotal" => $this->m_project->count_all(),
-                        "recordsFiltered" => $this->m_project->count_filtered(),
+                        "recordsTotal" => $this->m_project->count_all($user_role, $user_id),
+                        "recordsFiltered" => $this->m_project->count_filtered($user_role, $user_id),
                         "data" => $data,
                         );
         //output to json format

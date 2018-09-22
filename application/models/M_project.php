@@ -14,7 +14,7 @@ class M_project extends CI_Model {
             $this->load->database();
     }
 
-    private function _get_datatables_query()
+    private function _get_datatables_query($user_role="", $user_id="")
     {
 
         //add custom filter here
@@ -36,8 +36,13 @@ class M_project extends CI_Model {
                 $this->db->like('address', $this->input->post('address'));
         }
         $this->db->where('id !=', -1);
-    */
-
+    */  
+        if ($user_role==2) {
+            $this->db->where('status >',0);
+            $this->db->where('user_created', $user_id);
+        } else {
+            $this->db->where('status >=',100);
+        }
         $this->db->from($this->table);
         //$this->db->join('roles', 'users.id_role=roles.id');
         $i = 0;
@@ -74,9 +79,9 @@ class M_project extends CI_Model {
         }
     }
 
-    public function get_datatables()
+    public function get_datatables($user_role="", $user_id="")
     {
-            $this->_get_datatables_query();
+            $this->_get_datatables_query($user_role, $user_id);
             if($_POST['length'] != -1) 
             {
                 $this->db->limit($_POST['length'], $_POST['start']);
@@ -85,18 +90,24 @@ class M_project extends CI_Model {
             return $query->result();
     }
 
-    public function count_filtered()
+    public function count_filtered($user_role="", $user_id="")
     {
-            $this->_get_datatables_query();
+            $this->_get_datatables_query($user_role, $user_id);
             $query = $this->db->get();
             return $query->num_rows();
     }
 
-    public function count_all()
+    public function count_all($user_role="", $user_id="")
     {
             // $this->db->where('id !=', -1);
-            $this->db->from($this->table);
-            return $this->db->count_all_results();
+        if ($user_role==2) {
+            $this->db->where('status >',0);
+            $this->db->where('user_created', $user_id);
+        } else {
+            $this->db->where('status >=',100);
+        }
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
     }
 
 

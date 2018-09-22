@@ -7,8 +7,12 @@
 
 var table;
 
+var user_role = $('[name="user_role"]').val();
+var user_id = $('[name="user_id"]').val();
+
 $(document).ready(function() {
 
+    // alert(role_id+' - '+user_id);
 
     //datatables
     table = $('#datatable-responsive').DataTable({ 
@@ -19,7 +23,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('home/ajax_list')?>",
+            "url": "<?php echo site_url('home/ajax_list')?>/"+user_role+"/"+user_id,
             "type": "POST",
             "data": function (data) {
                 data.title = $('#title').val();

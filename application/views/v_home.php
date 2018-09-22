@@ -13,6 +13,9 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 ?>
 
+<input type="hidden" name="user_role" value="<?=$user_role;?>">
+<input type="hidden" name="user_id" value="<?=$user_id;?>">
+
 <div class="container">
   <!-- Content Header (Page header) -->
   <section class="content-header">
@@ -74,8 +77,6 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
               <div class="box-header">
                 <h3 class="box-title">Daftar Pengguna</h3>
                 <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" href="#" onclick="window.history.back();" title="Kembali ke Halaman Semula"><i class="fa fa-backward"></i></button>
-                    <button class="btn btn-box-tool" href="#" onclick="add_users()" title="Tambah User"><i class="fa fa-plus"></i></button>
                     <button class="btn btn-box-tool" href="#" onclick="reload_table()" title="Reload Tabel"><i class="fa fa-refresh"></i></button>
                 </div>
 
