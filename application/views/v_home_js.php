@@ -136,49 +136,31 @@ function save()
     });
 }
 
-
-function edit_users(id)
+function delete_project(id)
 {
-    save_method = 'update';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('[name="user_email"]').prop('disabled', false);
-    $('#g_user_name').hide();
-    $('#g_user_email').show();
-    $('#g_user_fullname').show();
-    $('#g_password1').hide();
-    $('#g_password2').hide();
-    $('#g_id_role').show();
-    
-    //Ajax Load data from ajax
-    $.ajax({
-        url : "<?php echo site_url('users/ajax_edit')?>/" + id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
-            //alert(data.id_role);
-            $('[name="id"]').val(data.id);
-            $('[name="user_name"]').val(data.user_name);
-            $('[name="user_email"]').val(data.user_email);
-            $('[name="user_fullname"]').val(data.user_fullname);
+    if(confirm('Are you sure delete this data?'))
+    {
+        // ajax delete data to database
+        $.ajax({
+            url : "<?php echo site_url('home/ajax_delete_project')?>/"+id,
+            type: "POST",
+            dataType: "JSON",
+            beforeSend:function(msg){
+                new PNotify({text: 'Proses ..... !', type: 'info', icon: 'fa fa-spinner fa-spin', styling: 'bootstrap3'});
+            },
+            success: function(data)
+            {
+                //if success reload ajax table
+                document.location.reload();
+                PNotify.removeAll();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                new PNotify({title: 'Project',type: 'error', text: "Ada kesalahan pada sistem kami", styling: 'bootstrap3'});
+            }
+        });
 
-            $('select[name="id_role"] option:selected').prop('selected',false); // VF - dibersihkan dulu
-            $('select[name="id_role"] option[value='+data.id_role+']').prop('selected', true);
-            //$('[name="id_role"]').filter(":selected").val(data.id_role);
-            //$("select#id_role option").filter(":selected").val(data.id_role);
-            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Users'); // Set title to Bootstrap modal title
-
-            reload_table();
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            new PNotify({title: 'Users',type: 'error', text: "Ada kesalahan pada sistem kami", styling: 'bootstrap3'});
-        }
-    });
+    }
 }
-
 
 </script>

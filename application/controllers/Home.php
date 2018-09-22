@@ -50,7 +50,7 @@ class Home extends CI_Controller {
             // $login = $items->is_login==1?'<span class="label label-warning pull-right">Online</span>':"";
 
             if ($items->status!=100) {
-                $btn_edit = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_project('."'".$items->id."'".')"><i class="glyphicon glyphicon-edit"></i></a>';
+                $btn_edit = '<a class="btn btn-xs btn-primary" href="'.base_url().'project/step01/'.$items->id.'" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>';
                 $btn_delete ='<a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_project('."'".$items->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
             } else {
                 $btn_edit = '';
@@ -58,7 +58,7 @@ class Home extends CI_Controller {
             }
 
             if ($items->status>=100) {
-                $btn_comment = '<a class="btn btn-xs btn-warning" href="javascript:void(0)" title="Edit" onclick="comment_project('."'".$items->id."'".')"><i class="glyphicon glyphicon-comment"></i></a>';
+                $btn_comment = '<a class="btn btn-xs btn-warning" href="javascript:void(0)" title="Lihat Komentar" onclick="comment_project('."'".$items->id."'".')"><i class="glyphicon glyphicon-comment"></i></a>';
             } else {
                 $btn_comment = '';
             }
@@ -104,6 +104,12 @@ class Home extends CI_Controller {
                         );
         //output to json format
         echo json_encode($output);
+    }
+
+    public function ajax_delete_project($id){
+
+        $this->m_model->delete("project", 'id', $id);
+        echo json_encode(array("status" => TRUE));
     }
 
 	private function check_isvalidated() {
