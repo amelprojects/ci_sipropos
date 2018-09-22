@@ -49,24 +49,50 @@ class Home extends CI_Controller {
             // $role = '<span class="label label-default">'.$this->vf->getFieldById('role_name', 'roles', 'id', $items->id_role).'</span>';
             // $login = $items->is_login==1?'<span class="label label-warning pull-right">Online</span>':"";
 
+            if ($items->status!=100) {
+                $btn_edit = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_project('."'".$items->id."'".')"><i class="glyphicon glyphicon-edit"></i></a>';
+                $btn_delete ='<a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_project('."'".$items->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
+            } else {
+                $btn_edit = '';
+                $btn_delete ='';
+            }
+
+            if ($items->status>=100) {
+                $btn_comment = '<a class="btn btn-xs btn-warning" href="javascript:void(0)" title="Edit" onclick="comment_project('."'".$items->id."'".')"><i class="glyphicon glyphicon-comment"></i></a>';
+            } else {
+                $btn_comment = '';
+            }
+
+            if ($items->status==200) {
+                $btn_status = '<span class="label label-success">Approved</span>';
+            } else if ($items->status==100) {
+                $btn_status = '<span class="label label-info">Submited</span>';
+            } else {
+                $btn_status = '<span class="label label-danger">Pending</span>';
+            }
+
+            if ($items->type==1) {
+                $type = "Activity Based Project";
+            } else {
+                $type = "Research Project";
+            }
+            $btn_file = '<a class="btn btn-xs btn-default" href="'.base_url().'project/review/'.$items->id.'" title="Lihat File" onclick="file_project('."'".$items->id."'".')"><i class="fa fa-html5"></i> html</a>';
+
             $row = array();
             $row[] = $items->title;
             $row[] = $items->project_code;
-            $row[] = $items->type;
+            $row[] = $type;
             // $row[] = $nip.$pns;
-            $row[] = $items->status;
-            $row[] = "";
-            $row[] = "";
+            $row[] = $btn_status;
+            $row[] = $btn_file;
             //$row[] = $items->last_login;
+                        
+            if ($user_role==2) {            
+                $row[] = $btn_edit.$btn_delete.$btn_comment;
+            } else {
+                $row[] = $btn_comment;
+            }
             
-            // $row[] = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_users('."'".$items->id."'".')"><i class="glyphicon glyphicon-edit"></i></a>
-            //           <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_users('."'".$items->id."'".','."'".$items->user_email."'".')"><i class="glyphicon glyphicon-trash"></i></a>
-            //           <a class="btn btn-xs btn-info" href="javascript:void(0)" title="Ganti Password" onclick="change_pass('."'".$items->id."'".','."'".$items->user_email."'".')"><i class="glyphicon glyphicon-random"></i></a>
-            //           '.$is_aktif_button;
-            
-            // $row[] = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_users('."'".$items->id."'".')"><i class="glyphicon glyphicon-edit"></i></a>
-            //           <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_users('."'".$items->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>
-            //           '.$is_aktif_button;
             $data[] = $row;
         }
 

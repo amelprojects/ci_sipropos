@@ -119,6 +119,13 @@ class Project extends CI_Controller {
                 );
         
         $this->m_model->edit("project", 'id', $data);
+
+        $data0 = array(
+                        'id' => $this->security->xss_clean($this->input->post('id')),
+                        'status' => 1,
+                );
+
+        $this->m_model->edit("project", 'id', $data0);
         
         echo json_encode(array("status" => TRUE));
     }
@@ -262,13 +269,6 @@ class Project extends CI_Controller {
 
         $data['roles'] = $this->m_model->select_all("roles", "ORDER BY id");
         
-        $data0 = array(
-                        'id' => $project_id,
-                        'status' => 1,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
-
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);
