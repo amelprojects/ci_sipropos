@@ -72,6 +72,7 @@ class Auth extends CI_Controller {
                             'user_fullname' => $user_all['user_fullname'],
                             'user_email' => $user_all['user_email'],
                             'user_role' => $user_all['id_role'],
+                            'instansi' => $user_all['instansi'],
                             'user_last_login' => $user_all['last_login'],
                             'user_last_activity' => $user_all['last_activity'],
                             'user_date_created' => $user_all['date_created'],
@@ -135,55 +136,70 @@ class Auth extends CI_Controller {
 
     }
 
-    public function add_user()
+    public function register_action()
     {
-        $this->form_validate_add();
+
+        $this->load->library("php_mailer");
+        $this->mail = $this->php_mailer->load();  
+        
         $hasher = new PasswordHash(8, TRUE);
 
+        $user_name = strtolower($this->security->xss_clean($this->input->post('user_name')));
+        $user_pass = $this->security->xss_clean($this->input->post('user_pass'));
+        $user_pass = $hasher->HashPassword($user_pass);
         $user_fullname = strtoupper($this->security->xss_clean($this->input->post('user_fullname')));
         $user_email = str_replace(' ', '',$this->security->xss_clean($this->input->post('user_email')));
         $user_email = strtolower($user_email);
+        $instansi = strtoupper($this->security->xss_clean($this->input->post('instansi')));
 
-        $user_name = random_string('alnum', 15);
-        $user_pass_1 = random_string('alnum', 15);
+        // $user_pass_1 = random_string('alnum', 15);
+        // $user_pass_2 = $hasher->HashPassword($user_pass_1);
 
-        $user_pass_2 = $hasher->HashPassword($user_pass_1);
+        // echo $this->check_validate_user("user_name", $user_name);
+        // echo "-";
+        // echo $this->check_validate_user("user_email", $user_email);
         
-        $data = array(
-                        'user_name' => $user_name,
-                        'user_pass' => $user_pass_2,
-                        'user_fullname' => $user_fullname,
-                        'user_email' => $user_email,
-                        'id_role' => 3,
-                        'is_aktif' => 1,
-                        'ip_address' => $_SERVER['REMOTE_ADDR'],
-                        'date_created' => date ("Y-m-d H:i:s"),
-                );
+        if ($this->check_validate_user("user_name", $user_name)==0) {
 
-        $this->m_model->insert('users', $data);
+            if ($this->check_validate_user("user_email", $user_email)==0) {
+                
+                $data = array(
+                                'user_name' => $user_name,
+                                'user_pass' => $user_pass,
+                                'user_email' => $user_email,
+                                'user_fullname' => $user_fullname,
+                                'instansi' => $instansi,
+                                'id_role' => 2,
+                                'is_aktif' => 0,
+                                'ip_address' => $_SERVER['REMOTE_ADDR'],
+                                'date_created' => date ("Y-m-d H:i:s"),
+                        );
 
-        $data2['email'] = $user_email;
-        $data2['user'] = $user_name;
-        $data2['pass'] = $user_pass_1;
-        $this->m_model->insert('ci_user_temp', $data2);
+                $this->m_model->insert('users', $data);
 
-        // VF - sendmail here to peserta
+                $dataemail = "<br><p>Kata Pengguna : ".$user_name;
+                $dataemail = "<br>Nama Lengkap : ".$user_fullname;
+                $dataemail .= "<br>Email : ".$user_email;
+                $dataemail .= "<br>instansi : ".strtoupper($instansi)."</p>";
+                $dataemail .= "<p>Harap segera ditindaklanjuti</p>";
 
-        if ($this->config->item('email_signup_notif') == 1) {
-            $isi = "Yth.<br><br>"
-                    . "Bersama email ini kami informasikan User Pengguna dan Kata Sandi untuk aplikasi Penerimaan Siswa Baru Akademi Metrologi dan Instrumentasi Tahun Akademik 2017/2018, dengan rincian sebagai berikut<br><br>"
-                    . "User Pengguna : ".$user_name."<br>"
-                    . "Kata Sandi : ".$user_pass_1."<br>"
-                    . "<br><br>"
-                    . "User Pengguna dan Kata Sandi ini harap dijaga baik-baik.<br><br>"
-                    . "Terimakasih atas perhatiannya.<br><br>"
-                    . "Hormat Kami<br>"
-                    . "Tim Akmet PSB 2017";
-            $this->sendMail($user_email, $this->config->item('email_akmet_psb'), $this->config->item('nama_akmet_psb') , "AKMET PSB 2017 - Pendaftaran Akun", $isi);        
+                $message = $this->template_email("Admin", "Pendaftaran Akun Banru", $dataemail);
+                $this->send_email("sipropos.si@gmail.com","[SIPROPOS] - Pendaftaran Akun Baru",$message);
+
+            } else {
+                echo 2;     //VF - failed email
+            } 
+        } else {
+            echo 1;     //VF - failed username
         }
+        // echo json_encode(array("status" => TRUE));
 
-        echo json_encode(array("status" => TRUE));
+    }
 
+
+    private function check_validate_user($field, $value)
+    {
+        return $this->m_model->count_id('users', $field, $value);
     }
 
     public function forgot() {
@@ -205,6 +221,10 @@ class Auth extends CI_Controller {
 
     public function action_forgot()
     {
+
+        $this->load->library("php_mailer");
+        $this->mail = $this->php_mailer->load();  
+
         $this->form_validate_forgot();
         $hasher = new PasswordHash(8, TRUE);
 
@@ -224,165 +244,8 @@ class Auth extends CI_Controller {
 
         $this->m_model->edit('users', 'user_email', $data);
 
-        $data2['email'] = $user_email;
-        $data2['pass'] = $user_pass_1;
-        $this->m_model->edit('ci_user_temp', 'email', $data2);
-
-        // VF - sendmail here to peserta
-
-        if ($this->config->item('email_forgot_notif') == 1) {
-            $isi = "Yth.<br><br>"
-                    . "Bersama email ini kami informasikan Kata Sandi baru untuk aplikasi Penerimaan Siswa Baru Akademi Metrologi dan Instrumentasi Tahun Akademik 2017/2018, dengan rincian sebagai berikut<br><br>"
-                    . "Kata Sandi Baru : ".$user_pass_1."<br>"
-                    . "<br><br>"
-                    . "User Pengguna dan Kata Sandi ini harap dijaga baik-baik.<br><br>"
-                    . "Terimakasih atas perhatiannya.<br><br>"
-                    . "Hormat Kami<br>"
-                    . "Tim Akmet PSB 2017";
-            $this->sendMail($user_email, $this->config->item('email_akmet_psb'), $this->config->item('nama_akmet_psb') , "AKMET PSB 2017 - Kata Sandi Baru", $isi);        
-        }
-
         echo json_encode(array("status" => TRUE));
 
-    }
-
-
-
-
-    private function form_validate_add()
-    {
-
-        $captcha_info = $this->session->userdata('captcha_info');
-
-        $data = array();
-        $data['error_string'] = array();
-        $data['inputerror'] = array();
-        $data['status'] = TRUE;
-
-        if(!preg_match('/^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/iU', $this->input->post('user_email')))
-        {
-            $data['inputerror'][] = 'user_email';
-            $data['error_string'][] = 'Alamat email harus diisi atau tidak valid';
-            $data['status'] = FALSE;
-        }
-        
-        if($this->check_validate_user($this->input->post('user_email')) > 0)
-        {
-            $data['inputerror'][] = 'user_email';
-            $data['error_string'][] = 'Alamat email telah terdaftar';
-            $data['status'] = FALSE;
-        }
-
-        if($this->input->post('user_fullname') == '')
-        {
-            $data['inputerror'][] = 'user_fullname';
-            $data['error_string'][] = 'Nama Lengkap harus diisi';
-            $data['status'] = FALSE;
-        }
-        
-        if($captcha_info['code'] != $this->input->post('captcha_code'))
-        {
-            $data['inputerror'][] = 'captcha_code';
-            $data['error_string'][] = 'Pastikan anda bukan robot, jenis hurup sangat berpengaruh.';
-            $data['status'] = FALSE;
-        }
-
-        if($data['status'] === FALSE)
-        {
-            echo json_encode($data);
-            exit();
-        }
-    }
-
-    private function form_validate_changepassword()
-    {
-        $data = array();
-        $data['error_string'] = array();
-        $data['inputerror'] = array();
-        $data['status'] = TRUE;
-
-        $old_pass = $this->check_validate_pass($this->input->post('user_id'));
-        
-        $hasher = new PasswordHash(8, TRUE);
-        
-        if(!$hasher->CheckPassword($this->input->post('pass_0'), $old_pass) || $this->input->post('pass_0') == '')
-        {
-            $data['inputerror'][] = 'pass_0';
-            $data['error_string'][] = 'Kata sandi lama tidak ditemukan';
-            $data['status'] = FALSE;
-        }
-        
-        
-        if($this->input->post('pass_1') == '')
-        {
-            $data['inputerror'][] = 'pass_1';
-            $data['error_string'][] = 'Kata sandi baru harus diisi';
-            $data['status'] = FALSE;
-        }
-
-        if($this->input->post('pass_2') == '')
-        {
-            $data['inputerror'][] = 'pass_2';
-            $data['error_string'][] = 'Kata sandi baru harus diisi';
-            $data['status'] = FALSE;
-        }
-
-        if($this->input->post('pass_1') != $this->input->post('pass_2'))
-        {
-            $data['inputerror'][] = 'pass_2';
-            $data['error_string'][] = 'Kata sandi baru tidak sama';
-            $data['status'] = FALSE;
-        }
-
-        if($data['status'] === FALSE)
-        {
-            echo json_encode($data);
-            exit();
-        }
-    }
-
-    private function form_validate_forgot()
-    {
-
-        $captcha_info = $this->session->userdata('captcha_info');
-
-        $data = array();
-        $data['error_string'] = array();
-        $data['inputerror'] = array();
-        $data['status'] = TRUE;
-
-        
-        if(!preg_match('/^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/iU', $this->input->post('user_email')))
-        {
-            $data['inputerror'][] = 'user_email';
-            $data['error_string'][] = 'Alamat email harus diisi atau tidak valid';
-            $data['status'] = FALSE;
-        }
-
-        if($this->check_validate_user(strtolower($this->input->post('user_email'))) == 0)
-        {
-            $data['inputerror'][] = 'user_email';
-            $data['error_string'][] = 'Alamat email anda tidak ditemukan';
-            $data['status'] = FALSE;
-        }
-        
-        if($captcha_info['code'] != $this->input->post('captcha_code'))
-        {
-            $data['inputerror'][] = 'captcha_code';
-            $data['error_string'][] = 'Pastikan anda bukan robot, jenis hurup sangat berpengaruh.';
-            $data['status'] = FALSE;
-        }
-
-        if($data['status'] === FALSE)
-        {
-            echo json_encode($data);
-            exit();
-        }
-    }
-
-    private function check_validate_user($user_email)
-    {
-        return $this->m_model->count_id('users', 'user_email', $user_email);
     }
 
     private function check_validate_pass($id)
@@ -390,6 +253,85 @@ class Auth extends CI_Controller {
         $pass = $this->m_model->detail_row('users', 'id', $id);
         return $pass['user_pass'];
     }
+
+
+    private function send_email($emailto, $subject, $message){
+
+        try {
+            // //Server settings
+            // $this->mail->SMTPDebug = 0;                                 // Enable verbose debug output
+            // $this->mail->isSMTP();                                      // Set mailer to use SMTP
+            // $this->mail->Host = '10.30.30.248';  // Specify main and backup SMTP servers
+            // $this->mail->SMTPAuth = false;                               // Enable SMTP authentication
+            // $this->mail->Username = 'akmet@kemendag.go.id';                 // SMTP username
+            // $this->mail->Password = 'Akademi@Metrologi';                           // SMTP password
+            // $this->mail->SMTPSecure = '';                            // Enable TLS encryption, `ssl` also accepted
+            // $this->mail->Port = 25;                                    // TCP port to connect to
+
+            $this->mail->SMTPDebug = 0;                                 // Enable verbose debug output
+            $this->mail->isSMTP();                                      // Set mailer to use SMTP
+            $this->mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+            $this->mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $this->mail->Username = 'sipropos.si@gmail.com';                 // SMTP username
+            $this->mail->Password = 'Sipropos123';                           // SMTP password
+            $this->mail->SMTPSecure = '';                            // Enable TLS encryption, `ssl` also accepted
+            $this->mail->Port = 465;                                    // TCP port to connect to
+
+            //Recipients
+            $this->mail->setFrom('sipropos.si@gmail.com', 'SIPROPOS - Kemendag');
+            //$this->mail->addAddress($email);     // Add a recipient
+            $this->mail->addAddress($emailto);     // Add a recipient
+            //$mail->addAddress('ellen@example.com');               // Name is optional
+            //$mail->addReplyTo('info@example.com', 'Information');
+            //$mail->addCC('cc@example.com');
+            //$mail->addBCC('bcc@example.com');
+
+            //Content
+            $this->mail->isHTML(true);                                  // Set email format to HTML
+            $this->mail->Subject = $subject;
+            $this->mail->Body    = $message;
+            //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            $this->mail->send();
+            //echo 'Message has been sent';
+        } catch (Exception $e) {
+            //echo 'Message could not be sent.';
+            //echo 'Mailer Error: ' . $mail->ErrorInfo;
+        }
+
+        
+    }
+
+    private function template_email($namato, $title, $isidetail){
+
+        // $status = 1;
+        $content = '';
+        $content .= "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
+        $content .= "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>";
+        $content .= "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>";
+
+        $content .= "<div style='padding: 10px; background-color: #2f506c;' class='col-md-12'>";
+        // $content .= "<div class='col-md-1 col-md-offset-1 img-responsive'><img src=".base_url('assets/images/akmet_jpg.png')." width='80px'></div>";
+        // $content .= "<div class='col-md-9' style='color: white;'><h2>".$datappdb->NAMA_PPDB."</h2></div></div>";
+        $content .= "<table width='100%' border='0' cellspacing='0' cellpadding='0' style='color:#fff; margin-left:50px;'><tr><td width='100px;'><img src=".base_url('')." width='80px'></td><td><h2>SIPROPOS</h2></td></tr></table>";
+        $content .= "</div>";
+        $content .= "<div class='col-md-10 col-md-offset-2' style='margin-top:15px; font-size:14px; margin-left:70px;><h3>".$title."</h3></div>";
+
+        $content .= "<div class='col-md-12' style='text-align:center; margin-top: 10px; color:#000000;'>";
+        $content .= "<h3>Hallo ".$namato." !</h3>";
+        // $content .= "<h3>Hallo Leksa !</h3>";
+        $content .= "<p>Perlu kami informasikan tentang ".strtolower($title).", yaitu :</p>";
+        $content .= $isidetail;
+        // $content .= "<br><p>Kata Pengguna : ".$user_name."</p><br>";
+        // $content .= "<br><p>Email : ".$user_email." </p><br>";
+        // $content .= "<p>Harap segera lengkapi data-data anda sebelum proses pendaftaran berakhir</p>";
+        $content .= "</div>";
+        $content .= "<div class='col-md-12' style='padding: 10px; background-color: #2f506c; color: #fff; margin-top: 30px;'>";
+        $content .= "<div class='col-md-10' style='margin-left:50px;'><h3>SIPROPOS</h3></div></div>";
+
+        return $content;
+    }
+
 
     private function sendMail ($mailto="", $mailfrom="", $mailfromname="", $subject="", $isi="") {
 
@@ -400,5 +342,6 @@ class Auth extends CI_Controller {
         $this->email->message($isi);
         $this->email->send();        
     }
+
 
 }

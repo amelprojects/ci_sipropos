@@ -42,7 +42,7 @@
         <form action="#" id="form" method="post">
 
           <div class="form-group has-feedback">
-            <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Kata Pengguna" value="">
+            <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Kata Pengguna (min. 6 karakter)" value="" onkeypress="return validateSpace(this);">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
@@ -121,12 +121,24 @@
                 new PNotify({title: 'Register Form',text: 'Kata pengguna tidak boleh kosong!', styling: 'bootstrap3'});
                 $("#user_name").focus();
 
+            } else if (!isGoodUsername(username)) {
+                new PNotify({title: 'Register Form',text: 'Kata pengguna min. 6 karakter dan tidak boleh kapital!', styling: 'bootstrap3'});
+                $("#user_name").focus();
+
             } else if (password === "") {
                 new PNotify({title: 'Register Form',text: 'Kata sandi tidak boleh kosong!', styling: 'bootstrap3'});
                 $("#user_pass").focus();
 
+            } else if (!isGoodPassword(password)) {
+                new PNotify({title: 'Register Form',text: 'Kata sandi min. 6 karakter, 1 kapital dan 1 angka', styling: 'bootstrap3'});
+                $("#user_pass").focus();
+
             } else if (email === "") {
                 new PNotify({title: 'Register Form',text: 'Email tidak boleh kosong!', styling: 'bootstrap3'});
+                $("#user_email").focus();
+
+            } else if (!isValidEmail(email)) {
+                new PNotify({title: 'Register Form',text: 'Email tidak Valid!', styling: 'bootstrap3'});
                 $("#user_email").focus();
 
             } else if (fullname === "") {
@@ -156,32 +168,22 @@
                         new PNotify({text: 'Proses ..... !', type: 'info', icon: 'fa fa-spinner fa-spin', styling: 'bootstrap3'}); 
                       },
                       success:function(msg){
-                          //alert(msg);
+                          // alert(msg);
                           PNotify.removeAll();
 
-                          if (msg==99) {
+                          if (msg==1) {
                           //     //alert("Username and password is not valid");
-                              new PNotify({title: 'Register Form',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
-                              $("#captcha_code").focus();
-                              // document.location.reload();
-                          } else if (msg==1) {
-                          // if (msg==1) {
-                              //alert("Username and password is not valid");
-                              new PNotify({title: 'Register Form',text: 'Kata pengguna tidak ditemukan!', styling: 'bootstrap3'});
-                              $("#username").focus();
+                              new PNotify({title: 'Register Form',text: 'Kata pengguna telah terdaftar', styling: 'bootstrap3'});
+                              $("#user_name").focus();
                               // document.location.reload();
                           } else if (msg==2) {
                               //alert("Username has not been approved");
-                              new PNotify({title: 'Register Form',text: 'Kata sandi tidak ditemukan!', styling: 'bootstrap3'});
-                              $("#password").focus();
-                              // document.location.reload();
-                          } else if (msg==3) {
-                              //alert("Username has not been approved");
-                              new PNotify({title: 'Register Form',text: 'Kata pengguna tidak aktif!', styling: 'bootstrap3'});
+                              new PNotify({title: 'Register Form',text: 'Email telah terdaftar!', styling: 'bootstrap3'});
+                              $("#user_email").focus();
                               // document.location.reload();
 
                           } else {
-                              new PNotify({title: 'Register Form', type: 'success', text: "BERHASIL", styling: 'bootstrap3'});
+                              new PNotify({title: 'Register Form', type: 'success', text: "BERHASIL - Akun akan dimoedirasi oleh admin", styling: 'bootstrap3'});
                               // new PNotify({title: 'Form Login',text: 'Diharapkan agar mengganti kata sandi agar mudah diingat!', styling: 'bootstrap3'});
                               window.location.href = "<?php echo base_url();?>home";
                               //window.location.href = "<?php echo $this->agent->referrer();?>";
@@ -206,6 +208,23 @@
 
         }
 
+        function validateSpace(t){
+
+            if(t.value.match(/\s/g)){
+
+                new PNotify({title: 'Register Form',text: 'Spasi tidak diijinkan', styling: 'bootstrap3'});
+
+                t.value=t.value.replace(/\s/g,'');
+
+            }
+
+        }
+
+        function isGoodUsername(username) {
+            var pattern = new RegExp(/([a-z]).{5,20}$/i);
+            return pattern.test(username);
+        }
+
         function showPass() {
             var x = document.getElementById("user_pass");
             if (x.type === "password") {
@@ -215,6 +234,15 @@
             }
         }
 
+        function isValidEmail(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
+        }
+
+        function isGoodPassword(password) {
+            var pattern = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/i);
+            return pattern.test(password);
+        }
     </script>
     
   </body>
