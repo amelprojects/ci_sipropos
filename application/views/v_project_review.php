@@ -860,7 +860,6 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
       <div class="modal-footer">
         <button type="button" id="btn_save" onclick="$('.content').printMe();" class="btn btn-primary print">Print</button>
-        <button type="button" class="print">Print!</button>
         <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Cancel</button>
     </div>
 

@@ -38,7 +38,7 @@ $config['base_url'] = "$http" . $_SERVER['SERVER_NAME'] . "" . $newurl;
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -383,7 +383,7 @@ $config['encryption_key'] = 'vf';
 */
 $config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 7200;
+$config['sess_expiration'] = 0;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = TRUE;
 $config['sess_time_to_update'] = 300;

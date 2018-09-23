@@ -71,7 +71,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="form-group">
             <label for="cooperation_area" class="col-sm-2 control-label">Cooperation Area</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="cooperation_area" placeholder="Cooperation Area" value="<?php echo $project['cooperation_area'];?>">
+              <input type="text" class="form-control" name="cooperation_area" placeholder="Cooperation Area" value="<?php echo $project['cooperation_area']==""?"trade":$project['cooperation_area'];?>">
               <span class="help-block"></span>
             </div>
           </div>
@@ -190,7 +190,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           </div><!-- /.box -->
 
           <div class="form-group">
-            <label for="project_type" class="col-sm-2 control-label">Duration</label>
+            <label for="project_type" class="col-sm-2 control-label">Duration (bulan)</label>
             <div class="col-sm-10">
               <select name="duration" id="duration" class="form-control">
                 <option value="">Pilih Durasi</option>
