@@ -65,7 +65,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           </tr>
           <tr>
             <td></td>
-            <td><?=$project['relevance'];?></td>
+            <td><?=$this->vf->getFieldById('relevance', 'relevance', 'id', $project['relevance']);?></td>
           </tr>
         </table>     
         <hr>

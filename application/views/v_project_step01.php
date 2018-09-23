@@ -71,7 +71,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="form-group">
             <label for="cooperation_area" class="col-sm-2 control-label">Cooperation Area</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="cooperation_area" placeholder="Cooperation Area" value="<?php echo $project['cooperation_area']==""?"trade":$project['cooperation_area'];?>">
+              <input type="text" class="form-control" name="cooperation_area" placeholder="Cooperation Area" value="<?php echo $project['cooperation_area']==""?"perdagangan":$project['cooperation_area'];?>">
               <span class="help-block"></span>
             </div>
           </div>
@@ -79,7 +79,17 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="form-group">
             <label for="relevance" class="col-sm-2 control-label">Relevance</label>
             <div class="col-sm-10">
-              <textarea class="form-control" name="relevance" rows="3" placeholder="Enter ..."><?php echo $project['relevance'];?></textarea>
+<!-- 
+              <textarea class="form-control" name="relevance" rows="3" placeholder="Enter ..."><?php echo $project['relevance'];?>
+              </textarea>
+ -->
+              <select name="relevance" id="relevance" class="form-control">
+                  <option value=0>Pilih Relevansi</option>
+                  <?php foreach($relevance as $list_relevance) { ?>
+                      <option value="<?php echo $list_relevance['id']; ?>" <?php echo $project['relevance']==$list_relevance['id']?"selected":""; ?>>- <?php echo $list_relevance['relevance']; ?></option>
+                  <?php } ?>
+              </select>
+
               <span class="help-block"></span>
             </div>
           </div>

@@ -61,6 +61,8 @@ class Project extends CI_Controller {
         
         $this->m_model->edit("project", 'id', $data1);
 
+        $data['relevance'] = $this->m_model->select_all("relevance", "ORDER BY id");
+
         // echo "project id : " .$project_id;
         $project = $this->m_model->detail_row("project", "id", $project_id);
         // print_r($project);

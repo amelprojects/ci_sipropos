@@ -57,43 +57,120 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="form-group">
             <label for="ab_jumlah_training" class="col-sm-8 control-label">Training</label>
             <div class="col-sm-4">
+<!-- 
               <input type="text" class="form-control" name="ab_jumlah_training" placeholder="Jumlah Training" value="<?php echo $project['ab_jumlah_training'];?>">
+ -->
+              <select name="ab_jumlah_training" id="ab_jumlah_training" class="form-control">
+                <option value="">Pilih</option>
+                <option value="1" <?php echo $project['ab_jumlah_training']==1?"selected":""; ?> />1</option>
+                <option value="2" <?php echo $project['ab_jumlah_training']==2?"selected":""; ?> />2</option>
+                <option value="3" <?php echo $project['ab_jumlah_training']==3?"selected":""; ?> />3</option>
+                <option value="4" <?php echo $project['ab_jumlah_training']==4?"selected":""; ?> />4</option>
+                <option value="5" <?php echo $project['ab_jumlah_training']==5?"selected":""; ?> />5</option>
+              </select>
+
             </div>
           </div>
           <div class="form-group">
             <label for="ab_jumlah_workshop" class="col-sm-8 control-label">Workshop</label>
             <div class="col-sm-4">
+<!-- 
               <input type="text" class="form-control" name="ab_jumlah_workshop" placeholder="Jumlah Workshop" value="<?php echo $project['ab_jumlah_workshop'];?>">
+ -->
+              <select name="ab_jumlah_workshop" id="ab_jumlah_workshop" class="form-control">
+                <option value="">Pilih</option>
+                <option value="1" <?php echo $project['ab_jumlah_workshop']==1?"selected":""; ?> />1</option>
+                <option value="2" <?php echo $project['ab_jumlah_workshop']==2?"selected":""; ?> />2</option>
+                <option value="3" <?php echo $project['ab_jumlah_workshop']==3?"selected":""; ?> />3</option>
+                <option value="4" <?php echo $project['ab_jumlah_workshop']==4?"selected":""; ?> />4</option>
+                <option value="5" <?php echo $project['ab_jumlah_workshop']==5?"selected":""; ?> />5</option>
+              </select>
+
             </div>
           </div>
           <div class="form-group">
             <label for="ab_jumlah_study_visit" class="col-sm-8 control-label">Study Visit</label>
             <div class="col-sm-4">
+<!-- 
               <input type="text" class="form-control" name="ab_jumlah_study_visit" placeholder="Jumlah Study Visit" value="<?php echo $project['ab_jumlah_study_visit'];?>">
+ -->
+              <select name="ab_jumlah_study_visit" id="ab_jumlah_study_visit" class="form-control">
+                <option value="">Pilih</option>
+                <option value="1" <?php echo $project['ab_jumlah_study_visit']==1?"selected":""; ?> />1</option>
+                <option value="2" <?php echo $project['ab_jumlah_study_visit']==2?"selected":""; ?> />2</option>
+                <option value="3" <?php echo $project['ab_jumlah_study_visit']==3?"selected":""; ?> />3</option>
+                <option value="4" <?php echo $project['ab_jumlah_study_visit']==4?"selected":""; ?> />4</option>
+                <option value="5" <?php echo $project['ab_jumlah_study_visit']==5?"selected":""; ?> />5</option>
+              </select>
+
             </div>
           </div>
           <div class="form-group">
             <label for="ab_jumlah_seminar" class="col-sm-8 control-label">Conference / Seminar</label>
             <div class="col-sm-4">
+<!-- 
               <input type="text" class="form-control" name="ab_jumlah_seminar" placeholder="Jumlah Conference / Seminar" value="<?php echo $project['ab_jumlah_seminar'];?>">
+ -->              
+              <select name="ab_jumlah_seminar" id="ab_jumlah_seminar" class="form-control">
+                <option value="">Pilih</option>
+                <option value="1" <?php echo $project['ab_jumlah_seminar']==1?"selected":""; ?> />1</option>
+                <option value="2" <?php echo $project['ab_jumlah_seminar']==2?"selected":""; ?> />2</option>
+                <option value="3" <?php echo $project['ab_jumlah_seminar']==3?"selected":""; ?> />3</option>
+                <option value="4" <?php echo $project['ab_jumlah_seminar']==4?"selected":""; ?> />4</option>
+                <option value="5" <?php echo $project['ab_jumlah_seminar']==5?"selected":""; ?> />5</option>
+              </select>
+
             </div>
           </div>
           <div class="form-group">
             <label for="ab_jumlah_meeting" class="col-sm-8 control-label">Publicity Meeting</label>
             <div class="col-sm-4">
+<!-- 
               <input type="text" class="form-control" name="ab_jumlah_meeting" placeholder="Jumlah Publicity Meeting" value="<?php echo $project['ab_jumlah_meeting'];?>">
+ -->
+              <select name="ab_jumlah_meeting" id="ab_jumlah_meeting" class="form-control">
+                <option value="">Pilih</option>
+                <option value="1" <?php echo $project['ab_jumlah_meeting']==1?"selected":""; ?> />1</option>
+                <option value="2" <?php echo $project['ab_jumlah_meeting']==2?"selected":""; ?> />2</option>
+                <option value="3" <?php echo $project['ab_jumlah_meeting']==3?"selected":""; ?> />3</option>
+                <option value="4" <?php echo $project['ab_jumlah_meeting']==4?"selected":""; ?> />4</option>
+                <option value="5" <?php echo $project['ab_jumlah_meeting']==5?"selected":""; ?> />5</option>
+              </select>
+
             </div>
           </div>
           <div class="form-group">
             <label for="ab_jumlah_media" class="col-sm-8 control-label">Preparation of audio, visual and written promotional materials</label>
             <div class="col-sm-4">
+<!-- 
               <input type="text" class="form-control" name="ab_jumlah_media" placeholder="Jumlah Media" value="<?php echo $project['ab_jumlah_media'];?>">
+ -->
+               <select name="ab_jumlah_media" id="ab_jumlah_media" class="form-control">
+                <option value="">Pilih</option>
+                <option value="1" <?php echo $project['ab_jumlah_media']==1?"selected":""; ?> />1</option>
+                <option value="2" <?php echo $project['ab_jumlah_media']==2?"selected":""; ?> />2</option>
+                <option value="3" <?php echo $project['ab_jumlah_media']==3?"selected":""; ?> />3</option>
+                <option value="4" <?php echo $project['ab_jumlah_media']==4?"selected":""; ?> />4</option>
+                <option value="5" <?php echo $project['ab_jumlah_media']==5?"selected":""; ?> />5</option>
+              </select>
+
             </div>
           </div>
           <div class="form-group">
             <label for="ab_jumlah_other_activities" class="col-sm-8 control-label">Other Activities</label>
             <div class="col-sm-4">
+<!-- 
               <input type="text" class="form-control" name="ab_jumlah_other_activities" placeholder="Jumlah Other Activities" value="<?php echo $project['ab_jumlah_other_activities'];?>">
+ -->
+               <select name="ab_jumlah_other_activities" id="ab_jumlah_other_activities" class="form-control">
+                <option value="">Pilih</option>
+                <option value="1" <?php echo $project['ab_jumlah_other_activities']==1?"selected":""; ?> />1</option>
+                <option value="2" <?php echo $project['ab_jumlah_other_activities']==2?"selected":""; ?> />2</option>
+                <option value="3" <?php echo $project['ab_jumlah_other_activities']==3?"selected":""; ?> />3</option>
+                <option value="4" <?php echo $project['ab_jumlah_other_activities']==4?"selected":""; ?> />4</option>
+                <option value="5" <?php echo $project['ab_jumlah_other_activities']==5?"selected":""; ?> />5</option>
+              </select>
+
             </div>
           </div>
         </div><!-- /.box-body -->
