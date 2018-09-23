@@ -62,6 +62,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
  -->
               <select name="ab_jumlah_training" id="ab_jumlah_training" class="form-control">
                 <option value="">Pilih</option>
+                <option value="0" <?php echo $project['ab_jumlah_training']==0?"selected":""; ?> />0</option>
                 <option value="1" <?php echo $project['ab_jumlah_training']==1?"selected":""; ?> />1</option>
                 <option value="2" <?php echo $project['ab_jumlah_training']==2?"selected":""; ?> />2</option>
                 <option value="3" <?php echo $project['ab_jumlah_training']==3?"selected":""; ?> />3</option>
@@ -79,6 +80,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
  -->
               <select name="ab_jumlah_workshop" id="ab_jumlah_workshop" class="form-control">
                 <option value="">Pilih</option>
+                <option value="0" <?php echo $project['ab_jumlah_workshop']==0?"selected":""; ?> />0</option>
                 <option value="1" <?php echo $project['ab_jumlah_workshop']==1?"selected":""; ?> />1</option>
                 <option value="2" <?php echo $project['ab_jumlah_workshop']==2?"selected":""; ?> />2</option>
                 <option value="3" <?php echo $project['ab_jumlah_workshop']==3?"selected":""; ?> />3</option>
@@ -96,6 +98,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
  -->
               <select name="ab_jumlah_study_visit" id="ab_jumlah_study_visit" class="form-control">
                 <option value="">Pilih</option>
+                <option value="0" <?php echo $project['ab_jumlah_study_visit']==0?"selected":""; ?> />0</option>
                 <option value="1" <?php echo $project['ab_jumlah_study_visit']==1?"selected":""; ?> />1</option>
                 <option value="2" <?php echo $project['ab_jumlah_study_visit']==2?"selected":""; ?> />2</option>
                 <option value="3" <?php echo $project['ab_jumlah_study_visit']==3?"selected":""; ?> />3</option>
@@ -113,6 +116,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
  -->              
               <select name="ab_jumlah_seminar" id="ab_jumlah_seminar" class="form-control">
                 <option value="">Pilih</option>
+                <option value="0" <?php echo $project['ab_jumlah_seminar']==0?"selected":""; ?> />0</option>
                 <option value="1" <?php echo $project['ab_jumlah_seminar']==1?"selected":""; ?> />1</option>
                 <option value="2" <?php echo $project['ab_jumlah_seminar']==2?"selected":""; ?> />2</option>
                 <option value="3" <?php echo $project['ab_jumlah_seminar']==3?"selected":""; ?> />3</option>
@@ -130,6 +134,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
  -->
               <select name="ab_jumlah_meeting" id="ab_jumlah_meeting" class="form-control">
                 <option value="">Pilih</option>
+                <option value="0" <?php echo $project['ab_jumlah_meeting']==0?"selected":""; ?> />0</option>
                 <option value="1" <?php echo $project['ab_jumlah_meeting']==1?"selected":""; ?> />1</option>
                 <option value="2" <?php echo $project['ab_jumlah_meeting']==2?"selected":""; ?> />2</option>
                 <option value="3" <?php echo $project['ab_jumlah_meeting']==3?"selected":""; ?> />3</option>
@@ -147,6 +152,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
  -->
                <select name="ab_jumlah_media" id="ab_jumlah_media" class="form-control">
                 <option value="">Pilih</option>
+                <option value="0" <?php echo $project['ab_jumlah_media']==0?"selected":""; ?> />0</option>
                 <option value="1" <?php echo $project['ab_jumlah_media']==1?"selected":""; ?> />1</option>
                 <option value="2" <?php echo $project['ab_jumlah_media']==2?"selected":""; ?> />2</option>
                 <option value="3" <?php echo $project['ab_jumlah_media']==3?"selected":""; ?> />3</option>
@@ -164,6 +170,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
  -->
                <select name="ab_jumlah_other_activities" id="ab_jumlah_other_activities" class="form-control">
                 <option value="">Pilih</option>
+                <option value="0" <?php echo $project['ab_jumlah_other_activities']==0?"selected":""; ?> />0</option>
                 <option value="1" <?php echo $project['ab_jumlah_other_activities']==1?"selected":""; ?> />1</option>
                 <option value="2" <?php echo $project['ab_jumlah_other_activities']==2?"selected":""; ?> />2</option>
                 <option value="3" <?php echo $project['ab_jumlah_other_activities']==3?"selected":""; ?> />3</option>
