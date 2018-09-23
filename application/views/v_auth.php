@@ -51,38 +51,17 @@
           </div>
 
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-12">
              <div class=" icheck">
               <label>
                 <input type="checkbox" name="remember" id="remember" onclick="showPass()"> Lihat Sandi
               </label>
-            </div>
-            </div>
-            <div class="col-xs-6" style="text-align: right;">
-              <a href="<?=base_url('auth/forgot_password')?>" style="font-size: 10pt;">Lupa Sandi</a>
-              &nbsp;|&nbsp;
-              <a href="<?=base_url('auth/register')?>" style="font-size: 10pt;">Daftar</a>
+             </div>
             </div>
           </div>
-<!--           
-          <?php echo $math_captcha_question;?>
-          <div class="form-group has-feedback" align="center">
-            <img src="<?php echo $captcha['image_src'];?>" alt="CAPTCHA security code" />
-          </div>
-          <div class="form-group has-feedback">
-            <input type="text" name="captcha_code" id="captcha_code" class="form-control" placeholder="Masukkan kode di atas! (Case-Sensitive)">
-            <span class="glyphicon glyphicon-qrcode form-control-feedback"></span>
-          </div>
- -->
    
           <hr>
           <div class="row">
-<!-- 
-            <div class="col-xs-8">
-              <a href="<?php echo base_url('auth/forgot'); ?>">Lupa Kata Sandi</a>
-            </div>
-
- -->        
             <div class="col-xs-4" style="font-size: 18pt;text-align: right;">
               <?=$captcha;?>
             </div>
@@ -94,6 +73,15 @@
               <button type="button" id="btn_save" onclick="save()" class="btn btn-primary btn-block btn-flat">Masuk</button>
             </div><!-- /.col -->
           </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12" style="text-align: center;">
+              <a href="<?=base_url('auth/forgot')?>" style="font-size: 10pt;">Lupa Sandi</a>
+              &nbsp;|&nbsp;
+              <a href="<?=base_url('auth/register')?>" style="font-size: 10pt;">Daftar</a>
+            </div>
+          </div>
+
           <hr>
         </form>
         <footer>© 2018 | <small>Dit APEC dan Organisasi Internasional</small> Kemendag</footer>

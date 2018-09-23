@@ -187,20 +187,18 @@ class Auth extends CI_Controller {
     }
 
     public function forgot() {
-        
-        // $this->check_signup_date();
-                
-        $config['app_name'] = $this->config->item('app_name');
-        $config['g_recaptcha_enable_forgot'] = $this->config->item('g_recaptcha_enable_forgot');
-        $config['g_recaptcha_site_key'] = $this->config->item('g_recaptcha_site_key');
-        $data['config'] = $config;
+                                
+        $data['title'] = 'SIPROPOS - Forgot Password Form';
 
-        $this->load->library('captcha');
-        $data['captcha'] = $this->captcha->main();
-        $this->session->set_userdata('captcha_info', $data['captcha']);
+        // $data['captcha'] = $this->captcha->main();
+        // $this->session->set_userdata('captcha_info', $data['captcha']);
         
-        $data['title'] = $config['app_name'] . ' - Form Lupa Kata Sandi';
-        $this->load->view('v_forgot', $data);
+        $this->load->library('mathcaptcha');
+        $kode=$this->mathcaptcha->generatekode();
+        $this->session->set_userdata('captcha',$kode);     
+        $data['captcha']=$this->mathcaptcha->showcaptcha();
+        
+        $this->load->view('v_auth_forgot', $data);
 
     }
 

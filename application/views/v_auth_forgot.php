@@ -42,24 +42,12 @@
         <form action="#" id="form" method="post">
 
           <div class="form-group has-feedback">
-            <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Kata Pengguna" value="">
-            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="password" id="user_pass" name="user_pass" class="form-control" placeholder="Kata Sandi" value="">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
             <input type="text" id="user_email" name="user_email" class="form-control" placeholder="Alamt Email" value="">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <input type="text" id="user_fullname" name="user_fullname" class="form-control" placeholder="Nama Lengkap" value="">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="text" id="instansi" name="instansi" class="form-control" placeholder="Instansi" value="">
-            <span class="glyphicon glyphicon-home form-control-feedback"></span>
           </div>
 
           <div class="row">
@@ -77,7 +65,7 @@
           <hr>
           <div class="row">
             <div class="col-xs-12" style="text-align: center;">
-              <a href="<?=base_url('auth/forgot')?>" style="font-size: 10pt;">Lupa Sandi</a>
+              <a href="<?=base_url('auth/register')?>" style="font-size: 10pt;">Daftar</a>
               &nbsp;|&nbsp;
               <a href="<?=base_url('auth')?>" style="font-size: 10pt;">Login</a>
             </div>
@@ -110,33 +98,12 @@
             //   var response = "";
             // }
 
-            var username = $('#user_name').val();
-            var password = $('#user_pass').val();
             var email = $('#user_email').val();
-            var fullname = $('#user_fullname').val();
-            var instansi = $('#instansi').val();
             var captcha_code = $('#captcha_code').val();
 
-            if (username === "") {
-                new PNotify({title: 'Register Form',text: 'Kata pengguna tidak boleh kosong!', styling: 'bootstrap3'});
-                $("#user_name").focus();
-
-            } else if (password === "") {
-                new PNotify({title: 'Register Form',text: 'Kata sandi tidak boleh kosong!', styling: 'bootstrap3'});
-                $("#user_pass").focus();
-
-            } else if (email === "") {
+            if (email === "") {
                 new PNotify({title: 'Register Form',text: 'Email tidak boleh kosong!', styling: 'bootstrap3'});
                 $("#user_email").focus();
-
-            } else if (fullname === "") {
-                new PNotify({title: 'Register Form',text: 'Nama lengkap tidak boleh kosong!', styling: 'bootstrap3'});
-                $("#user_fullname").focus();
-
-            } else if (instansi === "") {
-                new PNotify({title: 'Register Form',text: 'Instansi tidak boleh kosong!', styling: 'bootstrap3'});
-                $("#instansi").focus();
-
             } else {
 
                 // if(recaptcha_enable === '1' && response.length === 0) {
