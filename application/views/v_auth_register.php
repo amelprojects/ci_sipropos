@@ -49,40 +49,35 @@
             <input type="password" id="user_pass" name="user_pass" class="form-control" placeholder="Kata Sandi" value="">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
+          <div class="form-group has-feedback">
+            <input type="text" id="user_email" name="user_email" class="form-control" placeholder="Alamt Email" value="">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="text" id="user_fullname" name="user_fullname" class="form-control" placeholder="Nama Lengkap" value="">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="text" id="instansi" name="instansi" class="form-control" placeholder="Instansi" value="">
+            <span class="glyphicon glyphicon-home form-control-feedback"></span>
+          </div>
 
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-7">
              <div class=" icheck">
               <label>
-                <input type="checkbox" name="remember" id="remember" onclick="showPass()"> Lihat Sandi
+                <input type="checkbox" name="term" id="term" onclick=""> I agree to the term
               </label>
             </div>
             </div>
-            <div class="col-xs-6" style="text-align: right;">
+            <div class="col-xs-5" style="text-align: right;">
               <a href="<?=base_url('auth/forgot_password')?>" style="font-size: 10pt;">Lupa Sandi</a>
               &nbsp;|&nbsp;
-              <a href="<?=base_url('auth/register')?>" style="font-size: 10pt;">Daftar</a>
+              <a href="<?=base_url('auth')?>" style="font-size: 10pt;">Login</a>
             </div>
-          </div>
-<!--           
-          <?php echo $math_captcha_question;?>
-          <div class="form-group has-feedback" align="center">
-            <img src="<?php echo $captcha['image_src'];?>" alt="CAPTCHA security code" />
-          </div>
-          <div class="form-group has-feedback">
-            <input type="text" name="captcha_code" id="captcha_code" class="form-control" placeholder="Masukkan kode di atas! (Case-Sensitive)">
-            <span class="glyphicon glyphicon-qrcode form-control-feedback"></span>
-          </div>
- -->
-   
+          </div>   
           <hr>
           <div class="row">
-<!-- 
-            <div class="col-xs-8">
-              <a href="<?php echo base_url('auth/forgot'); ?>">Lupa Kata Sandi</a>
-            </div>
-
- -->        
             <div class="col-xs-4" style="font-size: 18pt;text-align: right;">
               <?=$captcha;?>
             </div>
@@ -91,7 +86,7 @@
             </div>
 
             <div class="col-xs-5">
-              <button type="button" id="btn_save" onclick="save()" class="btn btn-primary btn-block btn-flat">Masuk</button>
+              <button type="button" id="btn_save" onclick="save()" class="btn btn-primary btn-block btn-flat">Daftar</button>
             </div><!-- /.col -->
           </div>
           <hr>
@@ -124,14 +119,30 @@
 
             var username = $('#user_name').val();
             var password = $('#user_pass').val();
+            var email = $('#user_email').val();
+            var fullname = $('#user_fullname').val();
+            var instansi = $('#instansi').val();
             var captcha_code = $('#captcha_code').val();
 
             if (username === "") {
-                new PNotify({title: 'Login Form',text: 'Kata pengguna tidak boleh kosong!', styling: 'bootstrap3'});
+                new PNotify({title: 'Register Form',text: 'Kata pengguna tidak boleh kosong!', styling: 'bootstrap3'});
                 $("#user_name").focus();
+
             } else if (password === "") {
-                new PNotify({title: 'Login Form',text: 'Kata sandi tidak boleh kosong!', styling: 'bootstrap3'});
-                $("#user_name").focus();
+                new PNotify({title: 'Register Form',text: 'Kata sandi tidak boleh kosong!', styling: 'bootstrap3'});
+                $("#user_pass").focus();
+
+            } else if (email === "") {
+                new PNotify({title: 'Register Form',text: 'Email tidak boleh kosong!', styling: 'bootstrap3'});
+                $("#user_email").focus();
+
+            } else if (fullname === "") {
+                new PNotify({title: 'Register Form',text: 'Nama lengkap tidak boleh kosong!', styling: 'bootstrap3'});
+                $("#user_fullname").focus();
+
+            } else if (instansi === "") {
+                new PNotify({title: 'Register Form',text: 'Instansi tidak boleh kosong!', styling: 'bootstrap3'});
+                $("#instansi").focus();
 
             } else {
 
@@ -141,15 +152,13 @@
 
                 // } else {
 
-                    $('#btn_save').text('Masuk...'); //change button text
+                    $('#btn_save').text('Daftar...'); //change button text
                     $('#btn_save').attr('disabled',true); //set button disable 
 
                     $.ajax({
                       type:'POST',
-                      url:'<?php echo base_url();?>auth/validasi_login',
-                      //data: "username="+username+"&password="+password+"&imagecode="+imagecode,
-                      data: "user_name="+username+"&user_pass="+password+"&captcha_code="+captcha_code,
-                      // data: "user_name="+username+"&user_pass="+password,
+                      url:'<?php echo base_url();?>auth/register_action',
+                      data: "user_name="+username+"&user_pass="+password+"&user_email="+email+"&user_fullname="+fullname+"&instansi="+instansi+"&captcha_code="+captcha_code,
                       beforeSend:function(msg){
                         new PNotify({text: 'Proses ..... !', type: 'info', icon: 'fa fa-spinner fa-spin', styling: 'bootstrap3'}); 
                       },
@@ -159,40 +168,40 @@
 
                           if (msg==99) {
                           //     //alert("Username and password is not valid");
-                              new PNotify({title: 'Form Login',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
+                              new PNotify({title: 'Register Form',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
                               $("#captcha_code").focus();
                               // document.location.reload();
                           } else if (msg==1) {
                           // if (msg==1) {
                               //alert("Username and password is not valid");
-                              new PNotify({title: 'Form Login',text: 'Kata pengguna tidak ditemukan!', styling: 'bootstrap3'});
+                              new PNotify({title: 'Register Form',text: 'Kata pengguna tidak ditemukan!', styling: 'bootstrap3'});
                               $("#username").focus();
                               // document.location.reload();
                           } else if (msg==2) {
                               //alert("Username has not been approved");
-                              new PNotify({title: 'Form Login',text: 'Kata sandi tidak ditemukan!', styling: 'bootstrap3'});
+                              new PNotify({title: 'Register Form',text: 'Kata sandi tidak ditemukan!', styling: 'bootstrap3'});
                               $("#password").focus();
                               // document.location.reload();
                           } else if (msg==3) {
                               //alert("Username has not been approved");
-                              new PNotify({title: 'Form Login',text: 'Kata pengguna tidak aktif!', styling: 'bootstrap3'});
+                              new PNotify({title: 'Register Form',text: 'Kata pengguna tidak aktif!', styling: 'bootstrap3'});
                               // document.location.reload();
 
                           } else {
-                              new PNotify({title: 'Form Login', type: 'success', text: "BERHASIL<br>Diharapkan agar mengganti kata sandi agar mudah diingat!", styling: 'bootstrap3'});
+                              new PNotify({title: 'Register Form', type: 'success', text: "BERHASIL", styling: 'bootstrap3'});
                               // new PNotify({title: 'Form Login',text: 'Diharapkan agar mengganti kata sandi agar mudah diingat!', styling: 'bootstrap3'});
                               window.location.href = "<?php echo base_url();?>home";
                               //window.location.href = "<?php echo $this->agent->referrer();?>";
                           }
                           
-                          $('#btn_save').text('Masuk'); //change button text
+                          $('#btn_save').text('Daftar'); //change button text
                           $('#btn_save').attr('disabled',false); //set button disable
 
                       },
                       error:function(msg){
                         //alert(msg);
-                        new PNotify({title: 'Form Login',type: 'error', text: "Ada kesalahan pada sistem kami", styling: 'bootstrap3'});
-                        $('#btn_save').text('Masuk'); //change button text
+                        new PNotify({title: 'Register Form',type: 'error', text: "Ada kesalahan pada sistem kami", styling: 'bootstrap3'});
+                        $('#btn_save').text('Daftar'); //change button text
                         $('#btn_save').attr('disabled',false); //set button enable
                       }
                     });                            

@@ -119,79 +119,20 @@ class Auth extends CI_Controller {
     }
 
 
-    public function signup() {
+    public function register() {
+                                
+        $data['title'] = 'SIPROPOS - Rergister Form';
+
+        // $data['captcha'] = $this->captcha->main();
+        // $this->session->set_userdata('captcha_info', $data['captcha']);
         
-        // $this->check_signup_date();
-                
-        $config['app_name'] = $this->config->item('app_name');
-        $config['g_recaptcha_enable_signup'] = $this->config->item('g_recaptcha_enable_signup');
-        $config['g_recaptcha_site_key'] = $this->config->item('g_recaptcha_site_key');
-        $data['config'] = $config;
-
-        $this->load->library('captcha');
-        $data['captcha'] = $this->captcha->main();
-        $this->session->set_userdata('captcha_info', $data['captcha']);
+        $this->load->library('mathcaptcha');
+        $kode=$this->mathcaptcha->generatekode();
+        $this->session->set_userdata('captcha',$kode);     
+        $data['captcha']=$this->mathcaptcha->showcaptcha();
         
-        $date_s = $this->psb->getFieldByW("date_start", "agenda", "urut=1 AND is_aktif=1");
-        $date_e = $this->psb->getFieldByW("date_end", "agenda", "urut=1 AND is_aktif=1");
+        $this->load->view('v_auth_register', $data);
 
-        $data['title'] = $config['app_name'] . ' - Form Pendaftaran';
-
-        if (now() >= $date_s['date_start'] AND now() <= $date_e['date_end']) {
-            $this->load->view('v_signup', $data);    
-        } else {
-            $this->load->view('v_no_access');
-        }
-        
-
-    }
-
-    public function changepassword()
-    {
-        $config['app_name'] = $this->config->item('app_name');
-        $data['config'] = $config;
-        $data['s_all'] = $this->session->all_userdata();
-
-        $user_id = $data['s_all']['user_id'];
-
-        $data['progress_biodata'] = $this->psb->getFieldById('status_biodata', 'users_biodata', 'id_users', $user_id);       
-        $data['progress_data_ibu'] = $this->psb->getFieldById('status_ibu', 'users_biodata', 'id_users', $user_id);       
-        $data['progress_data_ayah'] = $this->psb->getFieldById('status_ayah', 'users_biodata', 'id_users', $user_id);       
-        $data['progress_data_sekolah'] = $this->psb->getFieldById('status_sekolah', 'users_biodata', 'id_users', $user_id);       
-        $data['progress_data_nilai'] = $this->psb->getFieldById('status_nilai', 'users_nilai', 'id_users', $user_id);       
-        $data['progress_data_file'] = $this->psb->getFieldById('status_file', 'users_file', 'id_users', $user_id);       
-        
-        $data['title'] = $config['app_name'] . ' - Form Ganti Kata Sandi';
-
-        $data['isi'] = "v_changepassword";
-        $data['js_footer'] = "v_changepassword_js";
-        
-        $this->load->view('v_template_admin', $data);
-
-    }
-      
-    public function changepassword_action()
-    {
-        $s_all = $this->session->all_userdata();
-
-        $this->form_validate_changepassword();
-        
-        $hasher = new PasswordHash(8, TRUE);
-        $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
-        
-        $data = array(
-                        'id' => $this->security->xss_clean($this->input->post('user_id')),
-                        'user_pass' => $user_pass,
-                );
-        
-        $this->m_model->edit('users', 'id', $data);
-
-        $data2['email'] = $this->security->xss_clean($this->input->post('user_email'));
-        $data2['pass'] = $this->input->post('pass_2');
-        $this->m_model->edit('ci_user_temp', 'email', $data2);
-
-        
-        echo json_encode(array("status" => TRUE));
     }
 
     public function add_user()
@@ -445,26 +386,6 @@ class Auth extends CI_Controller {
     {
         return $this->m_model->count_id('users', 'user_email', $user_email);
     }
-
-    // private function check_signup_date()
-    // {
-    //     $date_s = $this->psb->getFieldByW("date_start", "agenda", "urut=1 AND is_aktif=1");
-    //     $date_e = $this->psb->getFieldByW("date_end", "agenda", "urut=1 AND is_aktif=1");
-        
-    //     $now = time();
-    //     $date_start = $date_s['date_start'];
-    //     $date_end = $date_e['date_end'];
-
-    //     // echo $now . " " . $date_start . " " . $date_end;
-        
-    //     if ($now < $date_start OR $now > $date_end) {
-
-    //         // redirect(base_url());
-    //         $this->load->view('v_no_access');
-            
-    //     }
-
-    // }
 
     private function check_validate_pass($id)
     {
