@@ -11,6 +11,7 @@ $user_id = $s_all['user_id'];
 $user_name = $s_all['user_name'];
 $user_email = $s_all['user_email'];
 $user_fullname = $s_all['user_fullname'];
+$instansi = $s_all['instansi'];
 $user_role = $s_all['user_role'];
 
 
@@ -83,18 +84,21 @@ $user_role = $s_all['user_role'];
                 <label class="col-sm-3 control-label">Kata Sandi Lama</label>
                 <div class="col-sm-9">
                     <input type="password" name="pass_0" class="form-control" onkeypress="return validateSpace(this);" placeholder="Kata Sandi Lama" value="">
+                    <span class="help-block"></span>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-3 control-label">Kata Sandi Baru</label>
                 <div class="col-sm-9">
                     <input type="password" name="pass_1" class="form-control" onkeypress="return validateSpace(this);" placeholder="Kata Sandi Baru" value="">
+                    <span class="help-block"></span>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-3 control-label">Kata Sandi Baru</label>
                 <div class="col-sm-9">
                     <input type="password" name="pass_2" class="form-control" onkeypress="return validateSpace(this);" placeholder="Tulis Ulang Kata Sandi Baru" value="">
+                    <span class="help-block"></span>
                 </div>
               </div>
             </div><!-- /.box-body -->

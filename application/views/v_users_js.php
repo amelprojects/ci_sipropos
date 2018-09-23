@@ -25,6 +25,7 @@ $(document).ready(function() {
                 data.user_name = $('#user_name').val();
                 data.user_email = $('#user_email').val();
                 data.user_fullname = $('#user_fullname').val();
+                data.instansi = $('#instansi').val();
                 data.date_created = $('#date_created').val();
                 data.s_role = $('#s_role').val();
             }
@@ -69,6 +70,7 @@ function add_users()
     $('#g_user_name').show();
     $('#g_user_email').show();
     $('#g_user_fullname').show();
+    $('#g_instansi').show();
     $('#g_password1').show();
     $('#g_password2').hide();
     $('#g_id_role').show();
@@ -114,8 +116,8 @@ function save()
                 for (var i = 0; i < data.inputerror.length; i++) 
                 {
                     $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                    // $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
-                    new PNotify({title: 'Users',text: data.error_string[i], styling: 'bootstrap3'});
+                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
+                    // new PNotify({title: 'Users',text: data.error_string[i], styling: 'bootstrap3'});
                 }
             }
             $('#btnSave').text('save'); //change button text
@@ -144,6 +146,7 @@ function edit_users(id)
     $('#g_user_name').hide();
     $('#g_user_email').show();
     $('#g_user_fullname').show();
+    $('#g_instansi').show();
     $('#g_password1').hide();
     $('#g_password2').hide();
     $('#g_id_role').show();
@@ -160,6 +163,7 @@ function edit_users(id)
             $('[name="user_name"]').val(data.user_name);
             $('[name="user_email"]').val(data.user_email);
             $('[name="user_fullname"]').val(data.user_fullname);
+            $('[name="instansi"]').val(data.instansi);
 
             $('select[name="id_role"] option:selected').prop('selected',false); // VF - dibersihkan dulu
             $('select[name="id_role"] option[value='+data.id_role+']').prop('selected', true);
@@ -192,6 +196,7 @@ function change_pass(id, email)
     $('#g_user_name').hide();
     $('#g_user_email').hide();
     $('#g_user_fullname').hide();
+    $('#g_instansi').hide();
     $('#g_password1').show();
     $('#g_password2').show();
     $('#g_id_role').hide();

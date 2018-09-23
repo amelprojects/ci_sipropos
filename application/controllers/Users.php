@@ -58,6 +58,7 @@ class Users extends CI_Controller {
             $row[] = $items->user_name;
             $row[] = $items->user_email;
             $row[] = $items->user_fullname;
+            $row[] = $items->instansi;
             // $row[] = $nip.$pns;
             $row[] = tgl_indo_time($items->date_created);
             //$row[] = $items->last_login;
@@ -101,6 +102,7 @@ class Users extends CI_Controller {
                         'user_pass' => $user_pass_2,
                         'user_email' => $this->security->xss_clean($this->input->post('user_email')),
                         'user_fullname' => strtoupper($this->security->xss_clean($this->input->post('user_fullname'))),
+                        'instansi' => strtoupper($this->security->xss_clean($this->input->post('instansi'))),
                         'id_role' => $this->security->xss_clean($this->input->post('id_role')),
                         'is_aktif' => 1,
                         'date_created' => date("Y-m-d H:i:s"),
@@ -142,6 +144,7 @@ class Users extends CI_Controller {
                         'id' => $this->security->xss_clean($this->input->post('id')),
                         'user_email' => $this->security->xss_clean($this->input->post('user_email')),
                         'user_fullname' => $this->security->xss_clean($this->input->post('user_fullname')),
+                        'instansi' => $this->security->xss_clean($this->input->post('instansi')),
                         'id_role' => $this->security->xss_clean($this->input->post('id_role')),
                 );
         $this->m_model->edit("users", 'id', $data);
@@ -418,6 +421,13 @@ class Users extends CI_Controller {
             $data['status'] = FALSE;
         }
 
+        if($this->input->post('instansi') == '')
+        {
+            $data['inputerror'][] = 'instansi';
+            $data['error_string'][] = 'Instansi harus diisi';
+            $data['status'] = FALSE;
+        }
+
         if($this->input->post('user_pass1') == '')
         {
             $data['inputerror'][] = 'user_pass1';
@@ -509,6 +519,13 @@ class Users extends CI_Controller {
             $data['error_string'][] = 'Nama Lengkap harus diisi';
             $data['status'] = FALSE;
         }
+
+        if($this->input->post('instansi') == '')
+        {
+            $data['inputerror'][] = 'instansi';
+            $data['error_string'][] = 'Instansi harus diisi';
+            $data['status'] = FALSE;
+        }        
 
         if($this->input->post('id_role') == '')
         {

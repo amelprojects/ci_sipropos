@@ -46,6 +46,7 @@
                         <th>Username</th>
                         <th>Email</th>
                         <th>Nama Lengkap</th>
+                        <th>Instansi</th>
                         <th>Tanggal Daftar</th>
                         <!--
                         <th>Login Terakhir</th>
@@ -96,6 +97,13 @@
                             <label class="control-label col-md-3">Nama Lengkap</label>
                             <div class="col-md-9">
                                 <input name="user_fullname" placeholder="Nama Lengkap" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group" id="g_instansi">
+                            <label class="control-label col-md-3">Instansi</label>
+                            <div class="col-md-9">
+                                <input name="instansi" placeholder="Instansi" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>

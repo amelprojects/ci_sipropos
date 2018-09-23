@@ -5,6 +5,7 @@ $user_id = $s_all['user_id'];
 $user_name = $s_all['user_name'];
 $user_fullname = $s_all['user_fullname'];
 $user_email = $s_all['user_email'];
+$instansi = $s_all['instansi'];
 $user_last_login = $s_all['user_last_login'];
 $user_last_activity = $s_all['user_last_activity'];
 $user_date_created = $s_all['user_date_created'];
