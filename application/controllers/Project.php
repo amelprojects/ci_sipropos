@@ -2490,9 +2490,9 @@ class Project extends CI_Controller {
 
         $data['title'] = "SIPROPOS - Review Project";
 
-        if ($data['s_all']['user_role']==2 || $project!="") {
+        if ($data['s_all']['user_role']==2) {
 
-            if ($data['s_all']['user_id']==$project['user_created'] && $project['status']!=100) {
+            if ($data['s_all']['user_id']==$project['user_created'] && $project['status']>=100) {
 
                 $data['isi'] = "v_project_review";
                 $data['js_footer'] = "v_project_review_js";
@@ -2503,7 +2503,13 @@ class Project extends CI_Controller {
                 $data['js_footer'] = "";
 
             }
+        } else if ($data['s_all']['user_role']!=2 && $project['status']>=100) {
+
+            $data['isi'] = "v_project_review";
+            $data['js_footer'] = "v_project_review_js";
+
         } else {
+
             $data['isi'] = "403";
             $data['js_footer'] = "";
         }
