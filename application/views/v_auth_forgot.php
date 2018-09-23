@@ -45,11 +45,6 @@
             <input type="text" id="user_email" name="user_email" class="form-control" placeholder="Alamt Email" value="">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
-          <div class="form-group has-feedback">
-            <input type="text" id="user_fullname" name="user_fullname" class="form-control" placeholder="Nama Lengkap" value="">
-            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          </div>
-
           <div class="row">
             <div class="col-xs-4" style="font-size: 18pt;text-align: right;">
               <?=$captcha;?>
@@ -59,7 +54,7 @@
             </div>
 
             <div class="col-xs-5">
-              <button type="button" id="btn_save" onclick="save()" class="btn btn-primary btn-block btn-flat">Daftar</button>
+              <button type="button" id="btn_save" onclick="save()" class="btn btn-primary btn-block btn-flat">Simpan</button>
             </div><!-- /.col -->
           </div>
           <hr>
@@ -102,8 +97,17 @@
             var captcha_code = $('#captcha_code').val();
 
             if (email === "") {
-                new PNotify({title: 'Register Form',text: 'Email tidak boleh kosong!', styling: 'bootstrap3'});
+                new PNotify({title: 'Forgot Form',text: 'Email tidak boleh kosong!', styling: 'bootstrap3'});
                 $("#user_email").focus();
+
+            } else if (!isValidEmail(email)) {
+                new PNotify({title: 'Forgot Form',text: 'Email tidak Valid!', styling: 'bootstrap3'});
+                $("#user_email").focus();
+
+            } else if (captcha_code === "") {
+                new PNotify({title: 'Forgot Form',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
+                $("#captcha_code").focus();
+
             } else {
 
                 // if(recaptcha_enable === '1' && response.length === 0) {
@@ -112,13 +116,13 @@
 
                 // } else {
 
-                    $('#btn_save').text('Daftar...'); //change button text
+                    $('#btn_save').text('Simpan...'); //change button text
                     $('#btn_save').attr('disabled',true); //set button disable 
 
                     $.ajax({
                       type:'POST',
-                      url:'<?php echo base_url();?>auth/register_action',
-                      data: "user_name="+username+"&user_pass="+password+"&user_email="+email+"&user_fullname="+fullname+"&instansi="+instansi+"&captcha_code="+captcha_code,
+                      url:'<?php echo base_url();?>auth/forgot_action',
+                      data: "user_email="+email+"&captcha_code="+captcha_code,
                       beforeSend:function(msg){
                         new PNotify({text: 'Proses ..... !', type: 'info', icon: 'fa fa-spinner fa-spin', styling: 'bootstrap3'}); 
                       },
@@ -128,30 +132,23 @@
 
                           if (msg==99) {
                           //     //alert("Username and password is not valid");
-                              new PNotify({title: 'Register Form',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
+                              new PNotify({title: 'Forgot Form',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
                               $("#captcha_code").focus();
                               // document.location.reload();
                           } else if (msg==1) {
                           // if (msg==1) {
                               //alert("Username and password is not valid");
-                              new PNotify({title: 'Register Form',text: 'Kata pengguna tidak ditemukan!', styling: 'bootstrap3'});
-                              $("#username").focus();
-                              // document.location.reload();
-                          } else if (msg==2) {
-                              //alert("Username has not been approved");
-                              new PNotify({title: 'Register Form',text: 'Kata sandi tidak ditemukan!', styling: 'bootstrap3'});
-                              $("#password").focus();
-                              // document.location.reload();
-                          } else if (msg==3) {
-                              //alert("Username has not been approved");
-                              new PNotify({title: 'Register Form',text: 'Kata pengguna tidak aktif!', styling: 'bootstrap3'});
+                              new PNotify({title: 'Forgot Form',text: 'Email tidak ditemukan!', styling: 'bootstrap3'});
+                              $("#user_email").focus();
                               // document.location.reload();
 
                           } else {
-                              new PNotify({title: 'Register Form', type: 'success', text: "BERHASIL", styling: 'bootstrap3'});
+                              new PNotify({title: 'Forgot Form', type: 'success', text: "BERHASIL - Kata sandi baru dikirim melalui email", styling: 'bootstrap3'});
                               // new PNotify({title: 'Form Login',text: 'Diharapkan agar mengganti kata sandi agar mudah diingat!', styling: 'bootstrap3'});
-                              window.location.href = "<?php echo base_url();?>home";
-                              //window.location.href = "<?php echo $this->agent->referrer();?>";
+                              // window.location.href = "<?php echo base_url();?>home";
+                              setTimeout(function () {
+                                 window.location.href = "<?php echo base_url();?>home";
+                              }, 2000);
                           }
                           
                           $('#btn_save').text('Daftar'); //change button text
@@ -161,7 +158,7 @@
                       error:function(msg){
                         //alert(msg);
                         new PNotify({title: 'Register Form',type: 'error', text: "Ada kesalahan pada sistem kami", styling: 'bootstrap3'});
-                        $('#btn_save').text('Daftar'); //change button text
+                        $('#btn_save').text('Simpan'); //change button text
                         $('#btn_save').attr('disabled',false); //set button enable
                       }
                     });                            
@@ -180,6 +177,11 @@
             } else {
                 x.type = "password";
             }
+        }
+
+        function isValidEmail(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
         }
 
     </script>

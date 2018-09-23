@@ -149,6 +149,10 @@
                 new PNotify({title: 'Register Form',text: 'Instansi tidak boleh kosong!', styling: 'bootstrap3'});
                 $("#instansi").focus();
 
+            } else if (captcha_code === "") {
+                new PNotify({title: 'Register Form',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
+                $("#captcha_code").focus();
+
             } else {
 
                 // if(recaptcha_enable === '1' && response.length === 0) {
@@ -171,7 +175,12 @@
                           // alert(msg);
                           PNotify.removeAll();
 
-                          if (msg==1) {
+                          if (msg==99) {
+                          //     //alert("Username and password is not valid");
+                              new PNotify({title: 'Register Login',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
+                              $("#captcha_code").focus();
+                              // document.location.reload();
+                          } else if (msg==1) {
                           //     //alert("Username and password is not valid");
                               new PNotify({title: 'Register Form',text: 'Kata pengguna telah terdaftar', styling: 'bootstrap3'});
                               $("#user_name").focus();

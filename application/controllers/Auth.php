@@ -159,38 +159,43 @@ class Auth extends CI_Controller {
         // echo "-";
         // echo $this->check_validate_user("user_email", $user_email);
         
-        if ($this->check_validate_user("user_name", $user_name)==0) {
+        if($this->session->userdata('captcha') == $this->input->post('captcha_code')) {
 
-            if ($this->check_validate_user("user_email", $user_email)==0) {
-                
-                $data = array(
-                                'user_name' => $user_name,
-                                'user_pass' => $user_pass,
-                                'user_email' => $user_email,
-                                'user_fullname' => $user_fullname,
-                                'instansi' => $instansi,
-                                'id_role' => 2,
-                                'is_aktif' => 0,
-                                'ip_address' => $_SERVER['REMOTE_ADDR'],
-                                'date_created' => date ("Y-m-d H:i:s"),
-                        );
+            if ($this->check_validate_user("user_name", $user_name)==0) {
 
-                $this->m_model->insert('users', $data);
+                if ($this->check_validate_user("user_email", $user_email)==0) {
+                    
+                    $data = array(
+                                    'user_name' => $user_name,
+                                    'user_pass' => $user_pass,
+                                    'user_email' => $user_email,
+                                    'user_fullname' => $user_fullname,
+                                    'instansi' => $instansi,
+                                    'id_role' => 2,
+                                    'is_aktif' => 0,
+                                    'ip_address' => $_SERVER['REMOTE_ADDR'],
+                                    'date_created' => date ("Y-m-d H:i:s"),
+                            );
 
-                $dataemail = "<br><p>Kata Pengguna : ".$user_name;
-                $dataemail = "<br>Nama Lengkap : ".$user_fullname;
-                $dataemail .= "<br>Email : ".$user_email;
-                $dataemail .= "<br>instansi : ".strtoupper($instansi)."</p>";
-                $dataemail .= "<p>Harap segera ditindaklanjuti</p>";
+                    $this->m_model->insert('users', $data);
 
-                $message = $this->template_email("Admin", "Pendaftaran Akun Banru", $dataemail);
-                $this->send_email("sipropos.si@gmail.com","[SIPROPOS] - Pendaftaran Akun Baru",$message);
+                    $dataemail = "<br><p>Kata Pengguna : ".$user_name;
+                    $dataemail = "<br>Nama Lengkap : ".$user_fullname;
+                    $dataemail .= "<br>Email : ".$user_email;
+                    $dataemail .= "<br>instansi : ".strtoupper($instansi)."</p>";
+                    $dataemail .= "<p>Harap segera ditindaklanjuti</p>";
 
+                    $message = $this->template_email("Admin", "Pendaftaran Akun Banru", $dataemail);
+                    $this->send_email("sipropos.si@gmail.com","[SIPROPOS] - Pendaftaran Akun Baru",$message);
+
+                } else {
+                    echo 2;     //VF - failed email
+                } 
             } else {
-                echo 2;     //VF - failed email
-            } 
+                echo 1;     //VF - failed username
+            }
         } else {
-            echo 1;     //VF - failed username
+            echo 99;
         }
         // echo json_encode(array("status" => TRUE));
 
@@ -219,33 +224,57 @@ class Auth extends CI_Controller {
     }
 
 
-    public function action_forgot()
+    public function forgot_action()
     {
 
         $this->load->library("php_mailer");
         $this->mail = $this->php_mailer->load();  
 
-        $this->form_validate_forgot();
         $hasher = new PasswordHash(8, TRUE);
 
-        // $user_fullname = strtoupper($this->security->xss_clean($this->input->post('user_fullname')));
         $user_email = str_replace(' ', '',$this->security->xss_clean($this->input->post('user_email')));
         $user_email = strtolower($user_email);
 
-        $user_pass_1 = random_string('alnum', 15);
+        $user_pass_1 = $this->generateRandomString(6);
+        // $user_pass_1 = random_string('alnum', 15);
 
         $user_pass_2 = $hasher->HashPassword($user_pass_1);
+
+        if($this->session->userdata('captcha') == $this->input->post('captcha_code')) {
+
+            if ($this->check_validate_user("user_email", $user_email)!=0) {
         
-        $data = array(
-                        'user_pass' => $user_pass_2,
-                        // 'user_fullname' => $user_fullname,
-                        'user_email' => $user_email,
-                );
+                $data = array(
+                                'user_pass' => $user_pass_2,
+                                'user_email' => $user_email,
+                        );
 
-        $this->m_model->edit('users', 'user_email', $data);
+                $this->m_model->edit('users', 'user_email', $data);
 
-        echo json_encode(array("status" => TRUE));
+                $dataemail = "<p>Kata Sandi Baru : ".$user_pass_1."</p>";
+                $dataemail .= "<p>Harap segera diganti kata sandi agar mudah diingat</p>";
 
+                $message = $this->template_email($user_email, "Perubahan Kata Sandi", $dataemail);
+                $this->send_email($user_email,"[SIPROPOS] - Perubahan Kata Sandi",$message);
+
+            } else {
+                echo 1;     //VF - failed email
+            }
+
+        } else {
+            echo 99;    //VF - failed captcha
+        }
+
+    }
+
+    private function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
     private function check_validate_pass($id)
@@ -253,7 +282,6 @@ class Auth extends CI_Controller {
         $pass = $this->m_model->detail_row('users', 'id', $id);
         return $pass['user_pass'];
     }
-
 
     private function send_email($emailto, $subject, $message){
 

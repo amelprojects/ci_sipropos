@@ -150,28 +150,30 @@ class Users extends CI_Controller {
 
     public function ajax_aktif_user($id, $is_aktif)
     {
+        $this->load->library("php_mailer");
+        $this->mail = $this->php_mailer->load();  
+
         $data = array(
                         'id' => $id,
                         'is_aktif' => $is_aktif,
                 );
         $this->m_model->edit("users", 'id', $data);
 
-        // if ($this->config->item('email_activation_notif') == 1) {
+        $user = $this->m_model->detail_row('users', 'id', $id);
 
-        //     $user_email = $this->psb_auth->getFieldById('user_name', 'users', 'id', $id);
-        //     $user_aktif = $is_aktif=='1'?"Telah diaktifkan.":"Telah dinonaktifkan.";
+        if ($is_aktif == 1) {
+            $dataemail = "<p><h4>Akun ".$user['user_name']." telah aktif</h4></p>";
+            $dataemail .= "<p>Harap dipergunakan sebagaimana mestinya</p>";
 
-        //     $isi = "Yth.<br><br>"
-        //             . "Bersama email ini kami informasikan, bahwa akun anda <br><br>"
-        //             . "<b>".$user_aktif.".</b>"
-        //             . "<br><br>"
-        //             . "Untuk lebih jelasnya, hubungi admin.<br>"
-        //             . "Terimakasih atas perhatiannya.<br><br>"
-        //             . "Hormat Kami<br>"
-        //             . "Sistem Informasi Diklat - PPSDK<br>";
-        //     $this->sendMail($user_email, $this->config->item('email_admin_sid'), "SID PPSDK - Aktivasi/Deaktivasi Akun", $isi);        
-        // }
+            $message = $this->template_email($user['user_email'], "Aktivasi Kata Pengguna", $dataemail);
+            $this->send_email($user['user_email'],"[SIPROPOS] - Aktivasi Kata Pengguna",$message);
+        } else {
+            $dataemail = "<p><h4>Akun ".$user['user_name']." telah di non-aktifkan</h4></p>";
+            $dataemail .= "<p>Hubungi admin jika diperlukan</p>";
 
+            $message = $this->template_email($user['user_email'], "Non Aktivasi Kata Pengguna", $dataemail);
+            $this->send_email($user['user_email'],"[SIPROPOS] - Non Aktivasi Kata Pengguna",$message);            
+        }
         echo json_encode(array("status" => TRUE));
 
     }
@@ -234,9 +236,6 @@ class Users extends CI_Controller {
         
         $this->m_model->edit("users", 'id', $data);
 
-        $data2['email'] = $s_all['user_name'];
-        $data2['pass'] = $this->input->post('pass_2');
-        // $this->m_model->edit('ci_user_temp', 'email', $data2);
         
         echo json_encode(array("status" => TRUE));
     }
@@ -590,6 +589,84 @@ class Users extends CI_Controller {
         }
     }
 
+    private function send_email($emailto, $subject, $message){
+
+        try {
+            // //Server settings
+            // $this->mail->SMTPDebug = 0;                                 // Enable verbose debug output
+            // $this->mail->isSMTP();                                      // Set mailer to use SMTP
+            // $this->mail->Host = '10.30.30.248';  // Specify main and backup SMTP servers
+            // $this->mail->SMTPAuth = false;                               // Enable SMTP authentication
+            // $this->mail->Username = 'akmet@kemendag.go.id';                 // SMTP username
+            // $this->mail->Password = 'Akademi@Metrologi';                           // SMTP password
+            // $this->mail->SMTPSecure = '';                            // Enable TLS encryption, `ssl` also accepted
+            // $this->mail->Port = 25;                                    // TCP port to connect to
+
+            $this->mail->SMTPDebug = 0;                                 // Enable verbose debug output
+            $this->mail->isSMTP();                                      // Set mailer to use SMTP
+            $this->mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+            $this->mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $this->mail->Username = 'sipropos.si@gmail.com';                 // SMTP username
+            $this->mail->Password = 'Sipropos123';                           // SMTP password
+            $this->mail->SMTPSecure = '';                            // Enable TLS encryption, `ssl` also accepted
+            $this->mail->Port = 465;                                    // TCP port to connect to
+
+            //Recipients
+            $this->mail->setFrom('sipropos.si@gmail.com', 'SIPROPOS - Kemendag');
+            //$this->mail->addAddress($email);     // Add a recipient
+            $this->mail->addAddress($emailto);     // Add a recipient
+            //$mail->addAddress('ellen@example.com');               // Name is optional
+            //$mail->addReplyTo('info@example.com', 'Information');
+            //$mail->addCC('cc@example.com');
+            //$mail->addBCC('bcc@example.com');
+
+            //Content
+            $this->mail->isHTML(true);                                  // Set email format to HTML
+            $this->mail->Subject = $subject;
+            $this->mail->Body    = $message;
+            //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            $this->mail->send();
+            //echo 'Message has been sent';
+        } catch (Exception $e) {
+            //echo 'Message could not be sent.';
+            //echo 'Mailer Error: ' . $mail->ErrorInfo;
+        }
+
+        
+    }
+
+    private function template_email($namato, $title, $isidetail){
+
+        // $status = 1;
+        $content = '';
+        $content .= "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
+        $content .= "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>";
+        $content .= "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>";
+
+        $content .= "<div style='padding: 10px; background-color: #2f506c;' class='col-md-12'>";
+        // $content .= "<div class='col-md-1 col-md-offset-1 img-responsive'><img src=".base_url('assets/images/akmet_jpg.png')." width='80px'></div>";
+        // $content .= "<div class='col-md-9' style='color: white;'><h2>".$datappdb->NAMA_PPDB."</h2></div></div>";
+        $content .= "<table width='100%' border='0' cellspacing='0' cellpadding='0' style='color:#fff; margin-left:50px;'><tr><td width='100px;'><img src=".base_url('')." width='80px'></td><td><h2>SIPROPOS</h2></td></tr></table>";
+        $content .= "</div>";
+        $content .= "<div class='col-md-10 col-md-offset-2' style='margin-top:15px; font-size:14px; margin-left:70px;><h3>".$title."</h3></div>";
+
+        $content .= "<div class='col-md-12' style='text-align:center; margin-top: 10px; color:#000000;'>";
+        $content .= "<h3>Hallo ".$namato." !</h3>";
+        // $content .= "<h3>Hallo Leksa !</h3>";
+        $content .= "<p>Perlu kami informasikan tentang ".strtolower($title).", yaitu :</p>";
+        $content .= $isidetail;
+        // $content .= "<br><p>Kata Pengguna : ".$user_name."</p><br>";
+        // $content .= "<br><p>Email : ".$user_email." </p><br>";
+        // $content .= "<p>Harap segera lengkapi data-data anda sebelum proses pendaftaran berakhir</p>";
+        $content .= "</div>";
+        $content .= "<div class='col-md-12' style='padding: 10px; background-color: #2f506c; color: #fff; margin-top: 30px;'>";
+        $content .= "<div class='col-md-10' style='margin-left:50px;'><h3>SIPROPOS</h3></div></div>";
+
+        return $content;
+    }
+
+
     private function sendMail ($mailto="", $mailfrom="", $subject="", $isi="") {
 
         $this->load->library('email'); // Note: no $config param needed
@@ -606,13 +683,6 @@ class Users extends CI_Controller {
         return $pass['user_pass'];
     }
 
-    // private function check_users_detail ($id="")
-    // {
-    //     if ($this->m_model->count_id("users_detail", "id_users", $id) < 1 ) {
-        
-    //         redirect(base_url('users/edit/'.urlencode(base64_encode($id))));
-    //     }
-    // }
     
 }
     

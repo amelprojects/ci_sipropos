@@ -117,9 +117,15 @@
             if (username === "") {
                 new PNotify({title: 'Login Form',text: 'Kata pengguna tidak boleh kosong!', styling: 'bootstrap3'});
                 $("#user_name").focus();
+
             } else if (password === "") {
                 new PNotify({title: 'Login Form',text: 'Kata sandi tidak boleh kosong!', styling: 'bootstrap3'});
                 $("#user_name").focus();
+
+            } else if (captcha_code === "") {
+                new PNotify({title: 'Register Form',text: 'Pastikan anda bukan robot!', styling: 'bootstrap3'});
+                $("#captcha_code").focus();
+
 
             } else {
 
