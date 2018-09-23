@@ -57,8 +57,13 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
     <![endif]-->
   </head>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-  <body class="hold-transition skin-blue layout-top-nav">
-    <div class="wrapper">
+  <body class="hold-transition skin-green layout-top-nav">
+    <div class="wrapper" style="background-color: #fff">
+<!-- 
+      <div class="container" style="background-color: #fff">
+      <img src="<?php echo base_url(); ?>assets/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+      </div>
+ -->
       <header class="main-header">
         <nav class="navbar navbar-static-top">
           <div class="container">
