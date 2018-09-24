@@ -172,15 +172,15 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <tr>
             <td style="width: 10px"></td>
             <td>
-              <table border="1" style="padding: 10px">
+              <table style="">
                 <tr>
-                  <td style="width: 50%; text-align: center;">Country</td>
-                  <td style="width: 50%; text-align: center;">Please explain why these partners are chosen and their roles in the project for each partner</td>
+                  <td style="width: 50%; text-align: center; border-top: 1px solid; border-left: 1px solid; border-bottom: 1px solid">Country</td>
+                  <td style="width: 50%; text-align: center; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid">Please explain why these partners are chosen and their roles in the project for each partner</td>
                 </tr>
                 <?php foreach($partner as $list_partner) { ?>
                 <tr>
-                  <td style="text-align: center; padding: 5px"><?=$list_partner['country'];?></td>
-                  <td style="padding: 5px;"><?=$list_partner['reason'];?></td>
+                  <td style="text-align: center; border-left: 1px solid; border-bottom: 1px solid"><?=$list_partner['country'];?></td>
+                  <td style="border-top: 1px solid; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid"><?=$list_partner['reason'];?></td>
                 </tr>
                 <?php } ?>
                 
