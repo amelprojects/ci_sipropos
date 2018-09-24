@@ -1,0 +1,35 @@
+/**
+ * css for public-facing
+ */
+
+
+/* the footer is hidden initially */
+.vcmega-main-wrap {
+      /*display:none;*/
+}
+
+/* make the footer full width of the body */
+.vcmega-main-wrap .vcmega-vcrow {
+
+      /*position: relative;
+      left: 0;
+      box-sizing: border-box;
+      width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin: 0 !important;
+      max-width: 100%;*/
+
+
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+}
+
+.vcmega-main-wrap .vcmega-container {
+      /* this is defined in php so we can use a user supplied outside container width */
+}
