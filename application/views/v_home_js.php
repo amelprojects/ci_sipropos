@@ -187,4 +187,135 @@ function status_project(id, status)
 
 }
 
+function add_comment(project_id)
+{
+    save_method = 'add';
+    $('#form')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+    $('#modal_form').modal('show'); // show bootstrap modal
+    $('.modal-title').text('Add Comment'); // Set Title to Bootstrap modal title
+    $('[name="project_id"]').val(project_id);
+    comment_load(project_id);
+}
+
+function save_comment()
+{
+    $('#btnSave').text('saving...'); //change button text
+    $('#btnSave').attr('disabled',true); //set button disable 
+    // var url;
+
+    if(save_method == 'add') {
+        var url = "<?php echo site_url('home/ajax_add_comment')?>";
+    } else {
+        var url = "<?php echo site_url('home/ajax_edit_comment')?>";
+    }
+
+    // ajax adding data to database
+    var formData = new FormData($('#form')[0]);
+    $.ajax({
+        url : url,
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: "JSON",
+        beforeSend:function(data){
+            new PNotify({text: 'Proses ..... !', type: 'info', icon: 'fa fa-spinner fa-spin', styling: 'bootstrap3'});
+        },
+        success: function(data)
+        {
+
+            if(data.status) //if success close modal and reload ajax table
+            {
+                $('#modal_form').modal('hide');
+                document.location.reload();
+            }
+            else
+            {
+                for (var i = 0; i < data.inputerror.length; i++) 
+                {
+                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
+                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
+                    // new PNotify({title: 'Other Activities',text: data.error_string[i], styling: 'bootstrap3'});
+                }
+            }
+            $('#btnSave').text('save'); //change button text
+            $('#btnSave').attr('disabled',false); //set button enable 
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            new PNotify({title: 'Comment',type: 'error', text: "Ada kesalahan pada sistem kami", styling: 'bootstrap3'});
+            $('#btnSave').text('save'); //change button text
+            $('#btnSave').attr('disabled',false); //set button enable 
+
+        }
+    });
+}
+
+function view_comment(project_id, user_role)
+{
+    $('#form')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+    $('#modal_form').modal('show'); // show bootstrap modal
+    $('.modal-title').text('View Comment'); // Set Title to Bootstrap modal title
+    $('[name="project_id"]').val(project_id);
+    $('[name="user_role"]').val(user_role);
+    $('#add_comment').hide();
+    comment_load(project_id);
+
+}
+
+function comment_load(project_id) {
+
+    // alert(project_id);
+
+    $.ajax({
+        type: "POST",
+        url: "<?php echo site_url('');?>home/ajax_view_comment/"+project_id,
+        // data: { id: id },
+        beforeSend: function(xhr){
+          new PNotify({text: 'Proses ..... !', type: 'info', icon: 'fa fa-spinner fa-spin', styling: 'bootstrap3'});
+        },
+        success: function(res){
+
+          var obj = $.parseJSON(res);
+          // alert(obj.status);
+          var eTable="<table><tbody>"
+          if (obj.status === true){
+            // alert(obj.data);
+            // notif_toast(obj.message, "", "success");
+
+            $.each(obj.data,function(key, value)
+            {
+                eTable += "<tr>";
+                eTable += "<td width='100'>Title</td>";
+                eTable += "<td width='10'>:</td>";
+                eTable += "<td>"+value.title+"</td>";
+                eTable += "</tr>";
+                eTable += "<tr>";
+                eTable += "<td>Comment</td>";
+                eTable += "<td>:</td>";
+                eTable += "<td>"+value.comment+"</td>";
+                eTable += "</tr>";
+            });
+
+
+          } else {
+            eTable += "<tr>";
+            eTable += "<td>No Comment Found</td>";
+            eTable += "</tr>";
+          }
+          eTable +="</tbody></table>";
+          $('#v_comment').html(eTable);            
+
+        }
+    });
+
+}
+
+
 </script>

@@ -71,7 +71,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="form-group">
             <label for="cooperation_area" class="col-sm-2 control-label">Cooperation Area</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="cooperation_area" placeholder="Cooperation Area" value="<?php echo $project['cooperation_area']==""?"perdagangan":$project['cooperation_area'];?>">
+              <input type="text" class="form-control" name="cooperation_area" placeholder="Cooperation Area" value="<?php echo $project['cooperation_area']==""?"perdagangan":$project['cooperation_area'];?>" readonly>
               <span class="help-block"></span>
             </div>
           </div>

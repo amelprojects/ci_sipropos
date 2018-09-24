@@ -121,3 +121,56 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
     </div><!-- /.box -->
   </section><!-- /.content -->
 </div><!-- /.container -->
+
+
+<div class="modal fade" id="modal_form" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Add Comments</h3>
+            </div>
+            <div class="modal-body form" id="add_comment">
+                <form action="#" id="form">
+                    <input type="hidden" value="" name="id"/> 
+                    <input type="hidden" value="" name="project_id"/> 
+                    <input type="hidden" value="" name="user_role"/> 
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label">Title</label>
+                            <input name="title" placeholder="Title" class="form-control" type="text">
+                            <span class="help-block"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label">Comment</label>
+                            <textarea class="form-control" name="comment" rows="3" placeholder="Enter ..."></textarea>
+                            <span class="help-block"></span>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-body">
+              <div class="box box-default box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">List of Comment</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div><!-- /.box-tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div id="v_comment">
+                  </div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+            </div>            
+            <div class="modal-footer">
+                <button type="button" id="btn_save" onclick="save_comment()" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Bootstrap modal -->

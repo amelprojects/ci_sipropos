@@ -58,7 +58,11 @@ class Home extends CI_Controller {
             }
 
             if ($items->status>=100) {
-                $btn_comment = '<a class="btn btn-xs btn-warning" href="javascript:void(0)" title="Lihat Komentar" onclick="comment_project('."'".$items->id."'".')"><i class="glyphicon glyphicon-comment"></i></a>';
+                if ($user_role==2) {
+                    $btn_comment = '<a class="btn btn-xs btn-warning" href="javascript:void(0)" title="Lihat Komentar" onclick="view_comment('."'".$items->id."'".', '."'".$user_role."'".')"><i class="glyphicon glyphicon-comment"></i></a>';
+                } else {
+                    $btn_comment = '<a class="btn btn-xs btn-warning" href="javascript:void(0)" title="Tambah Komentar" onclick="add_comment('."'".$items->id."'".')"><i class="glyphicon glyphicon-comment"></i></a>';
+                }
             } else {
                 $btn_comment = '';
             }
@@ -157,6 +161,66 @@ class Home extends CI_Controller {
 
         $this->m_model->delete("project", 'id', $id);
         echo json_encode(array("status" => TRUE));
+    }
+
+    public function ajax_add_comment(){
+        $s_all = $this->session->all_userdata();
+
+        $this->form_validate_add_comment();
+        
+        // $user_pass = $hasher->HashPassword($this->security->xss_clean($this->input->post('pass_2')));
+        
+        $data = array(
+                        'project_id' => $this->security->xss_clean($this->input->post('project_id')),
+                        'title' => $this->security->xss_clean($this->input->post('title')),
+                        'comment' => $this->security->xss_clean($this->input->post('comment')),
+                );
+        
+        $this->m_model->insert("project_comment", $data);
+        
+        echo json_encode(array("status" => TRUE));
+    }
+
+    private function form_validate_add_comment(){
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        
+        if($this->input->post('title') == '')
+        {
+            $data['inputerror'][] = 'title';
+            $data['error_string'][] = 'Title harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($this->input->post('comment') == '')
+        {
+            $data['inputerror'][] = 'comment';
+            $data['error_string'][] = 'Komentar harus diisi';
+            $data['status'] = FALSE;
+        }
+
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
+    public function ajax_view_comment($project_id = "") {
+
+        $data = $this->m_model->select_all("project_comment", "WHERE project_id='".$project_id."' ORDER BY id");
+
+        if ($data) {
+            $msg = array('status' => true, 'message' => 'Berhasil ambil data', 'data' => $data);
+        } else {
+            $msg = array('status' => false, 'message' => 'Gagal ambil data');
+        }
+
+        echo json_encode($msg);
+
     }
 
 	private function check_isvalidated() {
