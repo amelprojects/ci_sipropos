@@ -118,16 +118,11 @@ class Project extends CI_Controller {
                         'cp_fax' => $this->security->xss_clean($this->input->post('cp_fax')),
                         'cp_email' => $this->security->xss_clean($this->input->post('cp_email')),
                         'duration' => $this->security->xss_clean($this->input->post('duration')),
+                        'status' => 1,
+                        'date_updated' => date("Y-m-d H:i:s"),
                 );
         
         $this->m_model->edit("project", 'id', $data);
-
-        $data0 = array(
-                        'id' => $this->security->xss_clean($this->input->post('id')),
-                        'status' => 1,
-                );
-
-        $this->m_model->edit("project", 'id', $data0);
         
         echo json_encode(array("status" => TRUE));
     }
@@ -426,6 +421,7 @@ class Project extends CI_Controller {
                         'project_purpose' => $this->security->xss_clean($this->input->post('project_purpose')),
                         'target_group' => $this->security->xss_clean($this->input->post('target_group')),
                         'contribution' => $this->security->xss_clean($this->input->post('contribution')),
+                        'date_updated' => date("Y-m-d H:i:s"),
                 );
         
         $this->m_model->edit("project", 'id', $data);
@@ -526,6 +522,7 @@ class Project extends CI_Controller {
                         'ab_jumlah_meeting' => $this->security->xss_clean($this->input->post('ab_jumlah_meeting')),
                         'ab_jumlah_media' => $this->security->xss_clean($this->input->post('ab_jumlah_media')),
                         'ab_jumlah_other_activities' => $this->security->xss_clean($this->input->post('ab_jumlah_other_activities')),
+                        'date_updated' => date("Y-m-d H:i:s"),
                 );
         
         $this->m_model->edit("project", 'id', $data);
@@ -2155,6 +2152,7 @@ class Project extends CI_Controller {
         $data = array(
                         'id' => $this->security->xss_clean($this->input->post('id')),
                         'file_tor' => $file_tor,
+                        'date_updated' => date("Y-m-d H:i:s"),
                 );
         
         $this->m_model->edit("project", 'id', $data);
@@ -2255,6 +2253,7 @@ class Project extends CI_Controller {
                         'publication' => $this->security->xss_clean($this->input->post('publication')),
                         'other_qualification' => $this->security->xss_clean($this->input->post('other_qualification')),
                         'english_skill' => $this->security->xss_clean($this->input->post('english_skill')),
+                        'date_updated' => date("Y-m-d H:i:s"),
                 );
         
         $this->m_model->edit("project", 'id', $data);
@@ -2364,6 +2363,7 @@ class Project extends CI_Controller {
         $data = array(
                         'id' => $this->security->xss_clean($this->input->post('id')),
                         'summary' => $this->security->xss_clean($this->input->post('summary')),
+                        'date_updated' => date("Y-m-d H:i:s"),
                 );
         
         $this->m_model->edit("project", 'id', $data);
@@ -2433,6 +2433,7 @@ class Project extends CI_Controller {
         $data1 = array(
                         'id' => $project_id,
                         'status' => 100,
+                        'date_updated' => date("Y-m-d H:i:s"),
                 );
         
         $this->m_model->edit("project", 'id', $data1);

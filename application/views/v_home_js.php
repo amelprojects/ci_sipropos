@@ -163,4 +163,28 @@ function delete_project(id)
     }
 }
 
+function status_project(id, status)
+{
+    // ajax delete data to database
+    $.ajax({
+        url : "<?php echo site_url('home/ajax_status_project')?>/"+id+"/"+status,
+        type: "POST",
+        dataType: "JSON",
+        beforeSend:function(msg){
+            new PNotify({text: 'Proses ..... !', type: 'info', icon: 'fa fa-spinner fa-spin', styling: 'bootstrap3'});
+        },
+        success: function(data)
+        {
+            //if success reload ajax table
+            reload_table();
+            PNotify.removeAll();
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            new PNotify({title: 'Project',type: 'error', text: "Ada kesalahan pada sistem kami", styling: 'bootstrap3'});
+        }
+    });
+
+}
+
 </script>

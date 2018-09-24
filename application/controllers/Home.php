@@ -49,7 +49,7 @@ class Home extends CI_Controller {
             // $role = '<span class="label label-default">'.$this->vf->getFieldById('role_name', 'roles', 'id', $items->id_role).'</span>';
             // $login = $items->is_login==1?'<span class="label label-warning pull-right">Online</span>':"";
 
-            if ($items->status!=100) {
+            if ($items->status!=100 && $items->status!=200) {
                 $btn_edit = '<a class="btn btn-xs btn-primary" href="'.base_url().'project/step01/'.$items->id.'" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>';
                 $btn_delete ='<a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_project('."'".$items->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
             } else {
@@ -64,11 +64,11 @@ class Home extends CI_Controller {
             }
 
             if ($items->status==200) {
-                $btn_status = '<span class="label label-success">Approved</span>';
+                $txt_status = '<span class="label label-success">Approved</span>';
             } else if ($items->status==100) {
-                $btn_status = '<span class="label label-info">Submited</span>';
+                $txt_status = '<span class="label label-info">Submited</span>';
             } else {
-                $btn_status = '<span class="label label-danger">Pending</span>';
+                $txt_status = '<span class="label label-danger">Pending</span>';
             }
 
             if ($items->type==1) {
@@ -76,21 +76,31 @@ class Home extends CI_Controller {
             } else {
                 $type = "Research Project";
             }
+
+
             $btn_file = '<a class="btn btn-xs btn-default" href="'.base_url().'project/review/'.$items->id.'" title="Lihat File" onclick="file_project('."'".$items->id."'".')"><i class="fa fa-html5"></i> html</a>';
+
+            if ($items->status==100 && $user_role!=2) {
+                $btn_status = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Setujui Project" onclick="status_project('."'".$items->id."'".',200)"><i class="fa fa-check-square-o"></i></a>';
+            } else {
+                // $btn_status = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Tolak Project" onclick="reject_project('."'".$items->id."'".',300)"><i class="fa  fa-check-square-o"></i></a>';
+                $btn_status = "";
+            }
+
 
             $row = array();
             $row[] = $items->title;
             $row[] = $items->project_code;
             $row[] = $type;
             // $row[] = $nip.$pns;
-            $row[] = $btn_status;
+            $row[] = $txt_status;
             $row[] = $btn_file;
             //$row[] = $items->last_login;
                         
             if ($user_role==2) {            
-                $row[] = $btn_edit.$btn_delete.$btn_comment;
+                $row[] = $btn_edit.$btn_delete.$btn_comment.$btn_status;
             } else {
-                $row[] = $btn_comment;
+                $row[] = $btn_comment.$btn_status;
             }
             
             $data[] = $row;
@@ -104,6 +114,43 @@ class Home extends CI_Controller {
                         );
         //output to json format
         echo json_encode($output);
+    }
+
+    public function ajax_status_project($id, $status)
+    {
+        $this->load->library("php_mailer");
+        $this->mail = $this->php_mailer->load();  
+
+        $data['s_all'] = $this->session->all_userdata();
+        $user_aproved = $data['s_all']['user_id'];
+
+        $data = array(
+                        'id' => $id,
+                        'status' => $status,
+                        'date_aproved' => date("Y-m-d H:i:s"),
+                        'user_aproved' => $user_aproved,
+                        'date_updated' => date("Y-m-d H:i:s"),
+                );
+
+        $this->m_model->edit("project", 'id', $data);
+
+        // $user = $this->m_model->detail_row('users', 'id', $id);
+
+        // if ($is_aktif == 1) {
+        //     $dataemail = "<p><h4>Akun ".$user['user_name']." telah aktif</h4></p>";
+        //     $dataemail .= "<p>Harap dipergunakan sebagaimana mestinya</p>";
+
+        //     $message = $this->template_email($user['user_email'], "Aktivasi Kata Pengguna", $dataemail);
+        //     $this->send_email($user['user_email'],"[SIPROPOS] - Aktivasi Kata Pengguna",$message);
+        // } else {
+        //     $dataemail = "<p><h4>Akun ".$user['user_name']." telah di non-aktifkan</h4></p>";
+        //     $dataemail .= "<p>Hubungi admin jika diperlukan</p>";
+
+        //     $message = $this->template_email($user['user_email'], "Non Aktivasi Kata Pengguna", $dataemail);
+        //     $this->send_email($user['user_email'],"[SIPROPOS] - Non Aktivasi Kata Pengguna",$message);            
+        // }
+        echo json_encode(array("status" => TRUE));
+
     }
 
     public function ajax_delete_project($id){

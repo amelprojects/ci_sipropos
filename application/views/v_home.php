@@ -66,7 +66,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         </div>
         <div class="col-md-5">
           <?php if ($user_role==2) { ?>
-          <button type="button" onclick="location.href='project'" class="btn btn-lg btn-primary">Membuat Projects</button>
+          <button type="button" onclick="location.href='project'" class="btn btn-lg btn-success">Membuat Projects</button>
         <?php } ?>
         </div>
 
