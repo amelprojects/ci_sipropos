@@ -6,8 +6,6 @@
 <title>Kemendag - SIPROPOS</title>
 <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
 <link rel="dns-prefetch" href="http://s.w.org/">
-<link rel="alternate" type="application/rss+xml" title="COMCEC » Feed" href="http://www.comcec.org/en/pcm/feed/">
-<link rel="alternate" type="application/rss+xml" title="COMCEC » Comments Feed" href="http://www.comcec.org/en/pcm/comments/feed/">
 <script src="./assets/js/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
 		<style type="text/css">
 img.wp-smiley,
@@ -25,12 +23,13 @@ img.emoji {
 </style>
 <link rel="stylesheet" id="vc-mega-footer-css" href="./assets/css/vc-mega-footer-public.css" type="text/css" media="all">
 <link rel="stylesheet" id="bwg_frontend-css" href="./assets/css/bwg_frontend.css" type="text/css" media="all">
-<link rel="stylesheet" id="bwg_font-awesome-css" href="./assets/css/font-awesome.css" type="text/css" media="all">
+
+<link rel="stylesheet" id="bwg_font-awesome-css" href="./ppo/assets/AdminLTE/font-awesome/css/font-awesome.css" type="text/css" media="all">
+
 <link rel="stylesheet" id="bwg_mCustomScrollbar-css" href="./assets/css/jquery.mCustomScrollbar.css" type="text/css" media="all">
 <link rel="stylesheet" id="bwg_sumoselect-css" href="./assets/css/sumoselect.css" type="text/css" media="all">
 <link rel="stylesheet" id="tie-style-css" href="./assets/css/style.css" type="text/css" media="all">
 <link rel="stylesheet" id="tie-ilightbox-skin-css" href="./assets/css/skin.css" type="text/css" media="all">
-<link rel="stylesheet" id="Droid+Sans-css" href="./assets/css/css" type="text/css" media="all">
 <link rel="stylesheet" id="js_composer_front-css" href="./assets/css/js_composer.min.css" type="text/css" media="all">
 <script type="text/javascript" src="./assets/js/jquery.js"></script>
 <script type="text/javascript" src="./assets/js/jquery-migrate.min.js"></script>
@@ -52,14 +51,7 @@ var bwg_objectL10n = {"bwg_field_required":"field is required.","bwg_mail_valida
 </script>
 <script type="text/javascript" src="./assets/js/bwg_gallery_box.js"></script>
 <link rel="https://api.w.org/" href="http://www.comcec.org/en/pcm/wp-json/">
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.comcec.org/en/pcm/xmlrpc.php?rsd">
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.comcec.org/en/pcm/wp-includes/wlwmanifest.xml"> 
-<meta name="generator" content="WordPress 4.8.2">
-<link rel="canonical" href="http://www.comcec.org/en/pcm/">
-<link rel="shortlink" href="http://www.comcec.org/en/pcm/">
-<link rel="alternate" type="application/json+oembed" href="http://www.comcec.org/en/pcm/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.comcec.org%2Fen%2Fpcm%2F">
-<link rel="alternate" type="text/xml+oembed" href="http://www.comcec.org/en/pcm/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.comcec.org%2Fen%2Fpcm%2F&amp;format=xml">
-<link rel="shortcut icon" href="http://www.comcec.org/en/wp-content/uploads/2015/12/COMCEC-logo_0.ico" title="Favicon">
+<link rel="shortcut icon" href="COMCEC-logo_0.ico" title="Favicon">
 <!--[if IE]>
 <script type="text/javascript">jQuery(document).ready(function (){ jQuery(".menu-item").has("ul").children("a").attr("aria-haspopup", "true");});</script>
 <![endif]-->
@@ -83,6 +75,17 @@ var bwg_objectL10n = {"bwg_field_required":"field is required.","bwg_mail_valida
 
 
 <style type="text/css" media="screen">
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('./ppo/assets/AdminLTE/font-awesome/fonts/fontawesome-webfont.eot');
+  src: url('./ppo/assets/AdminLTE/font-awesome/fonts/fontawesome-webfont.eot') format('embedded-opentype'), 
+  url('./ppo/assets/AdminLTE/font-awesome/fonts/fontawesome-webfont.woff') format('woff'), 
+  url('./ppo/assets/AdminLTE/font-awesome/fonts/fontawesome-webfont.ttf') format('truetype'), 
+  url('./ppo/assets/AdminLTE/font-awesome/fonts/fontawesome-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .logo h1 a, .logo h2 a{
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -247,7 +250,7 @@ body.rtl .search-block:after {
 
 
 body {
-	background-image : url(http://localhost/ci_sipropos/assets/images/body-bg6.png);
+	background-image : url('./assets/images/body-bg6.png');
 	background-position: top center;
 }
 
@@ -320,13 +323,16 @@ body {
 													<nav id="main-nav">
 				<div class="container">
 
-				
 <div class="main-menu">
-	<ul id="menu-main_menu" class="menu">
-		<li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6 current_page_item menu-item-17"><a href="index.php">Pendahuuan</a></li>
-		<li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="index.php?p=tema">Tema Proyek</a></li>
-		<li id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a target="_blank" href="./project/">Pengajuan Proyek Online</a></li>
-		<li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39"><a href="index.php?p=kontak">Hubungi Kami</a></li>
+	<ul id="menu-main_menu">
+<!-- 		
+		<li class="current-menu-item"><a href="index.php">Pendahuluan</a></li>
+ -->		
+		<li class=""><a href="index.php">Pendahuluan</a></li>
+		<li class=""><a href="index.php?p=tema">Tema Proyek</a></li>
+		<li class=""><a target="_blank" href="./ppo/">Pengajuan Proyek Online</a></li>
+		<li class=""><a href="index.php?p=faq">FAQ</a></li>
+		<li class=""><a href="index.php?p=kontak">Hubungi Kami</a></li>
 	</ul>
 </div>					
 					
@@ -338,59 +344,106 @@ body {
 <div id="main-content" class="container full-width">
 
 
-<?php 
+	<?php 
+	if(isset($_GET['p'])){
+		$p = $_GET['p'];
+ 
+		switch ($p) {
+			case 'home':
+				include "page/home.php";
+				break;
+			case 'tema':
+				include "page/tema.php";
+				break;
+			case 'faq':
+				include "page/faq.php";
+				break;
+			case 'kontak':
+				include "page/kontak.php";
+				break;			
+			default:
+				echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
+				break;
+		}
+	}else{
+		include "page/home.php";
+	}
 
-if (!isset($p) || $_GET['p']=="home") {
-	
-	include "menu/home.php";
-
-} else if ($_GET['p']=="about") {
-	
-	include "menu/home.php";
-
-} else {
-	
-	echo "404";
-
-}
-
-?>
-
-
+	?>
 				
 <div class="clear"></div>
 
 </div>
 
-<script>
 
-			function mgft_window_onload(func) {
+<aside id="sidebar">
+	<div class="theiaStickySidebar">
+	</div><!-- .theiaStickySidebar /-->
+</aside><!-- #sidebar /-->	<div class="clear"></div>
+</div><!-- .container /-->
 
-				var oldOnLoad = window.onload;
+				
+<div class="clear"></div>
 
-				if (typeof window.onload != 'function') {
-					window.onload = func;
-				} else {
-					window.onload = function () {
-						oldOnLoad();
-						func();
-					}
-				}
+</div><!-- .inner-Wrapper -->
+</div><!-- #Wrapper -->
+</div><!-- .Wrapper-outer -->
+	<div id="topcontrol" class="fa fa-angle-up" title="Scroll To Top" style="bottom: -100px;"></div>
+<div id="fb-root"></div>
+
+<div class="vcmega-main-wrap" id="vcmega-main-wrap-4537"><div class="vcmega-inner-wrap" id="vcmega-inner-wrap-4537">
+<div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid footer-3 vc_custom_1484443645852 vc_row-has-fill" style="position: relative; left: 0px; box-sizing: border-box; width: 1432px;"><div class="wpb_column vc_column_container vc_col-sm-12 vc_hidden-md vc_hidden-sm vc_hidden-xs"><div class="vc_column-inner vc_custom_1506944447238"><div class="wpb_wrapper">
+	<div class="wpb_raw_code wpb_content_element wpb_raw_html vc_custom_1506944177416">
+		<div class="wpb_wrapper">
+			<div style="height:30px; overflow:hidden; position:relative;text-align: center;"><span style="color: #ffffff; font-size: 13px; line-height: 25px;">Copyright @ 2018 - VF & AR</span></div>
+		</div>
+	</div>
+</div></div></div></div>
+<div class="vc_row-full-width vc_clearfix" style="display:none;"></div>
+<div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid footer-3 vc_custom_1484446958822 vc_row-has-fill vcmega-vcrow" style="position: relative; left: 0px; box-sizing: border-box; width: 1432px; padding-left: 0px; padding-right: 1432px;"><div class="vcmega-container"><div class="wpb_column vc_column_container vc_col-sm-12 vc_hidden-md vc_hidden-sm vc_hidden-xs"><div class="vc_column-inner vc_custom_1506944292361"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1484447255047">
+
+<div class="vc_row-full-width vc_clearfix" style="display: none;"></div>
+<div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid footer-3 vc_custom_1484443668031 vc_row-has-fill" style="position: relative; left: 15px; box-sizing: border-box; width: 1432px;">
+<div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner vc_custom_1484443026443"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element  vc_custom_1506954689895">
+		<div class="wpb_wrapper">
+			
+		</div>
+	</div>
+</div></div></div>
+<div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid">
+<div class="wpb_column vc_column_container vc_col-sm-4 vc_hidden-md vc_hidden-sm vc_hidden-xs"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_right">
+		
+</div>
+</div></div></div>
+
+<div class="vc_row-full-width vc_clearfix" style="display:none;"></div>
+</div></div><style type="text/css" data-type="vc_custom-css">
+.footer-3 .footer-soc-ico {
+      color:#FFF;
+}
+.footer-3 .footer-soc-ico .fa {
+    font-size: 1.5em;
+    margin: 0px 8px;
+}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1484443645852{margin-top: 0px !important;margin-right: 0px !important;margin-left: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;padding-left: 0px !important;background-color: #15191c !important;}.vc_custom_1484446958822{margin-top: 0px !important;margin-bottom: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;background-color: #15191c !important;}.vc_custom_1484443668031{margin-top: 0px !important;margin-bottom: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;background-color: #15191c !important;}.vc_custom_1484443661602{margin-top: 0px !important;margin-right: 0px !important;margin-left: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;padding-left: 0px !important;background-color: #15191c !important;}.vc_custom_1506944447238{margin-top: 0px !important;margin-right: 0px !important;margin-bottom: 0px !important;margin-left: 0px !important;padding-top: 0px !important;padding-right: 0px !important;padding-bottom: 0px !important;padding-left: 0px !important;}.vc_custom_1506944177416{margin-top: 0px !important;margin-right: 0px !important;margin-bottom: 0px !important;margin-left: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;padding-left: 0px !important;}.vc_custom_1506944292361{margin-top: 0px !important;margin-bottom: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;}.vc_custom_1484447255047{margin-top: 0px !important;margin-bottom: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;}.vc_custom_1507107819183{margin-top: 40px !important;margin-bottom: 0px !important;border-top-width: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;}.vc_custom_1507107804303{margin-top: 40px !important;}.vc_custom_1507117945720{margin-top: 40px !important;}.vc_custom_1507118018791{margin-top: 40px !important;}.vc_custom_1507118058681{margin-top: 40px !important;}.vc_custom_1507118099294{margin-top: 40px !important;}.vc_custom_1484443026443{margin-top: 0px !important;margin-bottom: 0px !important;padding-top: 30px !important;padding-bottom: 30px !important;}.vc_custom_1506954689895{margin-top: 0px !important;margin-bottom: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;}.vc_custom_1506944299754{margin-top: 0px !important;margin-right: 0px !important;margin-bottom: 0px !important;margin-left: 0px !important;padding-top: 0px !important;padding-right: 0px !important;padding-bottom: 0px !important;padding-left: 0px !important;}.vc_custom_1506942439589{margin-top: 0px !important;margin-right: 0px !important;margin-bottom: 0px !important;margin-left: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;padding-left: 0px !important;}</style><style type="text/css" data-type="vc_custom-css">
+			.vcmega-main-wrap .vcmega-container {
+				width:100%;
+				max-width: 1170px;
+				margin: 0px auto;
+				position: relative;
+			}
+		</style><style type="text/css">
+			.vcmega-main-wrap .vc_row {
+		
 			}
 
-
-			function mgft_hasclass(el, cls) {
-				return el.className && new RegExp("(\s|^)" + cls + "(\s|$)").test(el.className);
+			footer {
+		
 			}
-
-			function run_mega_footer() {
-
-			}
+		 	</style>
 
 
-			mgft_window_onload(run_mega_footer);
-
-</script>
 <link rel="stylesheet" id="metaslider-responsive-slider-css" href="./assets/css/responsiveslides.css" type="text/css" media="all" property="stylesheet">
 <link rel="stylesheet" id="metaslider-public-css" href="./assets/css/public.css" type="text/css" media="all" property="stylesheet">
 
@@ -399,10 +452,12 @@ if (!isset($p) || $_GET['p']=="home") {
 var tie = {"mobile_menu_active":"true","mobile_menu_top":"true","lightbox_all":"true","lightbox_gallery":"true","woocommerce_lightbox":"","lightbox_skin":"dark","lightbox_thumb":"vertical","lightbox_arrows":"","sticky_sidebar":"","is_singular":"1","SmothScroll":"true","reading_indicator":"","lang_no_results":"No Results","lang_results_found":"Results Found"};
 /* ]]> */
 </script>
+
 <script type="text/javascript" src="./assets/js/tie-scripts.js"></script>
 <script type="text/javascript" src="./assets/js/ilightbox.packed.js"></script>
 <script type="text/javascript" src="./assets/js/wp-embed.min.js"></script>
 <script type="text/javascript" src="./assets/js/js_composer_front.min.js"></script>
 <script type="text/javascript" src="./assets/js/responsiveslides.min.js"></script>
 
-</body></html>
+</body>
+</html>

@@ -40,7 +40,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <h3 class="box-title">Informasi</h3>
       </div>
       <div class="box-body">
-        <div class="alert alert-info alert-dismissible">
+        <div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <h3><?php echo $info['judul'];?></h4>
           <h4><?php echo $info['isi']; ?></h2>

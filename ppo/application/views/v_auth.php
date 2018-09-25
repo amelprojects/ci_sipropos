@@ -70,7 +70,7 @@
             </div>
 
             <div class="col-xs-5">
-              <button type="button" id="btn_save" onclick="save()" class="btn btn-primary btn-block btn-flat">Masuk</button>
+              <button type="button" id="btn_save" onclick="save()" class="btn btn-success btn-block btn-flat">Masuk</button>
             </div><!-- /.col -->
           </div>
           <hr>
