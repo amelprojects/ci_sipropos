@@ -21,8 +21,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Projects
-      <small>Create Project</small>
+      Proyek
+      <small>Buat Proyek</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
@@ -56,7 +56,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         
         <div class="col-md-7">
           <dl class="dl-horizontal">
-            <dt>Username : </dt>
+            <dt>Nama Pengguna : </dt>
             <dd><?php echo $user_name;?></dd>
             <dt>Nama Lengkap : </dt>
             <dd><?php echo $user_fullname;?></dd>
@@ -66,7 +66,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         </div>
         <div class="col-md-5">
           <?php if ($user_role==2) { ?>
-          <button type="button" onclick="location.href='project'" class="btn btn-lg btn-success">Membuat Projects</button>
+          <button type="button" onclick="location.href='project'" class="btn btn-lg btn-success">Buat Proyek</button>
         <?php } ?>
         </div>
 
@@ -90,9 +90,9 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                   <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
                       <tr>
-                          <th>Title</th>
-                          <th>Project Code</th>
-                          <th>Type</th>
+                          <th>Judul</th>
+                          <th>Kode Proyek</th>
+                          <th>Tipe</th>
                           <th>Status</th>
                           <th>File</th>
                           <!--
@@ -113,10 +113,10 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
     <div class="box box-default">
       <div class="box-header with-border">
-        <h3 class="box-title">Dokumentasi</h3>
+        <h3 class="box-title">Dokumen</h3>
       </div>
       <div class="box-body">
-        The great content goes here
+        Dokumen
       </div><!-- /.box-body -->
     </div><!-- /.box -->
   </section><!-- /.content -->
@@ -128,7 +128,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Comments</h3>
+                <h3 class="modal-title">Tambah Komentar</h3>
             </div>
             <div class="modal-body form" id="add_comment">
                 <form action="#" id="form">
@@ -137,13 +137,13 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <input type="hidden" value="" name="user_role"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label">Title</label>
+                            <label class="control-label">Judul</label>
                             <input name="title" placeholder="Title" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label">Comment</label>
+                            <label class="control-label">Komentar</label>
                             <textarea class="form-control" name="comment" rows="3" placeholder="Enter ..."></textarea>
                             <span class="help-block"></span>
                         </div>
@@ -154,7 +154,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
             <div class="modal-body">
               <div class="box box-default box-solid">
                 <div class="box-header with-border">
-                  <h3 class="box-title">List of Comment</h3>
+                  <h3 class="box-title">Daftar Komentar</h3>
                   <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div><!-- /.box-tools -->
@@ -167,8 +167,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
             </div>            
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save_comment()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btn_save" onclick="save_comment()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

@@ -315,7 +315,7 @@ body {
 		<div class="header-content">		
 			<div class="logo">
 			<h1>								
-					<img src="./assets/images/header_sipropos.png" alt="sipropos"><strong></strong>
+					<img src="./assets/images/BANNER_pcm.png" alt="COMCEC"><strong>COMCEC Project Funding</strong>
 			</h1>			</div><!-- .logo /-->
 			<div class="e3lan e3lan-top">		</div>			<div class="clear"></div>
 

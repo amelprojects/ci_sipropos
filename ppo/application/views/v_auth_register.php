@@ -38,7 +38,7 @@
         <a href="#" onclick="document.location.href='<?php echo base_url(); ?>'"><img src="<?php echo base_url()?>assets/images/logo_kemendag_225x225.jpg" style="width:100px"></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">SIPROPROS</p>
+        <p class="login-box-msg">SIPROPOS Sistem Penyusunan Proposal</p>
         <form action="#" id="form" method="post">
 
           <div class="form-group has-feedback">
@@ -84,7 +84,7 @@
           </div>   
           <hr>
         </form>
-        <footer>© 2018 | <small>Dit APEC dan Organisasi Internasional</small> Kemendag</footer>
+        <footer>© 2018 | <small>Dit. Perundingan APEC dan Organisasi Internasional</small> Kemendag</footer>
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 
@@ -118,11 +118,11 @@
             var captcha_code = $('#captcha_code').val();
 
             if (username === "") {
-                new PNotify({title: 'Register Form',text: 'Kata pengguna tidak boleh kosong!', styling: 'bootstrap3'});
+                new PNotify({title: 'Register Form',text: 'Nama pengguna tidak boleh kosong!', styling: 'bootstrap3'});
                 $("#user_name").focus();
 
             } else if (!isGoodUsername(username)) {
-                new PNotify({title: 'Register Form',text: 'Kata pengguna min. 6 karakter dan tidak boleh kapital!', styling: 'bootstrap3'});
+                new PNotify({title: 'Register Form',text: 'Nama pengguna min. 6 karakter dan tidak boleh huruf kapital!', styling: 'bootstrap3'});
                 $("#user_name").focus();
 
             } else if (password === "") {
