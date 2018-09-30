@@ -18,12 +18,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Project Essentials
-      <small>Create Project</small>
+      Kepentingan Proyek
+      <small>Buat Proyek</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyek</li>
     </ol>
   </section>
 
@@ -41,25 +41,25 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="box-body">
 
           <div class="form-group">
-            <label>Overall Objectives</label>
+            <label>Tujuan Keseluruhan</label>
             <textarea class="form-control" name="overall_objective" rows="3" placeholder="Enter ..."><?php echo $project['overall_objective'];?></textarea>
             <span class="help-block"></span>
           </div>
 
           <div class="form-group">
-            <label>Project Purpose</label>
+            <label>Tujuan Proyek</label>
             <textarea class="form-control" name="project_purpose" rows="3" placeholder="Enter ..."><?php echo $project['project_purpose'];?></textarea>
             <span class="help-block"></span>
           </div>
 
           <div class="form-group">
-            <label>Target Group</label>
+            <label>Grup Target</label>
             <textarea class="form-control" name="target_group" rows="3" placeholder="Enter ..."><?php echo $project['target_group'];?></textarea>
             <span class="help-block"></span>
           </div>
 
           <div class="form-group">
-            <label>Contribution to Multilateral Cooperation</label>
+            <label>Kontribusi terhadap Kerjasama Multilateral</label>
             <textarea class="form-control" name="contribution" rows="3" placeholder="Enter ..."><?php echo $project['contribution'];?></textarea>
             <span class="help-block"></span>
           </div>
@@ -69,8 +69,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       </form>
 
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Batal</button>
             </div>
 
     </div><!-- /.box -->
@@ -78,12 +78,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 
     <div class="box-footer">
-      <a href="<?php echo base_url()."project/step02/".$project['id'];?>" title="Ke Step 2"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step02/".$project['id'];?>" title="Ke Step 2"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php if ($project['type']==1) {?>
-      <a href="<?php echo base_url()."project/step04/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step04/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
       <?php } ?>
       <?php if ($project['type']==2) {?>
-      <a href="<?php echo base_url()."project/step05/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step05/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
       <?php } else { ?>
       <?php } ?>
 

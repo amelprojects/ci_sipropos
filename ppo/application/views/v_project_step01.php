@@ -18,12 +18,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Basic Information
-      <small>Create Project</small>
+      Informasi Umum
+      <small>Buat Proyek</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyek</li>
     </ol>
   </section>
 
@@ -41,7 +41,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="box-body">
 
           <div class="form-group">
-            <label for="project_title" class="col-sm-2 control-label">Project Title</label>
+            <label for="project_title" class="col-sm-2 control-label">Judul Proyek</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="project_title" placeholder="Project Title" value="<?php echo $project['title'];?>">
               <span class="help-block"></span>
@@ -49,7 +49,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           </div>
 
           <div class="form-group">
-            <label for="project_title" class="col-sm-2 control-label">Project Code</label>
+            <label for="project_title" class="col-sm-2 control-label">Kode Proyek</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="project_code" value="<?php echo $project['project_code'];?>" readonly>
               <span class="help-block"></span>
@@ -57,19 +57,19 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           </div>
 
           <div class="form-group">
-            <label for="project_type" class="col-sm-2 control-label">Project Type</label>
+            <label for="project_type" class="col-sm-2 control-label">Tipe Proyek</label>
             <div class="col-sm-10">
               <select name="project_type" id="project_type" class="form-control">
-                <option value="">Pilih Tipe Project</option>
-                <option value="1" <?php echo $project['type']==1?"selected":""; ?> />Activity Based Project</option>
-                <option value="2" <?php echo $project['type']==2?"selected":""; ?> />Research Project</option>
+                <option value="">Pilih Tipe Proyek</option>
+                <option value="1" <?php echo $project['type']==1?"selected":""; ?> />Proyek Aktivitas</option>
+                <option value="2" <?php echo $project['type']==2?"selected":""; ?> />Proyek Penelitian</option>
               </select>
               <span class="help-block"></span>
             </div>
           </div>
           
           <div class="form-group">
-            <label for="cooperation_area" class="col-sm-2 control-label">Cooperation Area</label>
+            <label for="cooperation_area" class="col-sm-2 control-label">Area Kerjasama</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="cooperation_area" placeholder="Cooperation Area" value="<?php echo $project['cooperation_area']==""?"perdagangan":$project['cooperation_area'];?>" readonly>
               <span class="help-block"></span>
@@ -77,7 +77,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           </div>
           
           <div class="form-group">
-            <label for="relevance" class="col-sm-2 control-label">Relevance</label>
+            <label for="relevance" class="col-sm-2 control-label">Relevansi</label>
             <div class="col-sm-10">
 <!-- 
               <textarea class="form-control" name="relevance" rows="3" placeholder="Enter ..."><?php echo $project['relevance'];?>
@@ -97,34 +97,34 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
            <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Responsible Authority</h3>
+              <h3 class="box-title">Penanggung Jawab</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
 
               <div class="box-body">
                 <div class="form-group">
-                  <label for="ra_name" class="col-sm-2 control-label">Name</label>
+                  <label for="ra_name" class="col-sm-2 control-label">Nama</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="ra_name" placeholder="Name" value="<?php echo $project['ra_name'];?>">
                     <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="ra_title" class="col-sm-2 control-label">Title</label>
+                  <label for="ra_title" class="col-sm-2 control-label">Judul</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="ra_title" placeholder="Title" value="<?php echo $project['ra_title'];?>">
                     <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="ra_address" class="col-sm-2 control-label">Address</label>
+                  <label for="ra_address" class="col-sm-2 control-label">Alamat</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="ra_address" placeholder="Address" value="<?php echo $project['ra_address'];?>">
                     <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="ra_phone" class="col-sm-2 control-label">Phone</label>
+                  <label for="ra_phone" class="col-sm-2 control-label">Telepon</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="ra_phone" placeholder="Phone" value="<?php echo $project['ra_phone'];?>">
                     <span class="help-block"></span>
@@ -150,33 +150,33 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
            <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Contact Person</h3>
+              <h3 class="box-title">Personil Kontak</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="cp_name" class="col-sm-2 control-label">Name</label>
+                  <label for="cp_name" class="col-sm-2 control-label">Nama</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="cp_name" placeholder="Name" value="<?php echo $project['cp_name'];?>">
                     <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="cp_title" class="col-sm-2 control-label">Title</label>
+                  <label for="cp_title" class="col-sm-2 control-label">Judul</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="cp_title" placeholder="Title" value="<?php echo $project['cp_title'];?>">
                     <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="cp_address" class="col-sm-2 control-label">Address</label>
+                  <label for="cp_address" class="col-sm-2 control-label">Alamat</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="cp_address" placeholder="Address" value="<?php echo $project['cp_address'];?>">
                     <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="cp_phone" class="col-sm-2 control-label">Phone</label>
+                  <label for="cp_phone" class="col-sm-2 control-label">Telepon</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="cp_phone" placeholder="Phone" value="<?php echo $project['cp_phone'];?>">
                     <span class="help-block"></span>
@@ -200,7 +200,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           </div><!-- /.box -->
 
           <div class="form-group">
-            <label for="project_type" class="col-sm-2 control-label">Duration (bulan)</label>
+            <label for="project_type" class="col-sm-2 control-label">Durasi (bulan)</label>
             <div class="col-sm-10">
               <select name="duration" id="duration" class="form-control">
                 <option value="">Pilih Durasi</option>
@@ -219,8 +219,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       </form>
 
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Batal</button>
             </div>
 
     </div><!-- /.box -->
@@ -228,8 +228,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 
     <div class="box-footer">
-      <button type="button" onclick="window.history.back();" class="btn btn-default">Prev</button>
-      <a href="<?php echo base_url()."project/step02/".$project['id'];?>" title="Ke Step 2"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <button type="button" onclick="window.history.back();" class="btn btn-default">Halaman Sebelumnya</button>
+      <a href="<?php echo base_url()."project/step02/".$project['id'];?>" title="Ke Step 2"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
     </div><!-- /.box-footer -->
 
    

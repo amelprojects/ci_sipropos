@@ -137,28 +137,28 @@ class Project extends CI_Controller {
         if($this->input->post('project_title') == '')
         {
             $data['inputerror'][] = 'project_title';
-            $data['error_string'][] = 'Project Title harus diisi';
+            $data['error_string'][] = 'Judul Proyek harus diisi';
             $data['status'] = FALSE;
         }
 
         if($this->input->post('project_type') == '')
         {
             $data['inputerror'][] = 'project_type';
-            $data['error_string'][] = 'Tipe Project harus dipilih';
+            $data['error_string'][] = 'Tipe Proyek harus dipilih';
             $data['status'] = FALSE;
         }
 
         if($this->input->post('cooperation_area') == '')
         {
             $data['inputerror'][] = 'cooperation_area';
-            $data['error_string'][] = 'Tipe Project harus dipilih';
+            $data['error_string'][] = 'Tipe Proyek harus dipilih';
             $data['status'] = FALSE;
         }
 
         if($this->input->post('relevance') == '')
         {
             $data['inputerror'][] = 'relevance';
-            $data['error_string'][] = 'Tipe Project harus dipilih';
+            $data['error_string'][] = 'Relevansi harus dipilih';
             $data['status'] = FALSE;
         }
 
@@ -172,7 +172,7 @@ class Project extends CI_Controller {
         if($this->input->post('ra_title') == '')
         {
             $data['inputerror'][] = 'ra_title';
-            $data['error_string'][] = 'Gelar depan harus diisi';
+            $data['error_string'][] = 'Jabatan harus diisi';
             $data['status'] = FALSE;
         }
 
@@ -214,7 +214,7 @@ class Project extends CI_Controller {
         if($this->input->post('cp_title') == '')
         {
             $data['inputerror'][] = 'cp_title';
-            $data['error_string'][] = 'Gelar depan harus diisi';
+            $data['error_string'][] = 'Jabatan harus diisi';
             $data['status'] = FALSE;
         }
 
@@ -328,7 +328,7 @@ class Project extends CI_Controller {
         if($this->input->post('country') == '')
         {
             $data['inputerror'][] = 'country';
-            $data['error_string'][] = 'Country harus diisi';
+            $data['error_string'][] = 'Negara harus diisi';
             $data['status'] = FALSE;
         }
 
@@ -439,14 +439,14 @@ class Project extends CI_Controller {
         if($this->input->post('overall_objective') == '')
         {
             $data['inputerror'][] = 'overall_objective';
-            $data['error_string'][] = 'Overall Objectives harus diisi';
+            $data['error_string'][] = 'Tujuan Keseluruhan harus diisi';
             $data['status'] = FALSE;
         }
 
         if($this->input->post('project_purpose') == '')
         {
             $data['inputerror'][] = 'project_purpose';
-            $data['error_string'][] = 'Project Purpose harus dipilih';
+            $data['error_string'][] = 'Tujuan Proyek harus dipilih';
             $data['status'] = FALSE;
         }
 

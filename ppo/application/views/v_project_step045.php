@@ -18,12 +18,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Main Activities
-      <small>Publicity Meeting</small>
+      Aktivitas Utama
+      <small>Rapat Publik</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyekt</li>
     </ol>
   </section>
 
@@ -31,7 +31,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <small>Please Specify at least <?php echo $project['ab_jumlah_meeting']; ?> publicity meeting</small>
+        <small>Pilih Minimal 2 Negara Mitra<?php echo $project['ab_jumlah_meeting']; ?>Rapat Publik</small>
       </div>
 
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
@@ -42,16 +42,16 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add Publicity Meeting
+                <th>Tambah Rapat Publik
                   <?php if (count($meeting)<$project['ab_jumlah_meeting']) { ?> 
                   <button class="btn btn-box-tool" href="#" onclick="add_meeting('<?php echo $project['id'];?>')" title="Tambah Publicity Meeting"><i class="fa fa-plus"></i></button>
                   <?php } ?>
                 </th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Invited Countries</th>
-                <th>Location</th>
-                <th>Duration (days)</th>
+                <th>Judul</th>
+                <th>Deksripsi</th>
+                <th>Negara Partisipan</th>
+                <th>Lokasi</th>
+                <th>Durasi (hari)</th>
               </tr>
               <?php foreach($meeting as $list_meeting) { ?>
               <tr>
@@ -79,37 +79,37 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       <?php         
         if ($project['ab_jumlah_seminar'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_study_visit'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_workshop'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_training'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else {
       ?>
-      <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php } ?>
 
       <?php         
         if ($project['ab_jumlah_media'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_other_activities'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
       <?php         
         } else {
       ?>
-      <a href="<?php echo base_url()."project/step048/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step048/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
       <?php } ?>
 
     </div><!-- /.box-footer -->
@@ -123,7 +123,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Publicity Meeting</h3>
+                <h3 class="modal-title">Tambah Rapat Publik</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form">
@@ -131,61 +131,61 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <input type="hidden" value="<?php echo $project['id'];?>" name="project_id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label">Activity Title</label>
+                            <label class="control-label">Judul Aktivitas</label>
                             <input name="title" placeholder="Title" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label">Activity Description</label>
+                            <label class="control-label">Deskripsi</label>
                             <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Countries wich will be invited to the Publicity Meeting</label>
+                            <label class="control-label">Negara Partisipan</label>
                             <input name="countries" placeholder="Countries" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Profile of the invited participants</label>
+                            <label class="control-label">Profil Negara Partisipan</label>
                             <input name="participant_profile" placeholder="Profile" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of participants invited to the publicity meeting per partner country</label>
+                            <label class="control-label">Jumlah Partisipan tiap Negara Mitra</label>
                             <input name="participant" placeholder="Number of participants" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Number of total participants invited to the publicity meeting program</label>
+                            <label class="control-label">Jumlah Total Partisipan</label>
                             <input name="participant_total" placeholder="Number of total participants" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Tools and materials that will be utilized for the publicity meeting</label>
+                            <label class="control-label">Bahan dan Perlengkapan yang digunakan</label>
                             <input name="tools_material" placeholder="Tools and materials that will be utilized for the publicity meeting" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Duration of the publicity meeting (days)</label>
+                            <label class="control-label">Durasi Rapat Publik (hari)</label>
                             <input name="duration" placeholder="Duration of the training" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Location of the publicity meeting</label>
+                            <label class="control-label">Lokasi</label>
                             <input name="location" placeholder="Location" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Indicate budget or publicity meeting</label>
+                            <label class="control-label">Budget</label>
                             <input name="budget" placeholder="budget" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
@@ -194,8 +194,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

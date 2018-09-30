@@ -182,8 +182,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

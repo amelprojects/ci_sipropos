@@ -18,12 +18,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Final Step
-      <small>Create Project</small>
+      Finalisasi
+      <small>Buat Proyek</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyek</li>
     </ol>
   </section>
 
@@ -55,7 +55,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 <div class="icon">
                   <i class="ion ion-android-done-all"></i>
                 </div>
-                <a href="<?php echo base_url()."project/review/".$project['id'];?>" class="small-box-footer">Review Project <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?php echo base_url()."project/review/".$project['id'];?>" class="small-box-footer">Kaji Ulang Proyek <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -71,7 +71,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 <!-- 
                 <a href="<?php echo base_url()."project/stepfinal/".$project['id'];?>" class="small-box-footer">Submit Project <i class="fa fa-arrow-circle-right"></i></a>
                  -->
-                <a href="#" onclick="submit('<?php echo $project['id'];?>')" class="small-box-footer">Submit Project <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" onclick="submit('<?php echo $project['id'];?>')" class="small-box-footer">Masukan Proyek<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -88,7 +88,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 
     <div class="box-footer">
-      <a href="<?php echo base_url()."project/step06/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step06/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
 
     </div><!-- /.box-footer -->
 

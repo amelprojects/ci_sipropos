@@ -38,7 +38,7 @@
         <a href="#" onclick="document.location.href='<?php echo base_url(); ?>'"><img src="<?php echo base_url()?>assets/images/logo_kemendag_225x225.jpg" style="width:100px"></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">SIPROPOS</p>
+        <p class="login-box-msg">SIPROPOS Sistem Penyusunan Proposal</p>
         <form action="#" id="form" method="post">
 
           <div class="form-group has-feedback">

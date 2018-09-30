@@ -18,12 +18,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Main Activities
-      <small>Other Activities</small>
+      Aktivitas Utama
+      <small>Aktivitas Lainnya</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyek</li>
     </ol>
   </section>
 
@@ -31,7 +31,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <small>Please Specify at least <?php echo $project['ab_jumlah_media']; ?> other activities</small>
+        <small>Pilih Minimal 2 Negara Mitra<?php echo $project['ab_jumlah_media']; ?>Aktivitas Lainnya</small>
       </div>
 
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
@@ -42,13 +42,13 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add Other Activities
+                <th>Tambah Aktivitas Lainnya
                   <?php if (count($other)<$project['ab_jumlah_other_activities']) { ?> 
                   <button class="btn btn-box-tool" href="#" onclick="add_other('<?php echo $project['id'];?>')" title="Tambah Other Activities"><i class="fa fa-plus"></i></button>
                   <?php } ?>
                 </th>
-                <th>Title</th>
-                <th>Description</th>
+                <th>Judul</th>
+                <th>Desckripsi</th>
               </tr>
               <?php foreach($other as $list_other) { ?>
               <tr>
@@ -73,34 +73,34 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       <?php         
         if ($project['ab_jumlah_media'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_meeting'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step045/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step045/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_seminar'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_study_visit'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_workshop'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_training'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else {
       ?>
-      <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php } ?>
 
-      <a href="<?php echo base_url()."project/step048/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step048/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
 
     </div><!-- /.box-footer -->
 
@@ -113,7 +113,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Other Activities</h3>
+                <h3 class="modal-title">Tambah Aktivitas Lainnya</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form">
@@ -136,8 +136,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

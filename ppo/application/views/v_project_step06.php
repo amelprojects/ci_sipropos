@@ -18,12 +18,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Summary and Related Future Works
-      <small>Create Project</small>
+      Intisari dan Proyek Selanjutnya
+      <small>Buat Proyek</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyek</li>
     </ol>
   </section>
 
@@ -41,7 +41,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="box-body">
 
           <div class="form-group">
-            <label>Summary</label>
+            <label>Intisari</label>
             <textarea class="form-control" name="summary" rows="3" placeholder="Enter ..."><?php echo $project['summary'];?></textarea>
             <span class="help-block"></span>
           </div>
@@ -51,8 +51,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       </form>
 
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Batal</button>
             </div>
 
     </div><!-- /.box -->
@@ -60,14 +60,14 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
     <div class="box-footer">
       <?php if ($project['type']==1) {?>
-      <a href="<?php echo base_url()."project/step049/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step049/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php } ?>
       <?php if ($project['type']==2) {?>
-      <a href="<?php echo base_url()."project/step051/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step051/".$project['id'];?>" title="Ke Step 4"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php } else { ?>
       <?php } ?>
 
-      <a href="<?php echo base_url()."project/step07/".$project['id'];?>" title="Ke Step 7"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step07/".$project['id'];?>" title="Ke Step 7"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
 
     </div><!-- /.box-footer -->
 

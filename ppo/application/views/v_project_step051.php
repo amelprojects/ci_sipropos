@@ -17,12 +17,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Human Resources
-      <small>General Qualifications Required for Potential Lead Project Researcher</small>
+      SDM
+      <small>Kualifikasi Umum Pemimpin Proyek Penelitian</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyekt</li>
     </ol>
   </section>
 
@@ -40,44 +40,44 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="box-body">
 
           <div class="form-group">
-              <label class="control-label">Education Level</label>
+              <label class="control-label">Pendidikan</label>
               <input name="education_level" placeholder="Title" class="form-control" type="text" value="<?php echo $project["education_level"]; ?>">
               <span class="help-block"></span>
           </div>
           
           <div class="form-group">
-              <label class="control-label">Major/Concentration/Field</label>
+              <label class="control-label">Bidang</label>
               <textarea class="form-control" name="major" rows="3" placeholder="Enter ..."><?php echo $project["education_level"]; ?></textarea>
               <span class="help-block"></span>
           </div>
 
           <div class="form-group">
-              <label class="control-label">Publication</label>
+              <label class="control-label">Publikasi</label>
               <textarea class="form-control" name="publication" rows="3" placeholder="Enter ..."><?php echo $project["education_level"]; ?></textarea>
               <span class="help-block"></span>
           </div>
 
           <div class="form-group">
-              <label class="control-label">Practical experience in related field</label>
+              <label class="control-label">Pengalaman</label>
               <textarea class="form-control" name="experience" rows="3" placeholder="Enter ..."><?php echo $project["education_level"]; ?></textarea>
               <span class="help-block"></span>
           </div>
 
           <div class="form-group">
-              <label class="control-label">Other Qualification</label>
+              <label class="control-label">Kualifikasi Lainnya</label>
               <textarea class="form-control" name="other_qualification" rows="3" placeholder="Enter ..."><?php echo $project["education_level"]; ?></textarea>
               <span class="help-block"></span>
           </div>
 
           <div class="form-group">
-              <label class="control-label">Engslish Skill</label>
+              <label class="control-label">Kemampuan Bahasa Inggris</label>
               <select name="english_skill" id="english_skill" class="form-control">
                   <option value="">Pilih</option>
-                  <option value="1" <?php echo $project['english_skill']==1?"selected":""; ?>/>1 (lowest)</option>
+                  <option value="1" <?php echo $project['english_skill']==1?"selected":""; ?>/>1 (terendah)</option>
                   <option value="2" <?php echo $project['english_skill']==2?"selected":""; ?>/>2</option>
                   <option value="3" <?php echo $project['english_skill']==3?"selected":""; ?>/>3</option>
                   <option value="4" <?php echo $project['english_skill']==4?"selected":""; ?>/>4</option>
-                  <option value="5" <?php echo $project['english_skill']==5?"selected":""; ?>/>5 (highest)</option>
+                  <option value="5" <?php echo $project['english_skill']==5?"selected":""; ?>/>5 (tertinggi)</option>
               </select>
               <span class="help-block"></span>
           </div>
@@ -87,8 +87,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       </form>
 
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Batal</button>
             </div>
 
     </div><!-- /.box -->
@@ -96,8 +96,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 
     <div class="box-footer">
-      <a href="<?php echo base_url()."project/step05/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
-      <a href="<?php echo base_url()."project/step06/".$project['id'];?>" title="Ke Step 2"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step05/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
+      <a href="<?php echo base_url()."project/step06/".$project['id'];?>" title="Ke Step 2"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
     </div><!-- /.box-footer -->
 
    

@@ -18,12 +18,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Project Partners
-      <small>Create Project</small>
+      Mitra Proyek
+      <small>Buat Proyek</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyek</li>
     </ol>
   </section>
 
@@ -31,7 +31,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <small>Please Specify at least 2 partners countries</small>
+        <small>Pilih minimal 2 Negara Mitra</small>
       </div>
 
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
@@ -42,9 +42,9 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add Partner Country <button class="btn btn-box-tool" href="#" onclick="add_partners('<?php echo $project['id'];?>')" title="Tambah User"><i class="fa fa-plus"></i></button></th>
-                <th>Country</th>
-                <th>Please Describe why choosen these countries</th>
+                <th>Tambah Negara Mitra <button class="btn btn-box-tool" href="#" onclick="add_partners('<?php echo $project['id'];?>')" title="Tambah User"><i class="fa fa-plus"></i></button></th>
+                <th>Negara</th>
+                <th>Sebutkan Alasan Pemilihan Negara Mitra</th>
               </tr>
               <?php foreach($partner as $list_partner) { ?>
               <tr>
@@ -66,8 +66,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
 
     <div class="box-footer">
-      <a href="<?php echo base_url()."project/step01/".$project['id'];?>" title="Ke Step 1"><button type="button" class="btn btn-default">Prev</button></a>
-      <a href="<?php echo base_url()."project/step03/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step01/".$project['id'];?>" title="Ke Step 1"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
+      <a href="<?php echo base_url()."project/step03/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
     </div><!-- /.box-footer -->
 
    
@@ -79,7 +79,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Partners</h3>
+                <h3 class="modal-title">Tambah Mitra</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
@@ -87,7 +87,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <input type="hidden" value="" name="project_id"/> 
                     <div class="form-body">
                         <div class="form-group" id="country">
-                            <label class="control-label col-md-3">Country</label>
+                            <label class="control-label col-md-3">Negara</label>
                             <div class="col-md-9">
                                 <input name="country" placeholder="Country Name" class="form-control" type="text">
                                 <span class="help-block"></span>
@@ -95,7 +95,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         </div>
                         
                         <div class="form-group" id="reason">
-                            <label class="control-label col-md-3">Reason</label>
+                            <label class="control-label col-md-3">Alasan</label>
                             <div class="col-md-9">
                                 <textarea class="form-control" name="reason" rows="3" placeholder="Enter ..."></textarea>
                                 <span class="help-block"></span>
@@ -106,8 +106,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

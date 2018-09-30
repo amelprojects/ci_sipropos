@@ -18,8 +18,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Review
-      <small>Create Project</small>
+      Kaji Ulang
+      <small>Buat Proyek</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
@@ -34,34 +34,34 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <h3 class="box-title">Project Fiche</h3>
+        <h3 class="box-title">File</h3>
       </div>
       <div class="box-body">
 
         <table class="table table-striped">
           <tr>
-            <td colspan="2">Project Code</td>
+            <td colspan="2">Kode Proyek</td>
           </tr>
           <tr>
             <td style="width: 10px"></td>
             <td><?=$project['project_code'];?></td>
           </tr>
           <tr>
-            <td colspan="2">Project Title</td>
+            <td colspan="2">Judul Proyek</td>
           </tr>
           <tr>
             <td></td>
             <td><?=$project['title'];?></td>
           </tr>
           <tr>
-            <td colspan="2">Cooperation Area</td>
+            <td colspan="2">Area Kerjasama</td>
           </tr>
           <tr>
             <td></td>
             <td><?=$project['cooperation_area'];?></td>
           </tr>
           <tr>
-            <td colspan="2">Relevance</td>
+            <td colspan="2">Relevansi</td>
           </tr>
           <tr>
             <td></td>
@@ -71,29 +71,29 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <hr>
         <table class="table table-striped">
           <tr>
-            <td colspan="4"><b>Responsibility Authority</b></td>
+            <td colspan="4"><b>Penanggung Jawab</b></td>
           </tr>
           <tr>
             <td style="width: 2%"></td>
-            <td style="width: 10%">Name</td>
+            <td style="width: 10%">Nama</td>
             <td style="width: 2%">:</td>
             <td><?=$project['ra_name'];?></td>
           </tr>
           <tr>
             <td></td>
-            <td>Title</td>
+            <td>Judul</td>
             <td>:</td>
             <td><?=$project['ra_title'];?></td>
           </tr>
           <tr>
             <td></td>
-            <td>Address</td>
+            <td>Alamat/td>
             <td>:</td>
             <td><?=$project['ra_address'];?></td>
           </tr>
           <tr>
             <td></td>
-            <td>Phone</td>
+            <td>Telepon</td>
             <td>:</td>
             <td><?=$project['ra_phone'];?></td>
           </tr>
@@ -113,29 +113,29 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <hr>
         <table class="table table-striped">
           <tr>
-            <td colspan="4"><b>Contact Person</b></td>
+            <td colspan="4"><b>Personil Kontak</b></td>
           </tr>
           <tr>
             <td style="width: 2%"></td>
-            <td style="width: 10%">Name</td>
+            <td style="width: 10%">Nama</td>
             <td style="width: 2%">:</td>
             <td><?=$project['cp_name'];?></td>
           </tr>
           <tr>
             <td></td>
-            <td>Title</td>
+            <td>Judul</td>
             <td>:</td>
             <td><?=$project['cp_title'];?></td>
           </tr>
           <tr>
             <td></td>
-            <td>Address</td>
+            <td>Alamat</td>
             <td>:</td>
             <td><?=$project['cp_address'];?></td>
           </tr>
           <tr>
             <td></td>
-            <td>Phone</td>
+            <td>Telepon</td>
             <td>:</td>
             <td><?=$project['cp_phone'];?></td>
           </tr>
@@ -156,7 +156,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <hr>
         <table class="table table-striped">
           <tr>
-            <td colspan="2">Duration</td>
+            <td colspan="2">Durasi</td>
           </tr>
           <tr>
             <td style="width: 10px"></td>
@@ -167,15 +167,15 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <hr>
         <table class="table table-striped">
           <tr>
-            <td colspan="2">Project Partner</td>
+            <td colspan="2">Mitra Proyek</td>
           </tr>
           <tr>
             <td style="width: 10px"></td>
             <td>
               <table style="">
                 <tr>
-                  <td style="width: 50%; text-align: center; border-top: 1px solid; border-left: 1px solid; border-bottom: 1px solid">Country</td>
-                  <td style="width: 50%; text-align: center; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid">Please explain why these partners are chosen and their roles in the project for each partner</td>
+                  <td style="width: 50%; text-align: center; border-top: 1px solid; border-left: 1px solid; border-bottom: 1px solid">Negara</td>
+                  <td style="width: 50%; text-align: center; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid">Jelaskan Dasar Pemilihan dan Peran Mitra Proyek</td>
                 </tr>
                 <?php foreach($partner as $list_partner) { ?>
                 <tr>
@@ -192,29 +192,29 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <hr>
         <table class="table table-striped">
           <tr>
-            <td colspan="4"><b>Project Essentials</b></td>
+            <td colspan="4"><b>Kepentingan Proyek</b></td>
           </tr>
           <tr>
             <td style="width: 2%"></td>
-            <td style="width: 25%">Overall Objectives</td>
+            <td style="width: 25%">Tujuan Keseluruhan</td>
             <td style="width: 2%">:</td>
             <td><?=$project['overall_objective'];?></td>
           </tr>
           <tr>
             <td></td>
-            <td>Project Purpose</td>
+            <td>Tujuan Proyek</td>
             <td>:</td>
             <td><?=$project['project_purpose'];?></td>
           </tr>
           <tr>
             <td></td>
-            <td>Target Group</td>
+            <td>Grup Target</td>
             <td>:</td>
             <td><?=$project['target_group'];?></td>
           </tr>
           <tr>
             <td></td>
-            <td>Contribution to Multilateral Cooperation</td>
+            <td>Kontribusi terhadap Kerjasama Multilateral</td>
             <td>:</td>
             <td><?=$project['contribution'];?></td>
           </tr>
@@ -228,77 +228,77 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
               <hr>
               <table class="table table-striped">
                 <tr>
-                  <td colspan="4"><b>Training</b></td>
+                  <td colspan="4"><b>Pelatihan</b></td>
                 </tr>
                 <tr>
                   <td style="width: 2%"></td>
-                  <td style="width: 25%">Activity Title</td>
+                  <td style="width: 25%">Judul Aktivitas</td>
                   <td style="width: 2%">:</td>
                   <td><?=$list_training['title'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Activity Description</td>
+                  <td>Deskripsi Aktivitas</td>
                   <td>:</td>
                   <td><?=$list_training['description'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Countries wich will be invited to the training</td>
+                  <td>Negara yang Diundang</td>
                   <td>:</td>
                   <td><?=$list_training['countries'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of participants invited to the training per partner country</td>
+                  <td>Jumlah Partisipan tiap Negara Mitra</td>
                   <td>:</td>
                   <td><?=$list_training['participant'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of total participants invited to the training program</td>
+                  <td>Jumlah Total Partisipan yang Diundang</td>
                   <td>:</td>
                   <td><?=$list_training['participant_total'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of trainers needed</td>
+                  <td>Jumlah Pelatih yang Diperlukan</td>
                   <td>:</td>
                   <td><?=$list_training['trainer'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Duration of training (days)</td>
+                  <td>Durasi Pelatihan (hari)</td>
                   <td>:</td>
                   <td><?=$list_training['duration'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Location of the training</td>
+                  <td>Lokasi Pelatihan</td>
                   <td>:</td>
                   <td><?=$list_training['location'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of days of boarding and lodging needed</td>
+                  <td>Jumlah Hari Menginap</td>
                   <td>:</td>
                   <td><?=$list_training['days'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of flight tickets needed (roundtrip)</td>
+                  <td>Jumlah Tiket Pesawat (PP)</td>
                   <td>:</td>
                   <td><?=$list_training['ticket'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Please give details if interpretation nedded</td>
+                  <td>Keterangan Tambahan</td>
                   <td>:</td>
                   <td><?=$list_training['detail'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Indicate budget of the training</td>
+                  <td>Budget Pelatihan</td>
                   <td>:</td>
                   <td><?=$list_training['budget'];?></td>
                 </tr>
@@ -317,67 +317,67 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 </tr>
                 <tr>
                   <td style="width: 2%"></td>
-                  <td style="width: 25%">Activity Title</td>
+                  <td style="width: 25%">Judul Aktivitas</td>
                   <td style="width: 2%">:</td>
                   <td><?=$list_workshop['title'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Activity Description</td>
+                  <td>Deskripsi Aktivitas</td>
                   <td>:</td>
                   <td><?=$list_workshop['description'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Country wich will be invited to the workshop</td>
+                  <td>Negara Peserta</td>
                   <td>:</td>
                   <td><?=$list_workshop['countries'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of participants invited to the workshop per partner country</td>
+                  <td>Jumlah Partisipan tiap Negara Mitra</td>
                   <td>:</td>
                   <td><?=$list_workshop['participant'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of total participants invited to the worksop program</td>
+                  <td>Jumlah Total Partisipan</td>
                   <td>:</td>
                   <td><?=$list_workshop['participant_total'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Duration of the workshop (days)</td>
+                  <td>Durasi Workshop (hari)</td>
                   <td>:</td>
                   <td><?=$list_workshop['duration'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Location of the workshop</td>
+                  <td>Lokasi Workshop</td>
                   <td>:</td>
                   <td><?=$list_workshop['location'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of days of boarding and lodging needed</td>
+                  <td>Jumlah Hari Menginap</td>
                   <td>:</td>
                   <td><?=$list_workshop['days'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of flight tickets needed (roundtrip)</td>
+                  <td>Jumlah Tiket Pesawat(PP)</td>
                   <td>:</td>
                   <td><?=$list_workshop['ticket'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Writen output of the workshop</td>
+                  <td>Hasil Workshop</td>
                   <td>:</td>
                   <td><?=$list_workshop['output'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Indicate budget of the training</td>
+                  <td>Budget Workshop</td>
                   <td>:</td>
                   <td><?=$list_workshop['budget'];?></td>
                 </tr>
@@ -392,65 +392,65 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
               <hr>
               <table class="table table-striped">
                 <tr>
-                  <td colspan="4"><b>Study Visit</b></td>
+                  <td colspan="4"><b>Studi Banding</b></td>
                 </tr>
                 <tr>
                   <td style="width: 2%"></td>
-                  <td style="width: 25%">Activity Title</td>
+                  <td style="width: 25%">Judul Aktivitas</td>
                   <td style="width: 2%">:</td>
                   <td><?=$list_study_visit['title'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Activity Description</td>
+                  <td>Deskripsi Aktivitas</td>
                   <td>:</td>
                   <td><?=$list_study_visit['description'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Related Training</td>
+                  <td>Pelatihan Terkait</td>
                   <td>:</td>
                   <td><?=$list_study_visit['related_training'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Contribution</td>
+                  <td>Kontribusi</td>
                   <td>:</td>
                   <td><?=$list_study_visit['contribution'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Destination</td>
+                  <td>Tujuan</td>
                   <td>:</td>
                   <td><?=$list_study_visit['destination'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Personel</td>
+                  <td>Personil</td>
                   <td>:</td>
                   <td><?=$list_study_visit['personel'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Duration</td>
+                  <td>Durasi</td>
                   <td>:</td>
                   <td><?=$list_study_visit['duration'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of flight tickets needed (roundtrip)</td>
+                  <td>Jumlah Tiket Pesawat (PP)</td>
                   <td>:</td>
                   <td><?=$list_study_visit['ticket'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of days of boarding and lodging needed</td>
+                  <td>Jumlah Hari Menginap</td>
                   <td>:</td>
                   <td><?=$list_study_visit['days'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Indicate budget of the training</td>
+                  <td>Budget Studi Banding</td>
                   <td>:</td>
                   <td><?=$list_study_visit['budget'];?></td>
                 </tr>
@@ -469,73 +469,73 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 </tr>
                 <tr>
                   <td style="width: 2%"></td>
-                  <td style="width: 25%">Activity Title</td>
+                  <td style="width: 25%">Judul Aktivitas</td>
                   <td style="width: 2%">:</td>
                   <td><?=$list_seminar['title'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Activity Description</td>
+                  <td>Deskripsi Aktivitas</td>
                   <td>:</td>
                   <td><?=$list_seminar['description'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of Speakers</td>
+                  <td>Jumlah Pembicara</td>
                   <td>:</td>
                   <td><?=$list_seminar['speakers'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Countries wich will be invited to the Conference / Seminar</td>
+                  <td>Negara Partisipan</td>
                   <td>:</td>
                   <td><?=$list_seminar['countries'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of participants invited to the seminar per partner country</td>
+                  <td>Jumlah Partisipan tiap Negara Mitra</td>
                   <td>:</td>
                   <td><?=$list_seminar['participant'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of total participants invited to the seminar program</td>
+                  <td>Jumlah Total Partisipan</td>
                   <td>:</td>
                   <td><?=$list_seminar['participant_total'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Duration of the seminar (days)</td>
+                  <td>Durasi Seminar (hari))</td>
                   <td>:</td>
                   <td><?=$list_seminar['duration'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Location of the seminar</td>
+                  <td>Lokasi Seminar</td>
                   <td>:</td>
                   <td><?=$list_seminar['location'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of days of boarding and lodging needed</td>
+                  <td>Jumlah Hari Menginap</td>
                   <td>:</td>
                   <td><?=$list_seminar['days'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of flight tickets needed (roundtrip)</td>
+                  <td>Jumlah Tiket Pesawat (PP)</td>
                   <td>:</td>
                   <td><?=$list_seminar['ticket'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Please give details if interpretation is needed</td>
+                  <td>Keterangan Tambahan</td>
                   <td>:</td>
                   <td><?=$list_seminar['detail'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Indicate budget of the training</td>
+                  <td>Budget Seminar</td>
                   <td>:</td>
                   <td><?=$list_seminar['budget'];?></td>
                 </tr>
@@ -550,65 +550,65 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
               <hr>
               <table class="table table-striped">
                 <tr>
-                  <td colspan="4"><b>Meeting</b></td>
+                  <td colspan="4"><b>Rapat</b></td>
                 </tr>
                 <tr>
                   <td style="width: 2%"></td>
-                  <td style="width: 25%">Activity Title</td>
+                  <td style="width: 25%">Judul Aktivitas</td>
                   <td style="width: 2%">:</td>
                   <td><?=$list_meeting['title'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Activity Description</td>
+                  <td>Deskripsi Aktivitas</td>
                   <td>:</td>
                   <td><?=$list_meeting['description'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Countries wich will be invited to the Publicity Meeting</td>
+                  <td>Negara Partisipan</td>
                   <td>:</td>
                   <td><?=$list_meeting['countries'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Profile of the invited participants</td>
+                  <td>Profil Negara Partisipan</td>
                   <td>:</td>
                   <td><?=$list_meeting['participant_profile'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of participants invited to the publicity meeting per partner country</td>
+                  <td>Jumlah Partisipan tiap Negara Mitra</td>
                   <td>:</td>
                   <td><?=$list_meeting['participant'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Number of total participants invited to the publicity meeting program</td>
+                  <td>Jumlah Total Partisipan</td>
                   <td>:</td>
                   <td><?=$list_meeting['participant_total'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Tools and materials that will be utilized for the publicity meeting</td>
+                  <td>Bahan dan Material yang digunakan pada Rapat Publik</td>
                   <td>:</td>
                   <td><?=$list_meeting['tools_material'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Duration of the publicity meeting (days)</td>
+                  <td>Durasi Rapat Publik (hari)</td>
                   <td>:</td>
                   <td><?=$list_meeting['duration'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Location of the publicity meeting/td>
+                  <td>Lokasi Rapat Publik</td>
                   <td>:</td>
                   <td><?=$list_meeting['location'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Indicate budget of the training</td>
+                  <td>Budget</td>
                   <td>:</td>
                   <td><?=$list_meeting['budget'];?></td>
                 </tr>
@@ -623,53 +623,53 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
               <hr>
               <table class="table table-striped">
                 <tr>
-                  <td colspan="4"><b>Preparation audio, visual, and written promotional materials</b></td>
+                  <td colspan="4"><b>Persiapan Material Promosi Audio, Visual dan Tulis</b></td>
                 </tr>
                 <tr>
                   <td style="width: 2%"></td>
-                  <td style="width: 25%">Activity Title</td>
+                  <td style="width: 25%">Judul Aktivitas</td>
                   <td style="width: 2%">:</td>
                   <td><?=$list_media['title'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Activity Description</td>
+                  <td>Deskripsi Aktivitas</td>
                   <td>:</td>
                   <td><?=$list_media['description'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Promotional materials that will be produced</td>
+                  <td>Material Promosi yang Diproduksi</td>
                   <td>:</td>
                   <td><?=$list_media['promotional'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Potential Producers of Promotional Materials</td>
+                  <td>Potensial Produsen Material Promosi</td>
                   <td>:</td>
                   <td><?=$list_media['potential'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Target Group</td>
+                  <td>Grup Target</td>
                   <td>:</td>
                   <td><?=$list_media['target_group'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Ways and means of disseminating Promotional Material</td>
+                  <td>Cara Diseminasi Material Promosi</td>
                   <td>:</td>
                   <td><?=$list_media['ways_mean'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Duration of Dissemination</td>
+                  <td>Durasi Diseminasi</td>
                   <td>:</td>
                   <td><?=$list_media['duration'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Indicate budget of the training</td>
+                  <td>Budget</td>
                   <td>:</td>
                   <td><?=$list_media['budget'];?></td>
                 </tr>
@@ -684,17 +684,17 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
               <hr>
               <table class="table table-striped">
                 <tr>
-                  <td colspan="4"><b>Other Activities</b></td>
+                  <td colspan="4"><b>Aktivitas Lainnya</b></td>
                 </tr>
                 <tr>
                   <td style="width: 2%"></td>
-                  <td style="width: 25%">Activity Title</td>
+                  <td style="width: 25%">Judul Aktivitas</td>
                   <td style="width: 2%">:</td>
                   <td><?=$list_other['title'];?></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>Activity Description</td>
+                  <td>Deskripsi Aktivitas</td>
                   <td>:</td>
                   <td><?=$list_other['description'];?></td>
                 </tr>
@@ -709,41 +709,41 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <hr>
           <table class="table table-striped">
             <tr>
-              <td colspan="4"><b>General Qualifications Required for Potential Lead Project Researcher</b></td>
+              <td colspan="4"><b>Kualifikasi Umum Pemimpin Proyek Penelitian Potensial</b></td>
             </tr>
             <tr>
               <td style="width: 2%"></td>
-              <td style="width: 25%">Education Level</td>
+              <td style="width: 25%">Pendidikan</td>
               <td style="width: 2%">:</td>
               <td><?=$project['education_level'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Major/Concentration/Field</td>
+              <td>Bidangd</td>
               <td>:</td>
               <td><?=$project['major'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Publication</td>
+              <td>Publikasi/td>
               <td>:</td>
               <td><?=$project['publication'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Practical experience in related field</td>
+              <td>Pengalaman</td>
               <td>:</td>
               <td><?=$project['experience'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Other Qualification</td>
+              <td>Kualifikasi Lainnya</td>
               <td>:</td>
               <td><?=$project['other_qualification'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Engslish Skill</td>
+              <td>Kemampuan Bahasa Inggris</td>
               <td>:</td>
               <td><?=$project['english_skill'];?></td>
             </tr>
@@ -755,35 +755,35 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <hr>
           <table class="table table-striped">
             <tr>
-              <td colspan="4"><b>Human Resource for Coordinator</b></td>
+              <td colspan="4"><b>Koordinator SDM</b></td>
             </tr>
             <tr>
               <td style="width: 2%"></td>
-              <td style="width: 25%">Education Level</td>
+              <td style="width: 25%">Pendidikan</td>
               <td style="width: 2%">:</td>
               <td><?=$list_hr_coordinator['education_level'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Major/Concentration/Field</td>
+              <td>Bidang</td>
               <td>:</td>
               <td><?=$list_hr_coordinator['major'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Practical experience in related field</td>
+              <td>Pengalaman</td>
               <td>:</td>
               <td><?=$list_hr_coordinator['experience'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Other Qualification</td>
+              <td>Kualifikasi Lainnya</td>
               <td>:</td>
               <td><?=$list_hr_coordinator['other_qualification'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Engslish Skill</td>
+              <td>Kemampuan Bahasa Inggris</td>
               <td>:</td>
               <td><?=$list_hr_coordinator['english_skill'];?></td>
             </tr>
@@ -794,47 +794,47 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <hr>
           <table class="table table-striped">
             <tr>
-              <td colspan="4"><b>Human Resource for Trainer</b></td>
+              <td colspan="4"><b>Pelatih SDM</b></td>
             </tr>
             <tr>
               <td style="width: 2%"></td>
-              <td style="width: 25%">Trainer</td>
+              <td style="width: 25%">SDM</td>
               <td style="width: 2%">:</td>
               <td><?=$list_hr_trainer['trainer'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Education Level</td>
+              <td>Pendidikan</td>
               <td>:</td>
               <td><?=$list_hr_trainer['education_level'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Major/Concentration/Field</td>
+              <td>Bidang/td>
               <td>:</td>
               <td><?=$list_hr_trainer['major'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Publication</td>
+              <td>Publikasi</td>
               <td>:</td>
               <td><?=$list_hr_trainer['publication'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Practical experience in related field</td>
+              <td>Pengalaman</td>
               <td>:</td>
               <td><?=$list_hr_trainer['experience'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Other Qualification</td>
+              <td>Kualifikasi Lainnya</td>
               <td>:</td>
               <td><?=$list_hr_trainer['other_qualification'];?></td>
             </tr>
             <tr>
               <td></td>
-              <td>Engslish Skill</td>
+              <td>Kemampuan Bahasa Inggris</td>
               <td>:</td>
               <td><?=$list_hr_trainer['english_skill'];?></td>
             </tr>
@@ -844,7 +844,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <hr>
         <table class="table table-striped">
           <tr>
-            <td colspan="2">Summary</td>
+            <td colspan="2">Intisari</td>
           </tr>
           <tr>
             <td style="width: 10px"></td>
@@ -859,8 +859,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   </section><!-- /.content -->
 
       <div class="modal-footer">
-        <button type="button" id="btn_save" onclick="$('.content').printMe();" class="btn btn-primary print">Print</button>
-        <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Cancel</button>
+        <button type="button" id="btn_save" onclick="$('.content').printMe();" class="btn btn-primary print">Cetak</button>
+        <button type="button" onclick="window.history.back();" title="Cancle" class="btn btn-default">Batal</button>
     </div>
 
 </div><!-- /.container -->

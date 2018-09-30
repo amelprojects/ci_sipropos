@@ -43,7 +43,7 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Username</th>
+                        <th>Nama Pengguna</th>
                         <th>Email</th>
                         <th>Nama Lengkap</th>
                         <th>Instansi</th>
@@ -80,7 +80,7 @@
                     <input type="hidden" value="" name="user_email_pass"/> 
                     <div class="form-body">
                         <div class="form-group" id="g_user_name">
-                            <label class="control-label col-md-3">Username</label>
+                            <label class="control-label col-md-3">Nama Pengguna</label>
                             <div class="col-md-9">
                                 <input name="user_name" placeholder="Kata Pengguna (Min 6 Karakter)" onkeypress="return validateSpace(this);" class="form-control" type="text" minlength="6">
                                 <span class="help-block"></span>
@@ -139,8 +139,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

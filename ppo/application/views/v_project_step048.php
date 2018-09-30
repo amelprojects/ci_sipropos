@@ -18,12 +18,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Main Activities
-      <small>Human Resource for Coordinator</small>
+      Aktivitas Utama
+      <small>Koordinator SDM</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyek</li>
     </ol>
   </section>
 
@@ -42,13 +42,13 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add HR for Coordinator
+                <th>Tambah Koordinator HR
                   <button class="btn btn-box-tool" href="#" onclick="add_hr_coordinator('<?php echo $project['id'];?>')" title="Tambah"><i class="fa fa-plus"></i></button>
                 </th>
-                <th>Education</th>
-                <th>Experience</th>
-                <th>Field</th>
-                <th>Engslish Skill</th>
+                <th>Pendidikan</th>
+                <th>Pengalaman</th>
+                <th>Bidang</th>
+                <th>Kemampuan Bahasa Inggris</th>
               </tr>
               <?php foreach($hr_coordinator as $list_hr_coordinator) { ?>
               <tr>
@@ -75,38 +75,38 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
     <?php         
         if ($project['ab_jumlah_other_activities'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_media'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step046/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_meeting'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step045/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step045/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_seminar'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_study_visit'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_workshop'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_training'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else {
       ?>
-      <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php } ?>
 
-      <a href="<?php echo base_url()."project/step049/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step049/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Halaman Setelahnya</button></a>
 
     </div><!-- /.box-footer -->
 
@@ -119,7 +119,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Human Resource for Coordinator</h3>
+                <h3 class="modal-title">Tambah Koordinator SDM</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form">
@@ -127,31 +127,31 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <input type="hidden" value="<?php echo $project['id'];?>" name="project_id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label">Education Level</label>
+                            <label class="control-label">Pendidikan</label>
                             <input name="education_level" placeholder="Title" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label">Major/Concentration/Field</label>
+                            <label class="control-label">Bidang</label>
                             <textarea class="form-control" name="major" rows="3" placeholder="Enter ..."></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Practical experience in related field</label>
+                            <label class="control-label">Pengalaman</label>
                             <textarea class="form-control" name="experience" rows="3" placeholder="Enter ..."></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Other Qualification</label>
+                            <label class="control-label">Kualifikasi Lainnya</label>
                             <textarea class="form-control" name="other_qualification" rows="3" placeholder="Enter ..."></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Engslish Skill</label>
+                            <label class="control-label">Kemampuan Bahasa Inggris</label>
                             <select name="english_skill" id="english_skill" class="form-control">
                                 <option value="">Pilih</option>
                                 <option value="1"/>1 (lowest)</option>
@@ -167,8 +167,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btn_save" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

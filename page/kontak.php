@@ -41,7 +41,7 @@
 </div></div></div><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner "><div class="wpb_wrapper">
 	<div class="wpb_text_column wpb_content_element  vc_custom_1497451146180">
 		<div class="wpb_wrapper">
-			<p><a href="mailto:sipropos.si@gmail.com">sipropos.si@gmail.com</a></p>
+			<p><a href="mailto:sipropos.si@gmail.com">sipropos.kemendag@gmail.com</a></p>
 
 		</div>
 	</div>
