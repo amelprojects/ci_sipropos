@@ -98,7 +98,7 @@ var bwg_objectL10n = {"bwg_field_required":"field is required.","bwg_mail_valida
 
 #main-nav, #main-nav ul li a{
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size : 14px;
+	font-size : 20px;
 	font-weight: bolder;
 }
 
