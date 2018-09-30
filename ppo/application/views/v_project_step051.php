@@ -22,7 +22,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Proyekt</li>
+      <li class="active">Proyek</li>
     </ol>
   </section>
 
@@ -41,31 +41,31 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
           <div class="form-group">
               <label class="control-label">Pendidikan</label>
-              <input name="education_level" placeholder="Title" class="form-control" type="text" value="<?php echo $project["education_level"]; ?>">
+              <input name="education_level" placeholder="Pendidikan" class="form-control" type="text" value="<?php echo $project["education_level"]; ?>">
               <span class="help-block"></span>
           </div>
           
           <div class="form-group">
               <label class="control-label">Bidang</label>
-              <textarea class="form-control" name="major" rows="3" placeholder="Enter ..."><?php echo $project["education_level"]; ?></textarea>
+              <textarea class="form-control" name="major" rows="3" placeholder="Bidang"><?php echo $project["education_level"]; ?></textarea>
               <span class="help-block"></span>
           </div>
 
           <div class="form-group">
               <label class="control-label">Publikasi</label>
-              <textarea class="form-control" name="publication" rows="3" placeholder="Enter ..."><?php echo $project["education_level"]; ?></textarea>
+              <textarea class="form-control" name="publication" rows="3" placeholder="Publikasi"><?php echo $project["education_level"]; ?></textarea>
               <span class="help-block"></span>
           </div>
 
           <div class="form-group">
               <label class="control-label">Pengalaman</label>
-              <textarea class="form-control" name="experience" rows="3" placeholder="Enter ..."><?php echo $project["education_level"]; ?></textarea>
+              <textarea class="form-control" name="experience" rows="3" placeholder="Pengalaman"><?php echo $project["education_level"]; ?></textarea>
               <span class="help-block"></span>
           </div>
 
           <div class="form-group">
               <label class="control-label">Kualifikasi Lainnya</label>
-              <textarea class="form-control" name="other_qualification" rows="3" placeholder="Enter ..."><?php echo $project["education_level"]; ?></textarea>
+              <textarea class="form-control" name="other_qualification" rows="3" placeholder="Kualifikasi Lainnya"><?php echo $project["education_level"]; ?></textarea>
               <span class="help-block"></span>
           </div>
 

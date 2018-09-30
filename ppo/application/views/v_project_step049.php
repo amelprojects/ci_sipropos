@@ -100,37 +100,37 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label">Pelatih</label>
-                            <input name="trainer" placeholder="Trainer Name" class="form-control" type="text">
+                            <input name="trainer" placeholder="Pelatih" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Pendidikan</label>
-                            <input name="education_level" placeholder="Title" class="form-control" type="text">
+                            <input name="education_level" placeholder="Pendidikan" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Bidang</label>
-                            <textarea class="form-control" name="major" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="major" rows="3" placeholder="Bidang"></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Publikasi</label>
-                            <textarea class="form-control" name="publication" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="publication" rows="3" placeholder="Publikasi"></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Pengalaman</label>
-                            <textarea class="form-control" name="experience" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="experience" rows="3" placeholder="Pengalaman"></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Kualifikasi Lainnya</label>
-                            <textarea class="form-control" name="other_qualification" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="other_qualification" rows="3" placeholder="Kualifikasi Lainnya"></textarea>
                             <span class="help-block"></span>
                         </div>
 

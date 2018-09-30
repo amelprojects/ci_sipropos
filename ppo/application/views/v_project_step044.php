@@ -132,73 +132,73 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label">Judul Aktivitas</label>
-                            <input name="title" placeholder="Title" class="form-control" type="text">
+                            <input name="title" placeholder="Judul Aktivitas" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Deskripsi Aktivitas</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Deskripsi Aktivitas"></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Jumlah Pembicara</label>
-                            <input name="speakers" placeholder="Speakers" class="form-control" type="text">
+                            <input name="speakers" placeholder="Jumlah Pembicara" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Negara Partisipan</label>
-                            <input name="countries" placeholder="Countries" class="form-control" type="text">
+                            <input name="countries" placeholder="Negara Partisipan" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Negara Partisipan tiap Negara Mitra</label>
-                            <input name="participant" placeholder="Number of participants" class="form-control" type="text">
+                            <input name="participant" placeholder="Negara Partisipan tiap Negara Mitra" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Jumlah Total Negara Partisipan</label>
-                            <input name="participant_total" placeholder="Number of total participants" class="form-control" type="text">
+                            <input name="participant_total" placeholder="Jumlah Total Negara Partisipan" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Durasi Seminar (hari)</label>
-                            <input name="duration" placeholder="Duration of the training" class="form-control" type="text">
+                            <input name="duration" placeholder="Durasi Seminar (hari)" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Lokasi Seminar</label>
-                            <input name="location" placeholder="Duration of the training" class="form-control" type="text">
+                            <input name="location" placeholder="Lokasi Seminar" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Jumlah Hari Menginap</label>
-                            <input name="days" placeholder="Number of days" class="form-control" type="text">
+                            <input name="days" placeholder="Jumlah Hari Menginap" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Jumlah Tiket Pesawat (PP)</label>
-                            <input name="ticket" placeholder="Number of roundtrip tickets" class="form-control" type="text">
+                            <input name="ticket" placeholder="Jumlah Tiket Pesawat (PP)" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Keterangan Tambahan</label>
-                            <input name="detail" placeholder="Please give details if interpretation is needed" class="form-control" type="text">
+                            <input name="detail" placeholder="Keterangan Tambahan class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Budget</label>
-                            <input name="budget" placeholder="budget" class="form-control" type="text">
+                            <label class="control-label">Budget (US$)</label>
+                            <input name="budget" placeholder="Budget (US$)t" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 

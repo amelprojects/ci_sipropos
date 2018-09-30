@@ -1,5 +1,4 @@
 <?php
-
 /* data session */
 $user_id = $s_all['user_id'];
 $user_name = $s_all['user_name'];
@@ -11,7 +10,6 @@ $user_last_activity = $s_all['user_last_activity'];
 $user_date_created = $s_all['user_date_created'];
 $user_role = $s_all['user_role'];
 $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['user_role']);
-
 ?>
 
 <div class="container">
@@ -138,7 +136,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         
                         <div class="form-group">
                             <label class="control-label">Deskripsi Aktivitas</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Deskripsi Aktivitas></textarea>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Deskripsi Aktivitas"></textarea>
                             <span class="help-block"></span>
                         </div>
 
@@ -186,16 +184,10 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
                         <div class="form-group">
                             <label class="control-label">Hasil Workshop</label>
-                            <input name="output" placeholder="Hasil Worksho" class="form-control" type="text">
+                            <input name="output" placeholder="Hasil Workshop" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label">Keterangan Tambahan</label>
-                            <input name="detail" placeholder="Keterangan Tambahan" class="form-control" type="text">
-                            <span class="help-block"></span>
-                        </div>
-                        
                         <div class="form-group">
                             <label class="control-label">Budget (US$)</label>
                             <input name="budget" placeholder="Budget (US$)" class="form-control" type="text">
@@ -213,4 +205,3 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Bootstrap modal -->
-

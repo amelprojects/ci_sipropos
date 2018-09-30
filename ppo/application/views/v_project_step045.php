@@ -132,61 +132,61 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label">Judul Aktivitas</label>
-                            <input name="title" placeholder="Title" class="form-control" type="text">
+                            <input name="title" placeholder="Judul Aktivitas<l" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label">Deskripsi</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <label class="control-label">Deskripsi Aktivitas</label>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Deskripsi Aktivitas"></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Negara Partisipan</label>
-                            <input name="countries" placeholder="Countries" class="form-control" type="text">
+                            <input name="countries" placeholder="Negara Partisipan" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Profil Negara Partisipan</label>
-                            <input name="participant_profile" placeholder="Profile" class="form-control" type="text">
+                            <input name="participant_profile" placeholder="Profil Negara Partisipan" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Jumlah Partisipan tiap Negara Mitra</label>
-                            <input name="participant" placeholder="Number of participants" class="form-control" type="text">
+                            <input name="participant" placeholder="Jumlah Partisipan tiap Negara Mitra" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Jumlah Total Partisipan</label>
-                            <input name="participant_total" placeholder="Number of total participants" class="form-control" type="text">
+                            <input name="participant_total" placeholder="Jumlah Total Partisipan" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Bahan dan Perlengkapan yang digunakan</label>
-                            <input name="tools_material" placeholder="Tools and materials that will be utilized for the publicity meeting" class="form-control" type="text">
+                            <input name="tools_material" placeholder="Bahan dan Perlengkapan yang digunakan" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Durasi Rapat Publik (hari)</label>
-                            <input name="duration" placeholder="Duration of the training" class="form-control" type="text">
+                            <input name="duration" placeholder="Durasi Rapat Publik (hari)" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Lokasi</label>
-                            <input name="location" placeholder="Location" class="form-control" type="text">
+                            <input name="location" placeholder="Lokasi" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Budget</label>
-                            <input name="budget" placeholder="budget" class="form-control" type="text">
+                            <label class="control-label">Budget (US$)</label>
+                            <input name="budget" placeholder="Budget (US$" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 

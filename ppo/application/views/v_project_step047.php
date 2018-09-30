@@ -48,7 +48,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                   <?php } ?>
                 </th>
                 <th>Judul</th>
-                <th>Desckripsi</th>
+                <th>Deskripsi</th>
               </tr>
               <?php foreach($other as $list_other) { ?>
               <tr>
@@ -121,14 +121,14 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <input type="hidden" value="<?php echo $project['id'];?>" name="project_id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label">Activity Title</label>
-                            <input name="title" placeholder="Title" class="form-control" type="text">
+                            <label class="control-label">Judul</label>
+                            <input name="title" placeholder="Judul" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label">Activity Description</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <label class="control-label">Deskripsi Aktivitas</label>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Deskripsi Aktivitas"></textarea>
                             <span class="help-block"></span>
                         </div>
 

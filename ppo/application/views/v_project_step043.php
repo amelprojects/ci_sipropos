@@ -44,7 +44,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
               <tr>
                 <th>Tambah Studi Banding
                   <?php if (count($study_visit)<$project['ab_jumlah_study_visit']) { ?> 
-                  <button class="btn btn-box-tool" href="#" onclick="add_study_visit('<?php echo $project['id'];?>')" title="Tambah Study Visit"><i class="fa fa-plus"></i></button>
+                  <button class="btn btn-box-tool" href="#" onclick="add_study_visit('<?php echo $project['id'];?>')" title="Tambah Study Banding"><i class="fa fa-plus"></i></button>
                   <?php } ?>
                 </th>
                 <th>Judul</th>
@@ -132,61 +132,61 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label">Judul Aktivitas</label>
-                            <input name="title" placeholder="Title" class="form-control" type="text">
+                            <input name="title" placeholder="Judul Aktivitas" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Deksripsi Aktivitas</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Deksripsi Aktivitas"></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Pelatihan Terkait</label>
-                            <input name="related_training" placeholder="Related Training" class="form-control" type="text">
+                            <input name="related_training" placeholder="Pelatihan Terkait" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Kontribusi</label>
-                            <input name="contribution" placeholder="Contribution" class="form-control" type="text">
+                            <input name="contribution" placeholder="Kontribusi" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Tujuan</label>
-                            <input name="destination" placeholder="Destination" class="form-control" type="text">
+                            <input name="destination" placeholder="Tujuan" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Personil</label>
-                            <input name="personel" placeholder="Personel" class="form-control" type="text">
+                            <input name="personel" placeholder="Personil" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Durasi</label>
-                            <input name="duration" placeholder="Duration" class="form-control" type="text">
+                            <label class="control-label">Durasi (hari)</label>
+                            <input name="duration" placeholder="Durasi (hari)" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Jumlah Tiket Pesawat (PP)</label>
-                            <input name="ticket" placeholder="Number of roundtrip tickets" class="form-control" type="text">
+                            <input name="ticket" placeholder="Jumlah Tiket Pesawat (PP)" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Jumlah Hari Menginap</label>
-                            <input name="days" placeholder="Number of days" class="form-control" type="text">
+                            <input name="days" placeholder="Jumlah Hari Menginap" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Budget</label>
-                            <input name="budget" placeholder="budget" class="form-control" type="text">
+                            <label class="control-label">Budget (US$)</label>
+                            <input name="budget" placeholder="Budget (US$)" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 

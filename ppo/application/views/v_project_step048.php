@@ -128,25 +128,25 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label">Pendidikan</label>
-                            <input name="education_level" placeholder="Title" class="form-control" type="text">
+                            <input name="education_level" placeholder="Pendidikan" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label">Bidang</label>
-                            <textarea class="form-control" name="major" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="major" rows="3" placeholder="Bidang"></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Pengalaman</label>
-                            <textarea class="form-control" name="experience" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="experience" rows="3" placeholder="Pengalaman"></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Kualifikasi Lainnya</label>
-                            <textarea class="form-control" name="other_qualification" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="other_qualification" rows="3" placeholder="Kualifikasi Lainnya"></textarea>
                             <span class="help-block"></span>
                         </div>
 
@@ -154,11 +154,11 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                             <label class="control-label">Kemampuan Bahasa Inggris</label>
                             <select name="english_skill" id="english_skill" class="form-control">
                                 <option value="">Pilih</option>
-                                <option value="1"/>1 (lowest)</option>
+                                <option value="1"/>1 (terendah)</option>
                                 <option value="2"/>2</option>
                                 <option value="3"/>3</option>
                                 <option value="4"/>4</option>
-                                <option value="5"/>5 (highest)</option>
+                                <option value="5"/>5 (tertinggi)</option>
                             </select>
                             <span class="help-block"></span>
                         </div>

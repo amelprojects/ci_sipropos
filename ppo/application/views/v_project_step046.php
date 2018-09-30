@@ -18,12 +18,12 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Main Activities
-      <small>Preparation audio, visual, and written promotional materials</small>
+      Aktivitas Utama
+      <small>Persiapan Material Promosi Audio, Visual dan Tulis</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home</a></li>
-      <li class="active">Project</li>
+      <li class="active">Proyek</li>
     </ol>
   </section>
 
@@ -31,7 +31,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
   <section class="content">
     <div class="box box-default">
       <div class="box-header with-border">
-        <small>Please Specify at least <?php echo $project['ab_jumlah_media']; ?> promotional material</small>
+        <small>Pilih Minimal 2 Negara Mitra<?php echo $project['ab_jumlah_media']; ?>Material Promosi</small>
       </div>
 
         <input type="hidden" value="<?php echo $project['id'];?>" name="id">
@@ -42,16 +42,15 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th>Add Promotional Material
+                <th>Tambah Material Promosi
                   <?php if (count($media)<$project['ab_jumlah_media']) { ?> 
-                  <button class="btn btn-box-tool" href="#" onclick="add_media('<?php echo $project['id'];?>')" title="Tambah Promotional Material"><i class="fa fa-plus"></i></button>
+                  <button class="btn btn-box-tool" href="#" onclick="add_media('<?php echo $project['id'];?>')" title="Tambah Material Promosi"><i class="fa fa-plus"></i></button>
                   <?php } ?>
                 </th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Promotional Materials</th>
-                <th>Target Group</th>
-                <th>Duration (days)</th>
+                <th>Judul</th>
+                <th>Deskripsi</th>
+                <th>Material Promosi
+                <th>Durasi (hari)</th>
               </tr>
               <?php foreach($media as $list_media) { ?>
               <tr>
@@ -79,37 +78,37 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       <?php         
         if ($project['ab_jumlah_meeting'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step045/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step045/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_seminar'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step044/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_study_visit'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step043/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_workshop'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step042/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else if ($project['ab_jumlah_training'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step041/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php         
         } else {
       ?>
-      <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Prev</button></a>
+      <a href="<?php echo base_url()."project/step04/".$project['id'];?>"><button type="button" class="btn btn-default">Halaman Sebelumnya</button></a>
       <?php } ?>
 
       <?php         
         if ($project['ab_jumlah_other_activities'] > 0) {
       ?>
-      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step047/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
       <?php         
         } else {
       ?>
-      <a href="<?php echo base_url()."project/step05/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Next</button></a>
+      <a href="<?php echo base_url()."project/step05/".$project['id'];?>"><button type="button" class="btn btn-default pull-right">Halaman Selanjutnya</button></a>
       <?php } ?>
 
     </div><!-- /.box-footer -->
@@ -123,7 +122,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Add Publicity Meeting</h3>
+                <h3 class="modal-title">Tambah Rapat Publik</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form">
@@ -131,50 +130,50 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                     <input type="hidden" value="<?php echo $project['id'];?>" name="project_id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label">Activity Title</label>
-                            <input name="title" placeholder="Title" class="form-control" type="text">
+                            <label class="control-label">Judul</label>
+                            <input name="title" placeholder="Judul" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label">Activity Description</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <label class="control-label">Deskripsi Aktivitas</label>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Deskripsi Aktivitas"></textarea>
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Promotional materials that will be produced</label>
-                            <input name="promotional" placeholder="Promotional Material" class="form-control" type="text">
+                            <label class="control-label">Material Promosi yang Diproduksi</label>
+                            <input name="promotional" placeholder="Material Promosi yang Diproduksi" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Potential Producers of Promotional Materials</label>
-                            <input name="potential" placeholder="Potential" class="form-control" type="text">
+                            <label class="control-label">Produsen Material Promosi</label>
+                            <input name="potential" placeholder="Produsen Material Promosi" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Target Group</label>
-                            <input name="target_group" placeholder="Target Group" class="form-control" type="text">
+                            <label class="control-label">Grup Target</label>
+                            <input name="target_group" placeholder="Grup Target" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Ways and means of disseminating Promotional Material</label>
-                            <input name="ways_mean" placeholder="Ways and mean" class="form-control" type="text">
+                            <label class="control-label">Cara dan Tujuan Material Diseminasi</label>
+                            <input name="ways_mean" placeholder="Cara dan Tujuan Material Diseminasi" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Duration of Dissemination</label>
-                            <input name="duration" placeholder="Duration of the training" class="form-control" type="text">
+                            <label class="control-label">Durasi (hari)</label>
+                            <input name="duration" placeholder="Durasi (hari)" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Indicate budget for Promotional Material</label>
-                            <input name="budget" placeholder="budget" class="form-control" type="text">
+                            <label class="control-label">Budget (US$)</label>
+                            <input name="budget" placeholder="Budget (US$)" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 

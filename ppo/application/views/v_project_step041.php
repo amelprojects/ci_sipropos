@@ -192,8 +192,8 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Budget ($)</label>
-                            <input name="budget" placeholder="Budget" class="form-control" type="text">
+                            <label class="control-label">Budget (US$)</label>
+                            <input name="budget" placeholder="Budget (US$)" class="form-control" type="text">
                             <span class="help-block"></span>
                         </div>
 

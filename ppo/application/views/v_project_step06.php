@@ -42,7 +42,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
           <div class="form-group">
             <label>Intisari</label>
-            <textarea class="form-control" name="summary" rows="3" placeholder="Enter ..."><?php echo $project['summary'];?></textarea>
+            <textarea class="form-control" name="summary" rows="3" placeholder="Intisari"><?php echo $project['summary'];?></textarea>
             <span class="help-block"></span>
           </div>
 
