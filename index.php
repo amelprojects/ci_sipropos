@@ -98,7 +98,7 @@ var bwg_objectL10n = {"bwg_field_required":"field is required.","bwg_mail_valida
 
 #main-nav, #main-nav ul li a{
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size : 20px;
+	font-size : 14px;
 	font-weight: bolder;
 }
 
@@ -315,7 +315,7 @@ body {
 		<div class="header-content">		
 			<div class="logo">
 			<h1>								
-					<img src="./assets/images/header_sipropos.png" alt="COMCEC"><strong>COMCEC Project Funding</strong>
+					<img src="./assets/images/header_sipropos.png" alt="SIPROPOS - Kemendag" style="width: 1125px"><strong>SIPROPOS - Sistem Pengyusunan Proposal</strong>
 			</h1>			</div><!-- .logo /-->
 			<div class="e3lan e3lan-top">		</div>			<div class="clear"></div>
 

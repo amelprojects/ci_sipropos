@@ -43,7 +43,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
           <div class="form-group">
             <label for="project_title" class="col-sm-2 control-label">Judul Proyek</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="project_title" placeholder="Project Title" value="<?php echo $project['title'];?>">
+              <input type="text" class="form-control" name="project_title" placeholder="Judul Proyek" value="<?php echo $project['title'];?>">
               <span class="help-block"></span>
             </div>
           </div>

@@ -50,7 +50,7 @@
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" id="user_email" name="user_email" class="form-control" placeholder="Alamt Email" value="">
+            <input type="text" id="user_email" name="user_email" class="form-control" placeholder="Alamat Email" value="">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
@@ -192,7 +192,7 @@
                               // document.location.reload();
 
                           } else {
-                              new PNotify({title: 'Register Form', type: 'success', text: "BERHASIL - Akun akan dimoedirasi oleh admin", styling: 'bootstrap3'});
+                              new PNotify({title: 'Register Form', type: 'success', text: "BERHASIL - Akun akan dimoderasi oleh admin", styling: 'bootstrap3'});
                               // new PNotify({title: 'Form Login',text: 'Diharapkan agar mengganti kata sandi agar mudah diingat!', styling: 'bootstrap3'});
                               window.location.href = "<?php echo base_url();?>home";
                               //window.location.href = "<?php echo $this->agent->referrer();?>";

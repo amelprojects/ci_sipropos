@@ -185,7 +185,7 @@ class Auth extends CI_Controller {
                     $dataemail .= "<br>instansi : ".strtoupper($instansi)."</p>";
                     $dataemail .= "<p>Harap segera ditindaklanjuti</p>";
 
-                    $message = $this->template_email("Admin", "Pendaftaran Akun Banru", $dataemail);
+                    $message = $this->template_email("Admin", "Pendaftaran Akun Baru", $dataemail);
                     $this->send_email("sipropos.kemendag@gmail.com","[SIPROPOS] - Pendaftaran Akun Baru",$message);
 
                 } else {
@@ -300,13 +300,13 @@ class Auth extends CI_Controller {
             $this->mail->isSMTP();                                      // Set mailer to use SMTP
             $this->mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
             $this->mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $this->mail->Username = 'sipropos.si@gmail.com';                 // SMTP username
+            $this->mail->Username = 'sipropos.kemendag@gmail.com';                 // SMTP username
             $this->mail->Password = 'Sipropos123';                           // SMTP password
             $this->mail->SMTPSecure = '';                            // Enable TLS encryption, `ssl` also accepted
             $this->mail->Port = 465;                                    // TCP port to connect to
 
             //Recipients
-            $this->mail->setFrom('sipropos.si@gmail.com', 'SIPROPOS - Kemendag');
+            $this->mail->setFrom('sipropos.kemendag@gmail.com', 'SIPROPOS - Kemendag');
             //$this->mail->addAddress($email);     // Add a recipient
             $this->mail->addAddress($emailto);     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
@@ -341,7 +341,7 @@ class Auth extends CI_Controller {
         $content .= "<div style='padding: 10px; background-color: #2f506c;' class='col-md-12'>";
         // $content .= "<div class='col-md-1 col-md-offset-1 img-responsive'><img src=".base_url('assets/images/akmet_jpg.png')." width='80px'></div>";
         // $content .= "<div class='col-md-9' style='color: white;'><h2>".$datappdb->NAMA_PPDB."</h2></div></div>";
-        $content .= "<table width='100%' border='0' cellspacing='0' cellpadding='0' style='color:#fff; margin-left:50px;'><tr><td width='100px;'><img src=".base_url('')." width='80px'></td><td><h2>SIPROPOS</h2></td></tr></table>";
+        $content .= "<table width='100%' border='0' cellspacing='0' cellpadding='0' style='color:#fff; text-align: center'><tr><td width='100px;'></td><td><h2>SIPROPOS - Sistem Penyusunan Proposal</h2></td></tr></table>";
         $content .= "</div>";
         $content .= "<div class='col-md-10 col-md-offset-2' style='margin-top:15px; font-size:14px; margin-left:70px;><h3>".$title."</h3></div>";
 
@@ -355,7 +355,7 @@ class Auth extends CI_Controller {
         // $content .= "<p>Harap segera lengkapi data-data anda sebelum proses pendaftaran berakhir</p>";
         $content .= "</div>";
         $content .= "<div class='col-md-12' style='padding: 10px; background-color: #2f506c; color: #fff; margin-top: 30px;'>";
-        $content .= "<div class='col-md-10' style='margin-left:50px;'><h3>SIPROPOS</h3></div></div>";
+        $content .= "<div class='col-md-10' style='text-align: center;'><h3>Kementerian Perdagangan</h3></div></div>";
 
         return $content;
     }

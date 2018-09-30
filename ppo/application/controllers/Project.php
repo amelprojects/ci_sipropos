@@ -453,7 +453,7 @@ class Project extends CI_Controller {
         if($this->input->post('target_group') == '')
         {
             $data['inputerror'][] = 'target_group';
-            $data['error_string'][] = 'Grup Target harus dipilih';
+            $data['error_string'][] = 'Target Group harus dipilih';
             $data['status'] = FALSE;
         }
 
