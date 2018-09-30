@@ -42,25 +42,25 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
 
           <div class="form-group">
             <label>Tujuan Keseluruhan</label>
-            <textarea class="form-control" name="overall_objective" rows="3" placeholder="Enter ..."><?php echo $project['overall_objective'];?></textarea>
+            <textarea class="form-control" name="overall_objective" rows="3" placeholder="Tujuan Keseluruhan"><?php echo $project['overall_objective'];?></textarea>
             <span class="help-block"></span>
           </div>
 
           <div class="form-group">
             <label>Tujuan Proyek</label>
-            <textarea class="form-control" name="project_purpose" rows="3" placeholder="Enter ..."><?php echo $project['project_purpose'];?></textarea>
+            <textarea class="form-control" name="project_purpose" rows="3" placeholder="Tujuan Proyek"><?php echo $project['project_purpose'];?></textarea>
             <span class="help-block"></span>
           </div>
 
           <div class="form-group">
             <label>Grup Target</label>
-            <textarea class="form-control" name="target_group" rows="3" placeholder="Enter ..."><?php echo $project['target_group'];?></textarea>
+            <textarea class="form-control" name="target_group" rows="3" placeholder="Grup Target"><?php echo $project['target_group'];?></textarea>
             <span class="help-block"></span>
           </div>
 
           <div class="form-group">
             <label>Kontribusi terhadap Kerjasama Multilateral</label>
-            <textarea class="form-control" name="contribution" rows="3" placeholder="Enter ..."><?php echo $project['contribution'];?></textarea>
+            <textarea class="form-control" name="contribution" rows="3" placeholder="Kontribusi terhadap Kerjasama Multilateral"><?php echo $project['contribution'];?></textarea>
             <span class="help-block"></span>
           </div>
 

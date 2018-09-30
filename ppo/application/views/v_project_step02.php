@@ -89,7 +89,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         <div class="form-group" id="country">
                             <label class="control-label col-md-3">Negara</label>
                             <div class="col-md-9">
-                                <input name="country" placeholder="Country Name" class="form-control" type="text">
+                                <input name="country" placeholder="Nama Negara" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -97,7 +97,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
                         <div class="form-group" id="reason">
                             <label class="control-label col-md-3">Alasan</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" name="reason" rows="3" placeholder="Enter ..."></textarea>
+                                <textarea class="form-control" name="reason" rows="3" placeholder="Dasar Pemilihan Negara Mitra"></textarea>
                                 <span class="help-block"></span>
                             </div>
                         </div>

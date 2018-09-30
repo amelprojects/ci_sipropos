@@ -36,7 +36,6 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       <div class="box-body">
         <div class="alert alert-info alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h3><i class="icon fa fa-info"></i></h4>
           <h4>Isi</h2>
           </div>
       </div><!-- /.box-body -->
