@@ -42,7 +42,7 @@
         <form action="#" id="form" method="post">
 
           <div class="form-group has-feedback">
-            <input type="text" id="user_email" name="user_email" class="form-control" placeholder="Alamt Email" value="">
+            <input type="text" id="user_email" name="user_email" class="form-control" placeholder="Alamat Email" value="">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="row">
