@@ -36,7 +36,7 @@ $user_role_name = $this->vf->getFieldById('role_name', 'roles', 'id', $s_all['us
       <div class="box-body">
         <div class="alert alert-info alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h4>Isi</h2>
+          <h4>Pemilihan Aktivitas bisa lebih dari 1 maksimal 5</h2>
           </div>
       </div><!-- /.box-body -->
     </div><!-- /.box -->
