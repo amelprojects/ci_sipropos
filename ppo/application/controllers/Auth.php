@@ -186,7 +186,7 @@ class Auth extends CI_Controller {
                     $dataemail .= "<p>Harap segera ditindaklanjuti</p>";
 
                     $message = $this->template_email("Admin", "Pendaftaran Akun Banru", $dataemail);
-                    $this->send_email("sipropos.si@gmail.com","[SIPROPOS] - Pendaftaran Akun Baru",$message);
+                    $this->send_email("sipropos.kemendag@gmail.com","[SIPROPOS] - Pendaftaran Akun Baru",$message);
 
                 } else {
                     echo 2;     //VF - failed email
